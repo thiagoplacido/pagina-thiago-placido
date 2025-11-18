@@ -1,0 +1,158 @@
+<!-- /exp.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Título controlado via i18n -->
+  <meta data-i18n-title="pageTitleExperience" />
+  <title>Experiência Profissional</title>
+
+  <meta name="description" content="Resumo da experiência profissional de Thiago Placido e detalhes por projeto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Experiência — Thiago Placido" />
+  <meta property="og:description" content="Consultoria digital, rotinas administrativas e finanças — veja detalhes." />
+  <meta property="og:image" content="/assets/img/exp.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="cabecalho">
+    <div class="cabecalho__container">
+      <button class="cabecalho__menu-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
+        <img src="assets/img/menu-ham.png" alt="Menu" width="40" height="40" decoding="async" />
+      </button>
+
+      <nav id="menu-navegacao" class="cabecalho__menu" aria-label="Principal">
+        <a class="cabecalho__menu__link" href="index.html" data-i18n="homeLink"></a>
+        <a class="cabecalho__menu__link" href="portifolio.html" data-i18n="portfolioTitle"></a>
+        <a class="cabecalho__menu__link" href="fabrica.html" data-i18n="ideasLink"></a>
+        <a class="cabecalho__menu__link" href="skills.html" data-i18n="skillsLink"></a>
+        <a class="cabecalho__menu__link" href="minha-entrega.html" data-i18n="deliveryLink"></a>
+        <a class="cabecalho__menu__link" href="formacao.html" data-i18n="educationLink"></a>
+        <a class="cabecalho__menu__link" href="exp.html" data-i18n="experienceLink"></a>
+        <a class="cabecalho__menu__link" href="sobre.html" data-i18n="aboutLink"></a>
+        <a class="cabecalho__menu__link" href="contato.html" data-i18n="contactLink"></a>
+
+        <div class="cabecalho__idiomas" aria-label="Selecionar idioma">
+          <a href="#" class="cabecalho__idiomas__link" data-lang="pt" aria-pressed="true">
+            <img src="assets/img/bra.png" alt="Português" width="32" height="32" decoding="async" />
+          </a>
+          <a href="#" class="cabecalho__idiomas__link" data-lang="en" aria-pressed="false">
+            <img src="assets/img/EUA.png" alt="English" width="32" height="32" decoding="async" />
+          </a>
+          <a href="#" class="cabecalho__idiomas__link" data-lang="es" aria-pressed="false">
+            <img src="assets/img/ESP.png" alt="Español" width="32" height="32" decoding="async" />
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="apresentacao apresentacao--com-imagem">
+    <h1 class="apresentacao__conteudo__titulo" data-i18n="experienceTitle"></h1>
+
+    <div class="apresentacao__experiencia-container">
+      <!-- Item 1 -->
+      <div class="experiencia__item">
+        <img class="experiencia__imagem" src="assets/img/freelancer.png" alt="Freelancer" width="100" height="100" loading="lazy" decoding="async" />
+        <div class="experiencia__descricao">
+          <div class="experiencia__info">
+            <h2 class="experiencia__subtitulo" data-i18n="exp1Title"></h2>
+            <em class="experiencia__data" data-i18n="exp1Date"></em>
+          </div>
+
+          <button
+            class="experiencia__btn-detalhes"
+            data-modal-target="exp-modal"
+            data-modal-title-key="exp1Title"
+            data-modal-list-key="exp1Items">
+            Detalhes
+          </button>
+
+          <div class="experiencia__lista-container" hidden>
+            <ul data-i18n-list="exp1Items"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="experiencia__item">
+        <img class="experiencia__imagem" src="assets/img/curumim.png" alt="Curumim Psicomotricidade" width="100" height="100" loading="lazy" decoding="async" />
+        <div class="experiencia__descricao">
+          <div class="experiencia__info">
+            <h2 class="experiencia__subtitulo" data-i18n="exp2Title"></h2>
+            <em class="experiencia__data">2022 – 2025</em>
+          </div>
+
+          <button
+            class="experiencia__btn-detalhes"
+            data-modal-target="exp-modal"
+            data-modal-title-key="exp2Title"
+            data-modal-list-key="exp2Items">
+            Detalhes
+          </button>
+
+          <div class="experiencia__lista-container" hidden>
+            <ul data-i18n-list="exp2Items"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="experiencia__item">
+        <img class="experiencia__imagem" src="assets/img/3ADistribuidora.png" alt="3A Distribuidora" width="100" height="100" loading="lazy" decoding="async" />
+        <div class="experiencia__descricao">
+          <div class="experiencia__info">
+            <h2 class="experiencia__subtitulo" data-i18n="exp3Title"></h2>
+            <em class="experiencia__data">2013 – 2017</em>
+          </div>
+
+          <button
+            class="experiencia__btn-detalhes"
+            data-modal-target="exp-modal"
+            data-modal-title-key="exp3Title"
+            data-modal-list-key="exp3Items">
+            Detalhes
+          </button>
+
+          <div class="experiencia__lista-container" hidden>
+            <ul data-i18n-list="exp3Items"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="apresentacao__foto">
+      <img src="assets/img/exp.png" alt="Ilustração representando experiência profissional." width="400" height="400" loading="lazy" decoding="async" />
+    </div>
+  </main>
+
+  <!-- Modal Genérico -->
+  <div id="exp-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="exp-modal-title" aria-describedby="exp-modal-body" hidden>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar modal">&times;</button>
+      <h2 id="exp-modal-title" class="modal-title"></h2>
+      <div id="exp-modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="rodape">
+    <p data-i18n="footerText"></p>
+  </footer>
+
+  <!-- ORDEM DOS SCRIPTS: translations -> i18n -> (seu) script -->
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/script.js" defer></script>
+</body>
+</html>
