@@ -1,77 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta data-i18n-title="pageTitleEducation" />
-  <title>Formação</title>
-    <link rel="stylesheet" href="assets/css/tokens.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta data-i18n-title="pageTitleEducation" />
+  <title>Formação</title>
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/flooter.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/modals.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/formacao.css" />
-  <link rel="icon" href="/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="cabecalho">
-    <div class="cabecalho__container">
-      <button class="cabecalho__menu-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
-        <img src="assets/img/menu-ham.png" alt="Menu" width="40" height="40" decoding="async" />
-      </button>
-
-      <nav id="menu-navegacao" class="cabecalho__menu" aria-label="Principal">
-        <a class="cabecalho__menu__link" href="index.html" data-i18n="homeLink"></a>
-        <a class="cabecalho__menu__link" href="portifolio.html" data-i18n="portfolioTitle"></a>
-        <a class="cabecalho__menu__link" href="fabrica.html" data-i18n="ideasLink"></a>
-        <a class="cabecalho__menu__link" href="skills.html" data-i18n="skillsLink"></a>
-        <a class="cabecalho__menu__link" href="minha-entrega.html" data-i18n="deliveryLink"></a>
-        <a class="cabecalho__menu__link" href="formacao.html" data-i18n="educationLink"></a>
-        <a class="cabecalho__menu__link" href="exp.html" data-i18n="experienceLink"></a>
-        <a class="cabecalho__menu__link" href="sobre.html" data-i18n="aboutLink"></a>
-        <a class="cabecalho__menu__link" href="contato.html" data-i18n="contactLink"></a>
-
-        <div class="cabecalho__idiomas" aria-label="Selecionar idioma">
-          <a href="#" class="cabecalho__idiomas__link" data-lang="pt" aria-pressed="true">
-            <img src="assets/img/bra.png" alt="Português" width="32" height="32" decoding="async" />
-          </a>
-          <a href="#" class="cabecalho__idiomas__link" data-lang="en" aria-pressed="false">
-            <img src="assets/img/EUA.png" alt="English" width="32" height="32" decoding="async" />
-          </a>
-          <a href="#" class="cabecalho__idiomas__link" data-lang="es" aria-pressed="false">
-            <img src="assets/img/ESP.png" alt="Español" width="32" height="32" decoding="async" />
-          </a>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <div data-include="header" data-src="header.html"></div>
 
   <main id="conteudo" class="apresentacao">
     <h1 class="apresentacao__conteudo__titulo">
-        <span data-i18n="educationTitle"></span>
+      <span data-i18n="educationTitle"></span>
     </h1>
-    <h2 class="formacao__subtitulo" data-i18n="educationAcademicTitle"></h2>
-    <ul class="formacao__lista">
-      <li data-i18n="educationCourse1"></li>
-      <li data-i18n="educationCourse2"></li>
-    </ul>
-    <h2 class="formacao__subtitulo" data-i18n="educationCertTitle"></h2>
-    <ul class="formacao__lista">
-      <li data-i18n="educationCert1"></li>
-    </ul>
+
+    <p class="apresentacao__conteudo__texto" data-i18n="educationIntro"></p>
+
+    <ul class="formacao__lista" data-i18n-list="educationItems"></ul>
   </main>
 
-  <footer class="rodape"><p data-i18n="footerText"></p></footer>
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/script.js"></script>
+  <div data-include="footer" data-src="flooter.html"></div>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>

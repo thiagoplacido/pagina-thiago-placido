@@ -1,82 +1,87 @@
-<!-- /fabrica.html -->
+<!-- /fabrica.html (versão sem i18n) -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta data-i18n-title="pageTitleIdeas" />
-  <title>Fábrica de Ideias</title>
 
-  <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/background.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/header.css">
-  <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/flooter.css">
-  <link rel="stylesheet" href="assets/css/modals.css">
-  <link rel="stylesheet" href="assets/css/cards.css">
-  <link rel="stylesheet" href="assets/css/fabrica.css" />
+  <title>Fábrica de Ideias • Thiago Placido • DEV</title>
+  <meta name="description" content="Como organizo problemas, fluxos e requisitos antes do código — meu lado Product / Designer de Fluxos." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="icon" href="/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- CSS global -->
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/background.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/menu.css" />
+  <link rel="stylesheet" href="assets/css/flooter.css" />
+  <link rel="stylesheet" href="assets/css/modals.css" />
+  <link rel="stylesheet" href="assets/css/cards.css" />
+  <link rel="stylesheet" href="assets/css/fabrica.css" />
 </head>
+
 <body id="topo">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="cabecalho">
-    <div class="cabecalho__container">
-      <button class="cabecalho__menu-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
-        <img src="assets/img/menu-ham.png" alt="Menu" width="40" height="40" decoding="async" />
-      </button>
+  <!-- HEADER INJETADO -->
+  <div data-include="header" data-src="header.html"></div>
 
-      <nav id="menu-navegacao" class="cabecalho__menu" aria-label="Principal">
-        <a class="cabecalho__menu__link" href="index.html" data-i18n="homeLink"></a>
-        <a class="cabecalho__menu__link" href="portifolio.html" data-i18n="portfolioTitle"></a>
-        <a class="cabecalho__menu__link" href="fabrica.html" data-i18n="ideasLink"></a>
-        <a class="cabecalho__menu__link" href="skills.html" data-i18n="skillsLink"></a>
-        <a class="cabecalho__menu__link" href="minha-entrega.html" data-i18n="deliveryLink"></a>
-        <a class="cabecalho__menu__link" href="formacao.html" data-i18n="educationLink"></a>
-        <a class="cabecalho__menu__link" href="exp.html" data-i18n="experienceLink"></a>
-        <a class="cabecalho__menu__link" href="sobre.html" data-i18n="aboutLink"></a>
-        <a class="cabecalho__menu__link" href="contato.html" data-i18n="contactLink"></a>
+  <main id="conteudo" class="apresentacao apresentacao--coluna">
+    <section class="apresentacao__conteudo">
 
-        <div class="cabecalho__idiomas" aria-label="Selecionar idioma">
-          <a href="#" class="cabecalho__idiomas__link" data-lang="pt" aria-pressed="true">
-            <img src="assets/img/bra.png" alt="Português" width="32" height="32" decoding="async" />
-          </a>
-          <a href="#" class="cabecalho__idiomas__link" data-lang="en" aria-pressed="false">
-            <img src="assets/img/EUA.png" alt="English" width="32" height="32" decoding="async" />
-          </a>
-          <a href="#" class="cabecalho__idiomas__link" data-lang="es" aria-pressed="false">
-            <img src="assets/img/ESP.png" alt="Español" width="32" height="32" decoding="async" />
-          </a>
-        </div>
-      </nav>
-    </div>
-  </header>
+      <h1 class="apresentacao__conteudo__titulo">
+        Fábrica de Ideias
+      </h1>
 
-  <main id="conteudo" class="apresentacao apresentacao--layout-coluna">
-    <h1 class="apresentacao__conteudo__titulo">
-      <span data-i18n="ideasTitle"></span>
-    </h1>
+      <p class="apresentacao__conteudo__texto">
+        Aqui compartilho como transformo ideias em estruturas claras: fluxos, requisitos, protótipos e documentação.
+        Minha experiência pré-tech me ajuda a enxergar necessidades reais e criar soluções eficientes antes do código.
+      </p>
 
-    <p class="apresentacao__conteudo__texto" data-i18n="ideasIntro"></p>
-    <ol class="apresentacao__conteudo__lista">
-      <li data-i18n="ideasStep1"></li>
-      <li data-i18n="ideasStep2"></li>
-      <li data-i18n="ideasStep3"></li>
-      <li data-i18n="ideasStep4"></li>
-    </ol>
-    <p class="apresentacao__conteudo__texto" data-i18n="ideasConclusion"></p>
+      <p class="apresentacao__conteudo__texto">
+        Em vez de sair escrevendo código sem direção, gosto de organizar o problema, desenhar caminhos possíveis e
+        documentar o que importa. Isso reduz retrabalho, dá segurança para quem decide e torna o desenvolvimento muito
+        mais objetivo.
+      </p>
+
+      <h2 class="skills__subtitulo">
+        Como atuo na fase de ideias
+      </h2>
+
+      <ul class="apresentacao__conteudo__lista">
+        <li>Exploro o problema com visão analítica, entendendo contexto, restrições e objetivos.</li>
+        <li>Mapeio jornadas de usuário e pontos de atrito do dia a dia.</li>
+        <li>Desenho fluxos simples, que qualquer pessoa do time consegue entender.</li>
+        <li>Rascunho telas, layouts e componentes principais antes da implementação.</li>
+        <li>Uso IA para acelerar brainstorm, benchmark e documentação, mantendo sempre o olhar crítico humano.</li>
+      </ul>
+
+      <p class="apresentacao__conteudo__texto">
+        Essa combinação de visão de produto, organização e uso de IA me ajuda a fugir do padrão “iniciante que só copia código”.
+        Meu foco é pensar soluções que façam sentido para o negócio e que sejam viáveis para o time técnico implementar.
+      </p>
+
+    </section>
   </main>
 
-  <footer class="rodape">
-    <p data-i18n="footerText"></p>
-  </footer>
+  <!-- FOOTER INJETADO -->
+  <div data-include="footer" data-src="flooter.html"></div>
 
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/script.js"></script>
+  <!-- JS -->
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>

@@ -28,17 +28,19 @@
   height: 100vh;
   background-color: rgba(5, 5, 10, 0.98);
   border-left: 2px solid var(--cor-primaria);
-  display: flex;
+  display: none;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: var(--espacamento-l);
+  gap: var(--espacamento-m, 16px);
   padding: 80px 24px 40px;
-  z-index: 2000;
+  z-index: 900;
   box-shadow: -5px 0 18px rgba(0, 0, 0, 0.7);
   transition: right 0.4s ease-in-out;
 }
 .cabecalho__menu.aberto {
   right: 0;
+  display: flex;
 }
 
 /* Links do menu */
@@ -86,7 +88,7 @@
 
 /* Em telas maiores, dá pra futuramente transformar em menu superior
    se você quiser – por enquanto fica igual. */
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
   .cabecalho__menu-hamburguer img {
     width: 40px;
     height: 40px;

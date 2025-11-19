@@ -1,0 +1,9 @@
+.apresentacao__conteudo__texto:first-of-type {
+  font-size: 20px;
+  font-weight: 600;
+}
+.apresentacao__conteudo__lista li::before {
+  content: "▹";
+  margin-right: 8px;
+  color: var(--cor-primaria);
+}
