@@ -1,14 +1,14 @@
 /* /assets/js/i18n.js */
 /*
    CORREÇÃO:
-   Este script agora busca 'window.TRANSLATIONS' com segurança.
-   Se não encontrar, usa o FALLBACKS interno para garantir que o site
-   sempre mostre conteúdo, mesmo se houver erro de carregamento.
+   Agora o dicionário usa 3 níveis:
+   1) Idioma atual (TRANSLATIONS[lang])
+   2) Português completo (TRANSLATIONS['pt'])
+   3) FALLBACKS mínimos (pt)
 */
 
 (function () {
   // --- FALLBACKS DE SEGURANÇA (Mínimo Vital em PT-BR) ---
-  // Garante que o site não fique branco se o translations.js falhar
   const FALLBACKS = {
     pt: {
       homeLink: "Início",
@@ -27,39 +27,39 @@
     }
   };
 
-  // 1. Pega o dicionário correto (Window > Fallback > Vazio)
+  // 1. Pega o dicionário correto (Idioma > PT completo > Fallback mínimo)
   function getDict(lang) {
-    // Tenta pegar do arquivo translations.js
-    const global = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
-    // Tenta pegar do fallback local
-    const fallback = FALLBACKS[lang] || FALLBACKS['pt'] || {};
-    
-    // Mescla: Global tem prioridade sobre Fallback
+    const all = window.TRANSLATIONS || {};
+
+    const primary = all[lang] || {};   // en / es / pt
+    const basePt  = all["pt"] || {};   // PT completo
+    const fallback = FALLBACKS[lang] || FALLBACKS["pt"] || {};
+
     return new Proxy({}, {
-      get: (_, k) => (k in global ? global[k] : fallback[k]),
-      has: (_, k) => (k in global) || (k in fallback),
+      get: (_, k) => {
+        if (k in primary) return primary[k];
+        if (k in basePt)  return basePt[k];
+        return fallback[k];
+      },
+      has: (_, k) => (k in primary) || (k in basePt) || (k in fallback),
     });
   }
 
-  // 2. Aplica textos simples (data-i18n)
   function applyText(dict) {
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       const val = dict[key];
-      // Só substitui se houver texto válido
       if (val && typeof val === "string" && val.trim() !== "") {
-        el.innerHTML = val; // innerHTML permite tags básicas como <strong>
+        el.innerHTML = val;
       }
     });
   }
 
-  // 3. Aplica listas (data-i18n-list)
   function applyLists(dict) {
     document.querySelectorAll("[data-i18n-list]").forEach((ul) => {
       const key = ul.getAttribute("data-i18n-list");
       const arr = dict[key];
-      
-      // Verifica se é uma array (ex: items) ou string HTML (ex: <li>...</li>)
+
       if (Array.isArray(arr) && arr.length) {
         ul.innerHTML = "";
         arr.forEach((item) => {
@@ -68,12 +68,11 @@
           ul.appendChild(li);
         });
       } else if (typeof arr === "string") {
-         ul.innerHTML = arr;
+        ul.innerHTML = arr;
       }
     });
   }
 
-  // 4. Aplica atributos (data-i18n-attr="alt:key,title:key")
   function applyAttrs(dict) {
     document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
       const pairs = el.getAttribute("data-i18n-attr").split(",");
@@ -85,7 +84,6 @@
     });
   }
 
-  // 5. Aplica título da aba do navegador
   function applyTitle(dict) {
     const meta = document.querySelector('meta[data-i18n-title]');
     if (!meta) return;
@@ -94,7 +92,6 @@
     if (val) document.title = val;
   }
 
-  // 6. Atualiza botões de idioma (visual)
   function markLang(lang) {
     document.querySelectorAll(".cabecalho__idiomas__link").forEach((a) => {
       const is = a.getAttribute("data-lang") === lang;
@@ -102,7 +99,6 @@
     });
   }
 
-  // Função Mestra: Aplica tudo
   function applyAll(lang) {
     const dict = getDict(lang);
     applyText(dict);
@@ -112,7 +108,6 @@
     markLang(lang);
   }
 
-  // Detecção inicial do idioma
   const STORAGE_KEY = "siteLang";
   function detectLang() {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -123,7 +118,6 @@
     return "en";
   }
 
-  // Escuta cliques nos botões de bandeira
   function bindLangButtons() {
     document.querySelectorAll(".cabecalho__idiomas__link").forEach((a) => {
       a.addEventListener("click", (e) => {
@@ -135,10 +129,10 @@
     });
   }
 
-  // Inicialização
   document.addEventListener("DOMContentLoaded", () => {
     const lang = detectLang();
     applyAll(lang);
     bindLangButtons();
   });
 })();
+

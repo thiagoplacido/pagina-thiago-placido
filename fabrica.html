@@ -1,3 +1,4 @@
+<!-- /fabrica.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta data-i18n-title="pageTitleIdeas" />
   <title>Fábrica de Ideias</title>
+
   <link rel="stylesheet" href="assets/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
@@ -45,26 +47,25 @@
     </div>
   </header>
 
-  <main id="conteudo" class="apresentacao">
-    <h1 class="apresentacao__conteudo__titulo" data-i18n="ideasTitle"></h1>
+  <main id="conteudo" class="apresentacao apresentacao--layout-coluna">
+    <h1 class="apresentacao__conteudo__titulo">
+      <span data-i18n="ideasTitle"></span>
+    </h1>
 
-    <div class="apresentacao__conteudo">
-      <p class="apresentacao__conteudo__texto" data-i18n="ideasIntro"></p>
-      <ol class="apresentacao__conteudo__lista">
-        <li data-i18n="ideasStep1"></li>
-        <li data-i18n="ideasStep2"></li>
-        <li data-i18n="ideasStep3"></li>
-        <li data-i18n="ideasStep4"></li>
-      </ol>
-      <p class="apresentacao__conteudo__texto" data-i18n="ideasConclusion"></p>
-    </div>
-
-    <div class="apresentacao__foto">
-      <img src="assets/img/fabrica.png" alt="Ilustração Fábrica de Ideias" loading="lazy" />
-    </div>
+    <p class="apresentacao__conteudo__texto" data-i18n="ideasIntro"></p>
+    <ol class="apresentacao__conteudo__lista">
+      <li data-i18n="ideasStep1"></li>
+      <li data-i18n="ideasStep2"></li>
+      <li data-i18n="ideasStep3"></li>
+      <li data-i18n="ideasStep4"></li>
+    </ol>
+    <p class="apresentacao__conteudo__texto" data-i18n="ideasConclusion"></p>
   </main>
 
-  <footer class="rodape"><p data-i18n="footerText"></p></footer>
+  <footer class="rodape">
+    <p data-i18n="footerText"></p>
+  </footer>
+
   <script src="assets/js/translations.js"></script>
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/script.js"></script>

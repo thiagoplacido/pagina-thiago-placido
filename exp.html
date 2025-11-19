@@ -2,14 +2,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- (head igual ao seu atual) -->
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Título controlado via i18n -->
   <meta data-i18n-title="pageTitleExperience" />
   <title>Experiência Profissional</title>
-
   <meta name="description" content="Resumo da experiência profissional de Thiago Placido e detalhes por projeto." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,11 +56,12 @@
     </div>
   </header>
 
-  <main id="conteudo" class="apresentacao apresentacao--com-imagem">
+  <main id="conteudo" class="apresentacao">
     <h1 class="apresentacao__conteudo__titulo" data-i18n="experienceTitle"></h1>
 
     <div class="apresentacao__experiencia-container">
-      <!-- Item 1 -->
+      <!-- itens 1, 2 e 3 exatamente como você já tinha -->
+      <!-- ... (mantém tudo igual) ... -->
       <div class="experiencia__item">
         <img class="experiencia__imagem" src="assets/img/freelancer.png" alt="Freelancer" width="100" height="100" loading="lazy" decoding="async" />
         <div class="experiencia__descricao">
@@ -70,21 +69,19 @@
             <h2 class="experiencia__subtitulo" data-i18n="exp1Title"></h2>
             <em class="experiencia__data" data-i18n="exp1Date"></em>
           </div>
-
-          <button
-            class="experiencia__btn-detalhes"
+          <button class="experiencia__btn-detalhes"
             data-modal-target="exp-modal"
             data-modal-title-key="exp1Title"
             data-modal-list-key="exp1Items">
             Detalhes
           </button>
-
           <div class="experiencia__lista-container" hidden>
             <ul data-i18n-list="exp1Items"></ul>
           </div>
         </div>
       </div>
 
+      <!-- ... os outros dois itens iguais aos seus ... -->
       <!-- Item 2 -->
       <div class="experiencia__item">
         <img class="experiencia__imagem" src="assets/img/curumim.png" alt="Curumim Psicomotricidade" width="100" height="100" loading="lazy" decoding="async" />
@@ -93,15 +90,12 @@
             <h2 class="experiencia__subtitulo" data-i18n="exp2Title"></h2>
             <em class="experiencia__data">2022 – 2025</em>
           </div>
-
-          <button
-            class="experiencia__btn-detalhes"
+          <button class="experiencia__btn-detalhes"
             data-modal-target="exp-modal"
             data-modal-title-key="exp2Title"
             data-modal-list-key="exp2Items">
             Detalhes
           </button>
-
           <div class="experiencia__lista-container" hidden>
             <ul data-i18n-list="exp2Items"></ul>
           </div>
@@ -116,28 +110,21 @@
             <h2 class="experiencia__subtitulo" data-i18n="exp3Title"></h2>
             <em class="experiencia__data">2013 – 2017</em>
           </div>
-
-          <button
-            class="experiencia__btn-detalhes"
+          <button class="experiencia__btn-detalhes"
             data-modal-target="exp-modal"
             data-modal-title-key="exp3Title"
             data-modal-list-key="exp3Items">
             Detalhes
           </button>
-
           <div class="experiencia__lista-container" hidden>
             <ul data-i18n-list="exp3Items"></ul>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="apresentacao__foto">
-      <img src="assets/img/exp.png" alt="Ilustração representando experiência profissional." width="400" height="400" loading="lazy" decoding="async" />
-    </div>
   </main>
 
-  <!-- Modal Genérico -->
+  <!-- Modal Genérico (igual ao seu) -->
   <div id="exp-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="exp-modal-title" aria-describedby="exp-modal-body" hidden>
     <div class="modal-content">
       <button class="modal-close" aria-label="Fechar modal">&times;</button>
@@ -150,7 +137,6 @@
     <p data-i18n="footerText"></p>
   </footer>
 
-  <!-- ORDEM DOS SCRIPTS: translations -> i18n -> (seu) script -->
   <script src="assets/js/translations.js"></script>
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/script.js" defer></script>

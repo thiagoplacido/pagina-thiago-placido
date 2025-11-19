@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta data-i18n-title="pageTitleSkills" />
-  <title>Habilidades</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" href="/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta data-i18n-title="pageTitleSkills" />
+  <title>Habilidades</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="cabecalho">
     <div class="cabecalho__container">
@@ -44,11 +44,10 @@
       </nav>
     </div>
   </header>
-
-  <main id="conteudo" class="apresentacao">
-    <h1 class="apresentacao__conteudo__titulo" data-i18n="skillsTitle"></h1>
-
-    <div class="apresentacao__conteudo">
+    <main id="conteudo" class="apresentacao">
+      <h1 class="apresentacao__conteudo__titulo">
+          <span data-i18n="skillsTitle"></span>
+      </h1>
       <div class="skills__textos-wrapper">
         <div>
           <h2 class="skills__subtitulo" data-i18n="skillsTechTitle"></h2>
@@ -59,16 +58,11 @@
           <ul class="skills__lista" data-i18n-list="skillsSoftItems"></ul>
         </div>
       </div>
-    </div>
+    </main>
+  <footer class="rodape"><p data-i18n="footerText"></p></footer>
 
-    <div class="apresentacao__foto skills__imagem-container">
-      <img src="assets/img/skills.png" alt="Habilidades" loading="lazy" />
-    </div>
-  </main>
-
-  <footer class="rodape"><p data-i18n="footerText"></p></footer>
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
