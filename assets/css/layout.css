@@ -26,11 +26,22 @@ body.modal-aberto {
   flex-grow: 1;
 }
 
-/* TÍTULO PRINCIPAL DA PÁGINA (h1 dentro do main) */
+/* ============================
+   TÍTULOS PRINCIPAIS DA PÁGINA
+   (alinhados com o menu)
+   ============================ */
+
 .apresentacao__conteudo__titulo {
+  position: fixed;
+  top: 16px;                 /* altura parecida com o menu */
+  left: 5%;                  /* mesmo recuo horizontal do conteúdo */
+  z-index: 900;              /* abaixo do cabeçalho (z=1000), acima do fundo */
+  
   font-family: var(--fonte-destaque);
-  font-size: 28px;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 400;
   color: var(--cor-primaria);
+  letter-spacing: 0.03em;
 }
 
 /* Conteúdo de texto padrão */
@@ -118,6 +129,12 @@ body.modal-aberto {
   .apresentacao {
     flex-direction: row;
     align-items: center;
+  }
+  .apresentacao__conteudo__titulo {
+    position: static;       /* volta para o fluxo normal no mobile */
+    margin: 80px 0 24px;    /* espaço abaixo do cabeçalho */
+    text-align: left;
+    font-size: 22px;
   }
 
   .apresentacao__conteudo {

@@ -21,15 +21,15 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- CSS global + CSS específico da página -->
-    <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/background.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/header.css">
-  <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/flooter.css">
-  <link rel="stylesheet" href="assets/css/modals.css">
-  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/background.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/menu.css" />
+  <link rel="stylesheet" href="assets/css/flooter.css" />
+  <link rel="stylesheet" href="assets/css/modals.css" />
+  <link rel="stylesheet" href="assets/css/cards.css" />
   <link rel="stylesheet" href="assets/css/portifolio.css" />
 </head>
 <body id="topo">
@@ -37,7 +37,11 @@
 
   <header class="cabecalho">
     <div class="cabecalho__container">
-      <button class="cabecalho__menu-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
+      <button
+        class="cabecalho__menu-hamburguer"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="menu-navegacao">
         <img src="assets/img/menu-ham.png" alt="Menu" width="40" height="40" decoding="async" />
       </button>
 
@@ -67,7 +71,7 @@
     </div>
   </header>
 
-  <main id="conteudo" class="apresentacao">
+  <main id="conteudo" class="apresentacao apresentacao--portifolio">
     <h1 class="apresentacao__conteudo__titulo">
       <span data-i18n="portfolioTitle"></span>
     </h1>
@@ -76,8 +80,12 @@
       <!-- Projeto Thalles Classic -->
       <article class="portfolio-item">
         <div class="portfolio-item__imagem">
-          <a href="https://thallesclassic.vercel.app/" target="_blank" rel="noopener">
-            <img src="assets/portfolio/2.png" alt="Preview do projeto Thalles Classic" loading="lazy" decoding="async" />
+          <a href="https://thallesclassic.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <img
+              src="assets/portfolio/2.png"
+              alt="Preview do projeto Thalles Classic"
+              loading="lazy"
+              decoding="async" />
           </a>
           <button
             class="portfolio-item__btn-modal"
@@ -88,7 +96,11 @@
 
         <div class="portfolio-item__conteudo">
           <h2 class="portfolio-item__titulo" data-i18n="thallesTitle"></h2>
-          <a href="https://thallesclassic.vercel.app" target="_blank" rel="noopener" class="portfolio-item__url">
+          <a
+            href="https://thallesclassic.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="portfolio-item__url">
             <em>https://thallesclassic.vercel.app</em>
           </a>
           <p class="portfolio-item__data">09/11/2025</p>
@@ -104,7 +116,11 @@
       <!-- Projeto Alpha 1 -->
       <article class="portfolio-item">
         <div class="portfolio-item__imagem">
-          <img src="assets/portfolio/Loading.gif" alt="Desenvolvimento do projeto Alpha 1" loading="lazy" decoding="async" />
+          <img
+            src="assets/portfolio/Loading.gif"
+            alt="Desenvolvimento do projeto Alpha 1"
+            loading="lazy"
+            decoding="async" />
           <button
             class="portfolio-item__btn-modal"
             data-modal-target="modal-alpha1"
@@ -128,7 +144,11 @@
       <!-- Projeto Alpha 2 -->
       <article class="portfolio-item">
         <div class="portfolio-item__imagem">
-          <img src="assets/portfolio/Loading.gif" alt="Desenvolvimento do projeto Alpha 2" loading="lazy" decoding="async" />
+          <img
+            src="assets/portfolio/Loading.gif"
+            alt="Desenvolvimento do projeto Alpha 2"
+            loading="lazy"
+            decoding="async" />
           <button
             class="portfolio-item__btn-modal"
             data-modal-target="modal-alpha2"
@@ -150,7 +170,7 @@
   </main>
 
   <!-- Modal Alpha 2 -->
-  <div id="modal-alpha2" class="modal" role="dialog" aria-modal="true">
+  <div id="modal-alpha2" class="modal" role="dialog" aria-modal="true" hidden>
     <div class="modal-content">
       <button class="modal-close" aria-label="Fechar modal">&times;</button>
       <h3 class="modal-title" data-i18n="alpha2ModalTitle"></h3>
@@ -164,7 +184,7 @@
   </div>
 
   <!-- Modal Alpha 1 -->
-  <div id="modal-alpha1" class="modal" role="dialog" aria-modal="true">
+  <div id="modal-alpha1" class="modal" role="dialog" aria-modal="true" hidden>
     <div class="modal-content">
       <button class="modal-close" aria-label="Fechar modal">&times;</button>
       <h3 class="modal-title" data-i18n="alpha1ModalTitle"></h3>
@@ -178,7 +198,7 @@
   </div>
 
   <!-- Modal Thalles -->
-  <div id="modal-thalles" class="modal" role="dialog" aria-modal="true">
+  <div id="modal-thalles" class="modal" role="dialog" aria-modal="true" hidden>
     <div class="modal-content">
       <button class="modal-close" aria-label="Fechar modal">&times;</button>
       <h3 class="modal-title" data-i18n="thallesModalTitle"></h3>
@@ -200,3 +220,4 @@
   <script src="assets/js/script.js" defer></script>
 </body>
 </html>
+<!-- /portifolio.html -->
