@@ -1,0 +1,76 @@
+/* ================================
+   RESET BÁSICO E FUNDAMENTOS
+=================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Imagens responsivas */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Listas */
+ul,
+ol {
+  list-style-position: inside;
+}
+
+/* Botões */
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Acessibilidade – link "Pular para o conteúdo" */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: var(--espacamento-s);
+  top: var(--espacamento-s);
+  width: auto;
+  height: auto;
+  padding: var(--espacamento-s) var(--espacamento-m);
+  background-color: var(--cor-fundo-elevado);
+  color: var(--cor-primaria);
+  border: 2px solid var(--cor-primaria);
+  z-index: 9999;
+}

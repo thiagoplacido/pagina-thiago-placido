@@ -1,0 +1,94 @@
+/* ================================
+   MENU LATERAL / HAMBÚRGUER
+=================================== */
+
+.cabecalho__menu-hamburguer {
+  display: block;
+  background: none;
+  border: 0;
+  padding: var(--espacamento-xs);
+  cursor: pointer;
+  z-index: 2001;
+}
+.cabecalho__menu-hamburguer img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+.cabecalho__menu-hamburguer[aria-expanded="true"] img {
+  transform: rotate(90deg);
+}
+
+/* Painel de navegação lateral */
+.cabecalho__menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background-color: rgba(5, 5, 10, 0.98);
+  border-left: 2px solid var(--cor-primaria);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacamento-l);
+  padding: 80px 24px 40px;
+  z-index: 2000;
+  box-shadow: -5px 0 18px rgba(0, 0, 0, 0.7);
+  transition: right 0.4s ease-in-out;
+}
+.cabecalho__menu.aberto {
+  right: 0;
+}
+
+/* Links do menu */
+.cabecalho__menu__link {
+  font-family: var(--fonte-destaque);
+  font-size: 18px;
+  color: var(--cor-texto);
+  text-decoration: none;
+  padding: var(--espacamento-s) var(--espacamento-m);
+  width: 100%;
+  text-align: center;
+  transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+.cabecalho__menu__link:hover {
+  color: var(--cor-primaria);
+  background-color: rgba(248, 183, 29, 0.08);
+  transform: translateX(-4px);
+}
+.cabecalho__menu__link[aria-current="page"] {
+  color: var(--cor-primaria);
+  border-bottom: 1px solid var(--cor-primaria);
+}
+
+/* Seletor de idiomas */
+.cabecalho__idiomas {
+  display: flex;
+  gap: var(--espacamento-l);
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  width: 100%;
+  justify-content: center;
+}
+.cabecalho__idiomas__link img {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.cabecalho__idiomas__link:hover img {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 6px rgba(248, 183, 29, 0.4));
+}
+.cabecalho__idiomas__link[aria-pressed="true"] {
+  padding-bottom: var(--espacamento-m);
+  border-bottom: 2px solid var(--cor-primaria);
+}
+
+/* Em telas maiores, dá pra futuramente transformar em menu superior
+   se você quiser – por enquanto fica igual. */
+@media (min-width: 1024px) {
+  .cabecalho__menu-hamburguer img {
+    width: 40px;
+    height: 40px;
+  }
+}

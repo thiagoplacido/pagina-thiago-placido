@@ -1,0 +1,25 @@
+/* ================================
+   CABEÇALHO (barra fixa)
+=================================== */
+
+.cabecalho {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  padding: var(--espacamento-s) 5%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(248, 183, 29, 0.2);
+}
+
+.cabecalho__container {
+  max-width: var(--largura-max-conteudo);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 40px;
+}

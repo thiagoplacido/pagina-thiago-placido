@@ -1,0 +1,150 @@
+/* ================================
+   LAYOUT GLOBAL
+=================================== */
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 72px;   /* espaço para o cabeçalho fixo */
+  padding-bottom: 48px; /* espaço para o rodapé fixo */
+}
+
+/* Classe usada pelo JS quando menu/modal está aberto */
+body.no-scroll,
+body.modal-aberto {
+  overflow: hidden;
+}
+
+/* CONTAINER PRINCIPAL DAS PÁGINAS */
+.apresentacao {
+  margin: var(--espacamento-xl) auto;
+  max-width: var(--largura-max-conteudo);
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column; /* mobile first */
+  gap: var(--espacamento-xl);
+  flex-grow: 1;
+}
+
+/* TÍTULO PRINCIPAL DA PÁGINA (h1 dentro do main) */
+.apresentacao__conteudo__titulo {
+  font-family: var(--fonte-destaque);
+  font-size: 28px;
+  color: var(--cor-primaria);
+}
+
+/* Conteúdo de texto padrão */
+.apresentacao__conteudo {
+  width: 100%;
+}
+
+.apresentacao__conteudo__subtitulo {
+  font-family: var(--fonte-destaque);
+  font-size: 22px;
+  margin-bottom: var(--espacamento-m);
+}
+
+.apresentacao__conteudo__texto {
+  font-size: 18px;
+  margin-bottom: var(--espacamento-l);
+  text-align: justify;
+}
+
+/* Imagem principal da página */
+.apresentacao__imagem {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.apresentacao__imagem img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-padrao), 0 0 15px rgba(248, 183, 29, 0.18);
+  border: 1px solid rgba(248, 183, 29, 0.35);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Imagem de perfil / logo sem borda extra */
+.apresentacao__imagem--perfil img {
+  box-shadow: none;
+  border: none;
+}
+
+/* Destaques de texto */
+.titulo-destaque,
+.texto-destaque {
+  color: var(--cor-primaria);
+  font-weight: 700;
+}
+
+/* Listas "bonitinhas" (skills, formação, entrega etc.) */
+.apresentacao__conteudo__lista,
+.skills__lista,
+.formacao__lista,
+.entrega__lista {
+  font-size: 18px;
+  margin-bottom: var(--espacamento-l);
+  padding-left: 0;
+}
+.apresentacao__conteudo__lista li,
+.skills__lista li,
+.formacao__lista li,
+.entrega__lista li {
+  margin-bottom: var(--espacamento-s);
+}
+
+/* Subtítulos de seção */
+.skills__subtitulo,
+.formacao__subtitulo,
+.entrega__subtitulo,
+.experiencia__subtitulo {
+  font-family: var(--fonte-destaque);
+  font-size: 22px;
+  margin-bottom: var(--espacamento-m);
+  color: var(--cor-primaria);
+}
+
+/* ====== RESPONSIVO ====== */
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 82px;
+    padding-bottom: 60px;
+  }
+
+  /* Layout de duas colunas padrão (texto + imagem) */
+  .apresentacao {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .apresentacao__conteudo {
+    flex: 1 1 55%;
+    max-width: 65ch;
+  }
+
+  .apresentacao__imagem {
+    flex: 1 1 40%;
+    justify-content: flex-end;
+  }
+
+  .apresentacao__imagem img {
+    max-width: 420px;
+  }
+}
+
+/* Alguns casos usarão layout 100% coluna:
+   é só adicionar .apresentacao--coluna no HTML */
+.apresentacao--coluna {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ====== ANIMAÇÕES ====== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}

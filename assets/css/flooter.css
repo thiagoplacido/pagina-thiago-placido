@@ -1,0 +1,29 @@
+/* ================================
+   RODAPÉ
+=================================== */
+
+.rodape {
+  position: fixed;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  background-color: var(--cor-primaria);
+  color: #000;
+  text-align: center;
+  padding: var(--espacamento-s);
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1001;
+  min-height: 40px;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.7);
+}
+
+.rodape p {
+  max-width: var(--largura-max-conteudo);
+  margin: 0 auto;
+}
+
+/* Quando modal aberto, escondemos o rodapé (para evitar conflito visual) */
+body.modal-aberto .rodape {
+  display: none;
+}

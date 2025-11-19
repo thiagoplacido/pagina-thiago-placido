@@ -1,116 +1,206 @@
-/* ====================================================================== */
-/*  HOME.CSS — Estilos exclusivos da página inicial (index.html)          */
-/* ====================================================================== */
+/* ================================ */
+/* HOME (index.html)               */
+/* ================================ */
 
-/* ============================= */
-/*  SUBTÍTULO DO HERO            */
-/* ============================= */
+/* Layout principal da home */
+.apresentacao {
+  margin: var(--espacamento-xl) auto;
+  max-width: 1200px;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column; /* mobile-first */
+  gap: var(--espacamento-xl);
+  flex-grow: 1;
+}
 
-.apresentacao__conteudo__subtitulo {
-  font-size: 20px;
+/* Título "Início" fixo no canto inferior esquerdo (estilo etiqueta) */
+.apresentacao > .apresentacao__conteudo__titulo {
+  position: fixed;
+  bottom: 48px; /* logo acima do rodapé */
+  left: 0;
+  z-index: 1002;
+
+  background-color: var(--cor-fundo);
+  padding: var(--espacamento-s) var(--espacamento-m);
+  border-top: 1px solid var(--cor-primaria);
+  border-right: 1px solid var(--cor-primaria);
+  border-top-right-radius: var(--espacamento-s);
+
+  font-size: 22px;
   font-family: var(--fonte-destaque);
   color: var(--cor-primaria);
-  margin-bottom: var(--espacamento-m);
-  line-height: 1.4;
-  animation: fadeIn 0.6s ease;
 }
 
-/* ============================= */
-/*  CTA — GRUPO DE BOTÕES        */
-/* ============================= */
-
-.home-cta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--espacamento-m);
-  margin-top: var(--espacamento-l);
+/* Conteúdo de texto principal */
+.apresentacao__conteudo {
+  order: 2; /* texto vem depois da imagem no mobile se quiser inverter é só trocar */
   width: 100%;
-  max-width: 320px;
 }
 
-/* Botão base */
-.home-cta__btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.apresentacao__conteudo__subtitulo {
+  font-family: var(--fonte-destaque);
+  font-size: 24px;
+  margin-bottom: var(--espacamento-m);
+  color: var(--cor-primaria);
+}
 
-  padding: var(--espacamento-m) var(--espacamento-xl);
+.apresentacao__conteudo__texto {
   font-size: 18px;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: var(--raio-borda);
-  cursor: pointer;
-
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
+  margin-bottom: var(--espacamento-l);
+  text-align: justify;
 }
 
-/* Botão primário — fundo amarelo */
-.home-cta__btn--primary {
-  background: var(--cor-primaria);
-  color: #000;
+/* CTA principal */
+.home__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 28px;
+  border-radius: 999px;
   border: 2px solid var(--cor-primaria);
+
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  background: var(--cor-primaria);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-.home-cta__btn--primary:hover {
+.home__cta:hover {
+  transform: translateY(-2px);
   background: #000;
   color: var(--cor-primaria);
-  box-shadow: 0 0 18px rgba(248, 183, 29, 0.5);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
 }
 
-/* Botão secundário — transparente, borda amarela */
-.home-cta__btn--secondary {
-  background: transparent;
-  border: 2px solid var(--cor-primaria);
-  color: var(--cor-texto);
+/* Bloco da imagem / logo */
+.apresentacao__imagem {
+  order: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
-
-.home-cta__btn--secondary:hover {
-  background: var(--cor-primaria);
-  color: #000;
-  transform: translateY(-2px);
-  box-shadow: 0 0 14px rgba(248, 183, 29, 0.5);
-}
-
-/* ============================= */
-/*  LOGO NA HOME                 */
-/* ============================= */
 
 .apresentacao__imagem img {
-  max-width: 260px;
-  border-radius: 0;
-  border: none;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
   object-fit: contain;
 
-  box-shadow:
-    0 0 12px rgba(0, 0, 0, 0.6),
-    0 0 22px rgba(0, 0, 0, 0.4);
+  /* estilo de “selo” para a logo */
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-padrao), 0 0 20px rgba(248, 183, 29, 0.25);
+  border: 1px solid color-mix(in srgb, var(--cor-primaria) 25%, transparent);
 
-  animation: fadeIn 0.7s ease-in-out;
+  animation: home-float 6s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Desktop */
+.apresentacao__imagem img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--sombra-padrao), 0 0 30px rgba(248, 183, 29, 0.4);
+}
+/* ================================
+   HOME / HERO
+=================================== */
+
+.apresentacao--home {
+  /* Herdando estrutura de .apresentacao (layout.css) */
+  align-items: center;
+}
+
+.apresentacao--home .apresentacao__conteudo__titulo {
+  margin-bottom: var(--espacamento-l);
+}
+
+.apresentacao--home .apresentacao__conteudo__texto {
+  max-width: 60ch;
+}
+
+/* CTA "Projetos / Contato" (se estiver usando) */
+.home-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacamento-m);
+  margin-top: var(--espacamento-m);
+}
+
+.home-cta-group a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--cor-primaria);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.home-cta-group a.home-cta--primary {
+  background-color: var(--cor-primaria);
+  color: #000;
+}
+.home-cta-group a.home-cta--secondary {
+  color: var(--cor-primaria);
+  background: transparent;
+}
+.home-cta-group a:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* ================================ */
+/* RESPONSIVO – HOME               */
+/* ================================ */
+
 @media (min-width: 768px) {
-  .apresentacao__imagem img {
-    max-width: 340px;
+  .apresentacao {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .apresentacao__conteudo {
+    order: 1;
+  }
+
+  .apresentacao__imagem {
+    order: 2;
+    justify-content: flex-end;
+  }
+
+  .apresentacao__conteudo__subtitulo {
+    font-size: 28px;
+  }
+
+  .apresentacao__conteudo__texto {
+    font-size: 18px;
+    max-width: 60ch;
+  }
+
+  /* Em telas maiores, o título sobe pro topo, tipo heading clássico */
+  .apresentacao > .apresentacao__conteudo__titulo {
+    position: static;
+    margin-bottom: var(--espacamento-l);
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    font-size: 36px;
   }
 }
 
-/* ============================= */
-/*  ANIMAÇÃO                     */
-/* ============================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Animação suave da logo */
+@keyframes home-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }

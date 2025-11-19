@@ -1,0 +1,40 @@
+/* ================================
+   TOKENS GLOBAIS (cores, fontes, espaçamentos)
+=================================== */
+:root {
+  /* Cores principais da identidade */
+  --cor-primaria: #F8B71D;
+  --cor-primaria-soft: #f8b71d33;
+  --cor-fundo: #000000;
+  --cor-fundo-elevado: #050710;
+  --cor-texto: #F6F6F6;
+  --cor-texto-secundario: #A0A0A0;
+
+  /* Estado / feedback (se quiser usar depois) */
+  --cor-sucesso: #4caf50;
+  --cor-erro: #ff4d4f;
+  --cor-info: #29b6f6;
+
+  /* Tipografia */
+  --fonte-principal: 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --fonte-destaque: 'Krona One', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Espaçamentos */
+  --espacamento-xs: 4px;
+  --espacamento-s: 8px;
+  --espacamento-m: 16px;
+  --espacamento-l: 24px;
+  --espacamento-xl: 40px;
+  --espacamento-xxl: 60px;
+
+  /* Raio e sombra */
+  --raio-borda: 16px;
+  --sombra-padrao: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  /* Larguras máximas */
+  --largura-max-conteudo: 1200px;
+
+  /* Breakpoints */
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+}
