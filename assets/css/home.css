@@ -1,0 +1,116 @@
+/* ====================================================================== */
+/*  HOME.CSS — Estilos exclusivos da página inicial (index.html)          */
+/* ====================================================================== */
+
+/* ============================= */
+/*  SUBTÍTULO DO HERO            */
+/* ============================= */
+
+.apresentacao__conteudo__subtitulo {
+  font-size: 20px;
+  font-family: var(--fonte-destaque);
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-m);
+  line-height: 1.4;
+  animation: fadeIn 0.6s ease;
+}
+
+/* ============================= */
+/*  CTA — GRUPO DE BOTÕES        */
+/* ============================= */
+
+.home-cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-m);
+  margin-top: var(--espacamento-l);
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Botão base */
+.home-cta__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: var(--espacamento-m) var(--espacamento-xl);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--raio-borda);
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Botão primário — fundo amarelo */
+.home-cta__btn--primary {
+  background: var(--cor-primaria);
+  color: #000;
+  border: 2px solid var(--cor-primaria);
+}
+
+.home-cta__btn--primary:hover {
+  background: #000;
+  color: var(--cor-primaria);
+  box-shadow: 0 0 18px rgba(248, 183, 29, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Botão secundário — transparente, borda amarela */
+.home-cta__btn--secondary {
+  background: transparent;
+  border: 2px solid var(--cor-primaria);
+  color: var(--cor-texto);
+}
+
+.home-cta__btn--secondary:hover {
+  background: var(--cor-primaria);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(248, 183, 29, 0.5);
+}
+
+/* ============================= */
+/*  LOGO NA HOME                 */
+/* ============================= */
+
+.apresentacao__imagem img {
+  max-width: 260px;
+  border-radius: 0;
+  border: none;
+  object-fit: contain;
+
+  box-shadow:
+    0 0 12px rgba(0, 0, 0, 0.6),
+    0 0 22px rgba(0, 0, 0, 0.4);
+
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .apresentacao__imagem img {
+    max-width: 340px;
+  }
+}
+
+/* ============================= */
+/*  ANIMAÇÃO                     */
+/* ============================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

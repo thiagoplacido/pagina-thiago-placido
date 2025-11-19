@@ -1,0 +1,120 @@
+/* ====================================================================== */
+/* PORTFOLIO.CSS — Estilos exclusivos da página de Portfólio              */
+/* ====================================================================== */
+
+/* Container geral */
+.portfolio-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xxl);
+  width: 100%;
+  padding-bottom: var(--espacamento-xl);
+}
+
+/* Cada item (projeto) */
+.portfolio-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-l);
+  background: var(--cor-fundo-transparente);
+  padding: var(--espacamento-xl);
+  border-radius: var(--raio-borda);
+  border: 1px solid color-mix(in srgb, var(--cor-primaria) 20%, transparent);
+  box-shadow: 0 0 18px rgba(0,0,0,0.4);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Imagem do projeto */
+.portfolio-item__imagem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.portfolio-item__imagem img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--raio-borda);
+  border: 1px solid color-mix(in srgb, var(--cor-primaria) 30%, transparent);
+  box-shadow: 0 0 18px rgba(0,0,0,0.5);
+}
+
+/* Título */
+.portfolio-item__titulo {
+  font-size: 26px;
+  color: var(--cor-primaria);
+  font-family: var(--fonte-destaque);
+  margin-bottom: var(--espacamento-s);
+}
+
+/* Data ou subtítulo */
+.portfolio-item__data {
+  color: var(--cor-texto-secundario);
+  font-size: 14px;
+  margin-bottom: var(--espacamento-m);
+}
+
+/* Descrição */
+.portfolio-item__descricao {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: var(--espacamento-l);
+}
+
+/* Lista técnica */
+.portfolio-item__tech-list {
+  font-size: 18px;
+  padding-left: 20px;
+  margin-bottom: var(--espacamento-l);
+}
+
+/* Botão modal */
+.portfolio-item__btn-modal {
+  padding: var(--espacamento-m) var(--espacamento-xl);
+  border-radius: var(--raio-borda);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+
+  background: transparent;
+  border: 2px solid var(--cor-primaria);
+  color: var(--cor-primaria);
+
+  transition: 0.3s ease;
+}
+
+.portfolio-item__btn-modal:hover {
+  background: var(--cor-primaria);
+  color: #000;
+  box-shadow: 0 0 16px rgba(248,183,29,0.4);
+  transform: translateY(-2px);
+}
+
+/* Desktop Layout */
+@media (min-width: 1024px) {
+  .portfolio-item {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--espacamento-xxl);
+  }
+
+  .portfolio-item__imagem {
+    flex: 0 0 360px;
+  }
+
+  .portfolio-item__conteudo {
+    flex: 1;
+  }
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -76,13 +76,6 @@ window.TRANSLATIONS = {
       "Metodologias ágeis (Kanban)"
     ],
     skillsSoftTitle: "Comportamentais",
-    skillsSoftList:
-      "<li>Pensamento analítico</li>" +
-      "<li>Rápido aprendizado</li>" +
-      "<li>Visão de processo</li>" +
-      "<li>Comunicação clara</li>" +
-      "<li>Organização e eficiência</li>" +
-      "<li>Criatividade prática (foco no uso real)</li>",
     skillsSoftItems: [
       "Pensamento analítico",
       "Rápido aprendizado",
@@ -97,13 +90,6 @@ window.TRANSLATIONS = {
     experienceTitle: "Experiência Profissional", // LIMPO
     exp1Title: "Consultor Digital e Administrativo",
     exp1Date: "2018 – Atual",
-    exp1List:
-      "<ul>" +
-      "<li>Desenvolvimento de interfaces simples e landing pages</li>" +
-      "<li>Automação de processos e tarefas repetitivas</li>" +
-      "<li>Suporte a marketing, edição de vídeos e criação de materiais digitais</li>" +
-      "<li>Soluções digitais para pequenos negócios</li>" +
-      "</ul>",
     exp1Items: [
       "Desenvolvimento de interfaces simples e landing pages",
       "Automação de processos e tarefas repetitivas",
@@ -111,24 +97,12 @@ window.TRANSLATIONS = {
       "Soluções digitais para pequenos negócios"
     ],
     exp2Title: "Secretário Administrativo — Curumim Psicomotricidade",
-    exp2List:
-      "<ul>" +
-      "<li>Gestão financeira e relatórios</li>" +
-      "<li>Criação de planilhas inteligentes e automações</li>" +
-      "<li>Organização de rotinas internas</li>" +
-      "</ul>",
     exp2Items: [
       "Gestão financeira e relatórios",
       "Criação de planilhas inteligentes e automações",
       "Organização de rotinas internas"
     ],
     exp3Title: "Assistente Financeiro — 3A Distribuidora",
-    exp3List:
-      "<ul>" +
-      "<li>Contas a pagar/receber</li>" +
-      "<li>Conciliação bancária e fluxo de caixa</li>" +
-      "<li>Otimização de processos administrativos</li>" +
-      "</ul>",
     exp3Items: [
       "Contas a pagar/receber",
       "Conciliação bancária e fluxo de caixa",
@@ -150,13 +124,6 @@ window.TRANSLATIONS = {
     pageTitleDelivery: "Minha Entrega",
     deliveryTitle: "Minha Entrega", // LIMPO
     deliverySubtitle: "Como ajudo sua empresa?",
-    deliveryList:
-      "<li>Desenvolvimento Front-End de interfaces simples</li>" +
-      "<li>Criação de protótipos, fluxos e documentação</li>" +
-      "<li>Automação de processos e otimização de rotinas</li>" +
-      "<li>Uso de IA para acelerar entrega e melhorar qualidade</li>" +
-      "<li>Apoio na estruturação de requisitos e análises de produto</li>" +
-      "<li>Participação em equipes ágeis com foco em aprendizado e impacto</li>",
     deliveryItems: [
       "Desenvolvimento Front-End de interfaces simples",
       "Criação de protótipos, fluxos e documentação",
@@ -189,13 +156,6 @@ window.TRANSLATIONS = {
     thallesModalDesc1:
       "Projeto criado em um único ciclo de concepção a entrega, integrando design, edição audiovisual e front-end.",
     thallesModalDesc2: "O processo envolveu:",
-    thallesModalList:
-      "<li>Conceito visual a partir da identidade do atleta</li>" +
-      "<li>Uso de IA para acelerar a composição da logomarca</li>" +
-      "<li>Edição dos vídeos enviados (cortes, ritmo e cor)</li>" +
-      "<li>Publicação e otimização no YouTube</li>" +
-      "<li>Montagem da página com HTML5/CSS3 e responsividade</li>" +
-      "<li>Textos com foco em clareza, narrativa e conversão</li>",
     thallesModalItems: [
       "Conceito visual a partir da identidade do atleta",
       "Uso de IA para acelerar a composição da logomarca",
@@ -216,14 +176,6 @@ window.TRANSLATIONS = {
     alpha1Desc3:
       "Envio de cards personalizados via WhatsApp para divulgação e vendas rápidas.",
     alpha1Desc4: "Principais focos técnicos:",
-    alpha1TechList:
-      "<li><strong class=\"texto-destaque\">Arquitetura multi-módulos</strong></li>" +
-      "<li><strong class=\"texto-destaque\">Persistência local (Room)</strong></li>" +
-      "<li><strong class=\"texto-destaque\">DataStore</strong></li>" +
-      "<li><strong class=\"texto-destaque\">ViewModels e fluxo reativo</strong></li>" +
-      "<li><strong class=\"texto-destaque\">Material Design 3</strong></li>" +
-      "<li><strong class=\"texto-destaque\">Estratégia offline-first</strong></li>" +
-      "<li><strong class=\"texto-destaque\">Uso de IA como apoio técnico</strong></li>",
     alpha1TechItems: [
       "Arquitetura multi-módulos",
       "Persistência local (Room)",
@@ -240,14 +192,6 @@ window.TRANSLATIONS = {
     alpha1ModalDesc1:
       "Ambiente de estudo prático para um app profissional de gestão comercial.",
     alpha1ModalDesc2: "Complementos técnicos e de produto:",
-    alpha1ModalList:
-      "<li>Modelagem do domínio: clientes, produtos, vendas, estoque, catálogo</li>" +
-      "<li>Estratégias offline-first</li>" +
-      "<li>Testes de interface orientados ao fluxo do pequeno comerciante</li>" +
-      "<li>Catálogo online sincronizado com o app</li>" +
-      "<li>Cards para WhatsApp (dados + design automático)</li>" +
-      "<li>Arquitetura escalável e modularizada</li>" +
-      "<li>Uso de IA para revisões e componentes auxiliares</li>",
     alpha1ModalItems: [
       "Modelagem do domínio: clientes, produtos, vendas, estoque, catálogo",
       "Estratégias offline-first",
@@ -276,15 +220,6 @@ window.TRANSLATIONS = {
     alpha2ModalDesc1:
       "Nasceu da vivência em plantões e das dificuldades reais das equipes.",
     alpha2ModalDesc2: "Detalhes complementares:",
-    alpha2ModalList:
-      "<li>Mapeamento de fluxos críticos de plantão</li>" +
-      "<li>Módulos: residentes, ocorrências, medicamentos, rotinas, relatórios</li>" +
-      "<li>Usabilidade pensada para trabalho noturno</li>" +
-      "<li>Versão web simples com foco em clareza e acessibilidade</li>" +
-      "<li>Estudo de versão Android escalável</li>" +
-      "<li>Plano de integração web + app</li>" +
-      "<li>Clean Architecture para legibilidade/manutenção</li>" +
-      "<li>Estratégias offline para funcionamento sem conexão</li>",
     alpha2ModalItems: [
       "Mapeamento de fluxos críticos de plantão",
       "Módulos: residentes, ocorrências, medicamentos, rotinas, relatórios",
@@ -298,50 +233,4 @@ window.TRANSLATIONS = {
     alpha2ModalDesc3:
       "Traduz processos complexos em soluções digitais funcionais e seguras."
   },
-  
-  // O restante dos idiomas deve ser limpo de forma similar.
-  en: {
-    portfolioLink: "Projects",
-    pageTitleHome: "Portfolio",
-    homeLink: "Home",
-    aboutLink: "About",
-    ideasLink: "Ideas", // LIMPO
-    skillsLink: "Skills", // LIMPO
-    experienceLink: "Experience",
-    educationLink: "Education", // LIMPO
-    deliveryLink: "Delivery", // LIMPO
-    contactLink: "Contact",
-    
-    heroTitle: "Elevate your digital business to another level with my idea factory.",
-    // Restante dos textos EN (limpar todos os títulos e garantir que o resto esteja correto)
-    ideasTitle: "Idea Factory", // LIMPO
-    skillsTitle: "Skills", // LIMPO
-    educationTitle: "Education", // LIMPO
-    deliveryTitle: "My Delivery", // LIMPO
-    experienceTitle: "Professional Experience", // LIMPO
-    
-    footerText: "Developed by Thiago Placido. Email: thiago_placido@hotmail.com",
-    profilePicAlt: "Photo of Thiago Placido",
-    
-    // O restante dos textos de EN deve ser mantido como o conteúdo anterior.
-  },
-  es: {
-    // O restante dos textos de ES deve ser mantido como o conteúdo anterior e LIMPO.
-    portfolioLink: "Proyectos",
-    pageTitleHome: "Portafolio",
-    homeLink: "Inicio",
-    aboutLink: "Sobre",
-    ideasLink: "Ideas", // LIMPO
-    skillsLink: "Habilidades", // LIMPO
-    experienceLink: "Experiencia",
-    educationLink: "Formación", // LIMPO
-    deliveryLink: "Entrega", // LIMPO
-    contactLink: "Contacto",
-
-    ideasTitle: "Fábrica de Ideas", // LIMPO
-    skillsTitle: "Habilidades", // LIMPO
-    educationTitle: "Formación", // LIMPO
-    deliveryTitle: "Mi Entrega", // LIMPO
-    experienceTitle: "Experiencia Profesional", // LIMPO
-  }
-};
+}

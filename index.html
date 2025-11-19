@@ -1,3 +1,4 @@
+<!-- /home.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,23 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Título controlado pelo i18n -->
   <meta data-i18n-title="pageTitleHome" />
   <title>Portfólio</title>
 
   <meta name="description" content="Portfólio de Thiago Placido: fábrica de ideias para transformar tecnologia e IA em soluções reais." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="icon" href="/favicon.ico" />
   <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- CSS global + CSS específico da Home -->
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
 </head>
 <body id="topo">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="cabecalho">
+  <header class="cabecalho">
     <div class="cabecalho__container">
-      <button class="cabecalho__menu-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
+      <button
+        class="cabecalho__menu-hamburguer"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="menu-navegacao"
+      >
         <img src="assets/img/menu-ham.png" alt="Menu" width="40" height="40" decoding="async" />
       </button>
 
@@ -52,18 +67,37 @@
   </header>
 
   <main id="conteudo" class="apresentacao">
+    <!-- Título fixo no canto (definido pelo CSS global) -->
     <h1 class="apresentacao__conteudo__titulo" data-i18n="homeLink"></h1>
 
+    <!-- Bloco de texto do hero -->
     <div class="apresentacao__conteudo">
       <p class="apresentacao__conteudo__subtitulo" data-i18n="heroTitle"></p>
       <p class="apresentacao__conteudo__texto" data-i18n="heroParagraph"></p>
+
+      <!-- CTA principal da Home -->
+      <div class="home-cta">
+        <a
+          href="portifolio.html"
+          class="home-cta__btn home-cta__btn--primary"
+          data-i18n="portfolioTitle"
+        ></a>
+
+        <a
+          href="contato.html"
+          class="home-cta__btn home-cta__btn--secondary"
+          data-i18n="contactLink"
+        ></a>
+      </div>
     </div>
 
+    <!-- Logo no lugar da foto de perfil -->
     <div class="apresentacao__imagem">
       <img
-        src="assets/img/perfil.png"
-        alt="Foto de Thiago Placido"
-        loading="eager" decoding="async"
+        src="assets/img/logo.png"
+        alt="Logotipo Thiago Placido DEV"
+        loading="eager"
+        decoding="async"
       />
     </div>
   </main>
@@ -77,3 +111,4 @@
   <script src="assets/js/script.js" defer></script>
 </body>
 </html>
+<!-- /home.html -->
