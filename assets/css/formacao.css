@@ -19,3 +19,17 @@
   border-left: 2px solid var(--cor-borda-suave);
 }
 
+/* --- Responsividade da Formação --- */
+@media (max-width: 1024px) {
+  .education-grid {
+    gap: var(--space-6); /* Reduz o espaçamento em tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .education-grid {
+    /* Quebra para uma única coluna em mobile/tablet portrait */
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+}

@@ -4,11 +4,11 @@
 
 /* Adiciona padding ao body para compensar o header fixo */
 body {
-  padding-top: 72px; /* Altura aproximada do header */
+  padding-top: 72px; /* Altura do header */
+  padding-bottom: 50px; /* Altura do footer FIXO */
 }
-
 main {
-  padding-bottom: var(--space-8);
+  /* REMOVER padding-bottom: var(--space-8); para não conflitar com padding-bottom do body */
 }
 
 /* Seções de página */
@@ -90,9 +90,12 @@ main {
 
 .rich-text ul {
   padding-left: var(--space-4);
-  list-style-type: "▹  ";
+  list-style-type: "▹  ";
   list-style-position: outside;
 }
+
+/* --- Classes Globais de Seção (Movidas/Consolidadas) --- */
+
 .section-title {
   font-family: var(--fonte-destaque);
   font-size: 1.6rem;
@@ -108,7 +111,7 @@ main {
   max-width: 640px;
 }
 
-/* Highlight (Movida de fabrica.css, entrega.css, sobre.css) */
+/* Highlight (Consolidada de varios arquivos) */
 .section-highlight {
   padding: var(--space-3);
   border-left: 3px solid var(--cor-primaria);
@@ -116,20 +119,34 @@ main {
   color: var(--cor-texto);
   font-size: 1.05rem;
 }
-@media (max-width: 960px) {
+
+/* --- Breakpoints --- */
+
+@media (max-width: 1024px) {
+  /* Em tablets grandes, reduz o espaçamento vertical em main */
+  main {
+    padding-bottom: var(--space-7);
+  }
+}
+
+@media (max-width: 768px) {
   main {
     padding-block: var(--space-5);
   }
 
+  /* Quebra o grid de 2 colunas para uma única coluna em mobile/tablet */
   .grid-2,
   .grid-2--reverse {
     grid-template-columns: minmax(0, 1fr);
   }
-}
 
-@media (max-width: 640px) {
+  /* Ajuste de padding do container e seções para mobile */
+  .container {
+    padding-inline: var(--space-3);
+  }
+
   .page-section {
-    padding-block: var(--space-4);
+    padding-block: var(--space-5);
   }
 }
 

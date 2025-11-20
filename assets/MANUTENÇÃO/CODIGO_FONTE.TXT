@@ -24,16 +24,16 @@ RAIZ DO PROJETO:
 │   │   ├── skills.css
 │   │   ├── sobre.css
 │   │   └── tokens.css
-│   ├── js/
-│   │   ├── includes.js
-│   │   └── script.js
-│   └── style.css
+│   └── js/
+│       ├── includes.js
+│       └── script.js
+├── partials/ (arquivos refatorados)
+│   ├── header.html
+│   └── footer.html
 ├── contato.html
 ├── exp.html
 ├── fabrica.html
-├── footer.html
 ├── formacao.html
-├── header.html
 ├── index.html
 ├── LICENSE
 ├── minha-entrega.html
@@ -42,11 +42,17 @@ RAIZ DO PROJETO:
 └── sobre.html
 
 ESTATÍSTICAS:
-TOTAL DE ARQUIVOS: 34
+TOTAL DE ARQUIVOS: 33
 ARQUIVOS CSS: 19
 ARQUIVOS JS: 2
-ARQUIVOS HTML: 11
+PARTIALS HTML: 2
+PÁGINAS HTML: 9
 OUTROS: 1
+
+MUDANÇAS RECENTES:
+✓ assets/style.css DELETADO
+✓ footer.html REFATORADO para partials/footer.html
+✓ header.html REFATORADO para partials/header.html
 
 ################################################
 FIM DA ESTRUTURA DO PROJETO
@@ -248,14 +254,6 @@ ARQUIVO: assets/css/entrega.css
   margin-top: var(--space-6);
 }
 
-.section-highlight {
-  padding: var(--space-3);
-  border-left: 3px solid var(--cor-primaria);
-  background: rgba(248, 183, 29, 0.05);
-  color: var(--cor-texto);
-  font-size: 1.05rem;
-}
-
 
 ################################################
 ARQUIVO: assets/css/experiencia.css
@@ -304,18 +302,6 @@ ARQUIVO: assets/css/experiencia.css
 ARQUIVO: assets/css/fabrica.css
 ################################################
 
-/* ==========================
-   FÁBRICA DE IDEIAS
-   ========================== */
-
-.section-highlight {
-  padding: var(--space-3);
-  border-left: 3px solid var(--cor-primaria);
-  background: rgba(248, 183, 29, 0.05);
-  color: var(--cor-texto);
-  font-size: 1.05rem;
-}
-
 
 
 
@@ -328,9 +314,22 @@ ARQUIVO: assets/css/footer.css
    ========================== */
 
 .rodape {
-  padding: var(--space-4) var(--space-3);
+  /* POSICIONAMENTO FIXO (Única vez) */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px; /* Altura definida para compensação do body */
+  z-index: 2000;
+
+  /* VISUAL E ALINHAMENTO */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  
+  padding: 0 var(--space-3); /* Padding lateral, vertical 0 (pois height é fixo) */
   border-top: 1px solid rgba(248, 183, 29, 0.2);
-  background: var(--cor-fundo-alt);
+  background: var(--cor-fundo-alt); /* Cor de fundo (deve ser consistente) */
   color: var(--cor-texto-secundario);
   font-size: 0.85rem;
   text-align: center;
@@ -338,6 +337,7 @@ ARQUIVO: assets/css/footer.css
 
 .rodape p {
   line-height: 1.5;
+  margin: 0;
 }
 
 .rodape a {
@@ -376,7 +376,20 @@ ARQUIVO: assets/css/formacao.css
   border-left: 2px solid var(--cor-borda-suave);
 }
 
+/* --- Responsividade da Formação --- */
+@media (max-width: 1024px) {
+  .education-grid {
+    gap: var(--space-6); /* Reduz o espaçamento em tablets */
+  }
+}
 
+@media (max-width: 768px) {
+  .education-grid {
+    /* Quebra para uma única coluna em mobile/tablet portrait */
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+}
 
 
 ################################################
@@ -384,15 +397,13 @@ ARQUIVO: assets/css/headers.css
 ################################################
 
 /* ==========================
-   HEADER GLOBAL
+   HEADER GLOBAL (CORRIGIDO)
    ========================== */
-
 .site-headers__inner {
   height: 72px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
+  /* Removi a propriedade 'gap' daqui, pois ela pertence ao .site-headers__content (ou container interno) */
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(248, 183, 29, 0.16);
@@ -401,6 +412,16 @@ ARQUIVO: assets/css/headers.css
   left: 0;
   right: 0;
   z-index: 2000;
+  width: 100%;
+}
+
+.site-headers__content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Movido para o container interno */
+  gap: var(--space-4); 
 }
 
 /* Marca */
@@ -426,6 +447,7 @@ ARQUIVO: assets/css/headers.css
   color: var(--cor-texto-secundario);
   letter-spacing: 0.12em;
   margin-top: 2px;
+  white-space: nowrap;
 }
 
 /* Botão menu mobile */
@@ -441,14 +463,18 @@ ARQUIVO: assets/css/headers.css
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
 }
 
-/* Ajuste fino desktop */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .site-headers__menu-toggle {
-    display: block;
+    /* CORRIGIDO: Sintaxe de !important */
+    display: block !important; 
+  }
+  /* Esconde o menu desktop quando o botão é visível */
+  .site-nav {
+    display: none;
   }
 }
 
-/* Menu mobile ativado */
+/* Menu mobile ativado (gerenciado por script.js) */
 .no-scroll {
   overflow: hidden;
 }
@@ -466,7 +492,8 @@ ARQUIVO: assets/css/home.css
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: var(--space-7);
   align-items: center;
-  min-height: calc(100vh - 72px - 50px); /* view height - header - footer */
+  /* view height - header - footer (Ajuste para dar mais flexibilidade) */
+  min-height: calc(100vh - 72px - 50px);
   padding-block: var(--space-5);
 }
 
@@ -515,7 +542,35 @@ ARQUIVO: assets/css/home.css
   width: 100%;
   filter: drop-shadow(0 0 32px rgba(0, 0, 0, 0.5));
 }
+@media (max-width: 768px) {
+  /* Em mobile/tablet portrait, quebra para 1 coluna e reposiciona a imagem */
+  .apresentacao--home {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
 
+  /* Reposiciona a imagem para o topo ou meio da tela, antes do conteúdo */
+  .apresentacao__imagem {
+    order: -1; /* Move a imagem para o topo da pilha visual */
+    padding-bottom: var(--space-5);
+  }
+
+  .apresentacao__imagem img {
+    max-width: 280px; /* Reduz o tamanho da imagem em mobile */
+  }
+
+  .apresentacao__conteudo__titulo {
+    font-size: 1.2rem;
+  }
+
+  .apresentacao__conteudo__subtitulo {
+    font-size: 1.3rem;
+  }
+
+  .home-cta {
+    flex-direction: column; /* Botões de CTA em pilha vertical para facilitar o clique */
+  }
+}
 
 
 ################################################
@@ -528,11 +583,11 @@ ARQUIVO: assets/css/layout.css
 
 /* Adiciona padding ao body para compensar o header fixo */
 body {
-  padding-top: 72px; /* Altura aproximada do header */
+  padding-top: 72px; /* Altura do header */
+  padding-bottom: 50px; /* Altura do footer FIXO */
 }
-
 main {
-  padding-bottom: var(--space-8);
+  /* REMOVER padding-bottom: var(--space-8); para não conflitar com padding-bottom do body */
 }
 
 /* Seções de página */
@@ -614,24 +669,63 @@ main {
 
 .rich-text ul {
   padding-left: var(--space-4);
-  list-style-type: "▹  ";
+  list-style-type: "▹  ";
   list-style-position: outside;
 }
 
-@media (max-width: 960px) {
+/* --- Classes Globais de Seção (Movidas/Consolidadas) --- */
+
+.section-title {
+  font-family: var(--fonte-destaque);
+  font-size: 1.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+  margin-bottom: var(--space-3);
+}
+
+.section-subtitle {
+  font-size: 0.98rem;
+  color: var(--cor-texto-secundario);
+  max-width: 640px;
+}
+
+/* Highlight (Consolidada de varios arquivos) */
+.section-highlight {
+  padding: var(--space-3);
+  border-left: 3px solid var(--cor-primaria);
+  background: rgba(248, 183, 29, 0.05);
+  color: var(--cor-texto);
+  font-size: 1.05rem;
+}
+
+/* --- Breakpoints --- */
+
+@media (max-width: 1024px) {
+  /* Em tablets grandes, reduz o espaçamento vertical em main */
+  main {
+    padding-bottom: var(--space-7);
+  }
+}
+
+@media (max-width: 768px) {
   main {
     padding-block: var(--space-5);
   }
 
+  /* Quebra o grid de 2 colunas para uma única coluna em mobile/tablet */
   .grid-2,
   .grid-2--reverse {
     grid-template-columns: minmax(0, 1fr);
   }
-}
 
-@media (max-width: 640px) {
+  /* Ajuste de padding do container e seções para mobile */
+  .container {
+    padding-inline: var(--space-3);
+  }
+
   .page-section {
-    padding-block: var(--space-4);
+    padding-block: var(--space-5);
   }
 }
 
@@ -649,7 +743,6 @@ main {
 }
 
 
-
 ################################################
 ARQUIVO: assets/css/menu.css
 ################################################
@@ -661,7 +754,7 @@ ARQUIVO: assets/css/menu.css
 .site-nav {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-2);
   font-size: 0.9rem;
 }
 
@@ -700,20 +793,58 @@ ARQUIVO: assets/css/menu.css
   color: var(--cor-primaria-soft);
 }
 
-/* mobile – por enquanto, só some o menu */
-@media (max-width: 960px) {
-  .site-nav {
-    gap: var(--space-3);
-    font-size: 0.8rem;
+/* --- Mobile / Tablet Overlay --- */
+
+@media (max-width: 1024px) {
+  /* No desktop, o site-nav é escondido (vide headers.css) */
+
+  /* Estilo do Overlay */
+  .site-nav.aberto,
+  .site-nav.ativo {
+    display: flex; /* Exibe o menu */
+    position: fixed;
+    top: 72px; /* Abaixo do header fixo */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - 72px); /* Ocupa o restante da tela */
+    z-index: 1500; /* Abaixo do header (z-index 2000) */
+    background: var(--cor-fundo-alt); /* Cor de fundo para o overlay */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: var(--space-8);
+    gap: var(--space-5);
+    overflow-y: auto; /* Permite rolar se houver muitos links */
+    animation: fadeIn 0.3s ease-out; /* Animação simples de abertura */
+  }
+
+  /* Estilo dos links no modo Overlay */
+  .site-nav.aberto .site-nav__link,
+  .site-nav.ativo .site-nav__link {
+    font-size: 1.5rem; /* Links maiores para toque */
+    padding: var(--space-3) 0;
+    letter-spacing: 0.1em;
+  }
+
+  /* Ajuste no sublinhado dos links no overlay */
+  .site-nav.aberto .site-nav__link::after,
+  .site-nav.ativo .site-nav__link::after {
+    bottom: 0;
+    height: 3px;
   }
 }
-
-@media (max-width: 640px) {
-  .site-nav {
-    display: none;
+/* Animação para abertura suave do menu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-
 
 
 ################################################
@@ -869,6 +1000,7 @@ ARQUIVO: assets/css/portifolio.css
 .project-card__thumb-wrapper {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
 }
 
 .project-card__thumb-wrapper img {
@@ -915,9 +1047,9 @@ ARQUIVO: assets/css/portifolio.css
 }
 
 /* Responsivo */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .project-card {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 240px 1fr;
   }
 
   .project-card__thumb-wrapper {
@@ -929,7 +1061,23 @@ ARQUIVO: assets/css/portifolio.css
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) { /* Mobile/Tablet Portrait */
+  .project-card {
+    /* Quebra para uma única coluna (imagem no topo) */
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-card__thumb-wrapper {
+    /* Define uma altura máxima para a thumb quando está em full-width */
+    max-height: 200px;
+    width: 100%;
+  }
+
+  /* Garante que a thumb cubra a área de 200px */
+  .project-card__thumb-wrapper img {
+    height: 100%;
+  }
+
   .project-card__content {
     padding: var(--space-4);
   }
@@ -942,7 +1090,7 @@ ARQUIVO: assets/css/reset.css
 ################################################
 
 /* ==========================
-   RESET & BASE
+   RESET & BASE (APENAS NORMALIZAÇÃO)
    ========================== */
 
 *,
@@ -955,17 +1103,16 @@ ARQUIVO: assets/css/reset.css
 
 html {
   scroll-behavior: smooth;
+  background: var(--cor-fundo);
 }
 
 body {
+  /* CORRIGIDO: Adiciona tipografia e cor global puxadas do tokens.css */
   min-height: 100vh;
   font-family: var(--fonte-principal);
-  background:
-    radial-gradient(circle at top left, #201301 0, transparent 45%),
-    radial-gradient(circle at top right, #221302 0, transparent 50%),
-    #000;
   color: var(--cor-texto);
   -webkit-font-smoothing: antialiased;
+
 }
 
 img {
@@ -995,7 +1142,7 @@ button {
   cursor: pointer;
 }
 
-/* Classes utilitárias básicas */
+/* Classes utilitárias básicas - MANTIDAS (utilidades) */
 .container {
   max-width: var(--max-width-container);
   margin: 0 auto;
@@ -1013,7 +1160,7 @@ button {
 .text-muted {
   color: var(--cor-texto-secundario);
 }
-/* Link de pular para o conteúdo (acessibilidade) */
+/* Link de pular para o conteúdo (acessibilidade) - MANTIDO */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -1032,27 +1179,13 @@ button {
   left: var(--space-3);
 }
 
-.section-title {
-  font-family: var(--fonte-destaque);
-  font-size: 1.6rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--cor-primaria);
-  margin-bottom: var(--space-3);
-}
+/* REMOVIDO: .section-title e .section-subtitle (movidos para layout.css) */
 
-.section-subtitle {
-  font-size: 0.98rem;
-  color: var(--cor-texto-secundario);
-  max-width: 640px;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Breakpoint atualizado */
   .container {
     padding-inline: var(--space-3);
   }
 }
-
 
 
 ################################################
@@ -1074,24 +1207,27 @@ ARQUIVO: assets/css/skills.css
   margin-bottom: var(--space-3);
 }
 
+/* --- Responsividade de Skills --- */
+@media (max-width: 1024px) {
+  .skills-grid {
+    gap: var(--space-6); /* Reduz o espaçamento em tablets */
+  }
+}
 
+@media (max-width: 768px) {
+  .skills-grid {
+    /* Quebra para uma única coluna em mobile/tablet portrait */
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+}
 
 
 ################################################
 ARQUIVO: assets/css/sobre.css
 ################################################
 
-/* ==========================
-   SOBRE
-   ========================== */
 
-.section-highlight {
-  padding: var(--space-3);
-  border-left: 3px solid var(--cor-primaria);
-  background: rgba(248, 183, 29, 0.05);
-  color: var(--cor-texto);
-  font-size: 1.05rem;
-}
 
 
 ################################################
@@ -1207,180 +1343,255 @@ document.addEventListener("DOMContentLoaded", () => {
 ARQUIVO: assets/js/script.js
 ################################################
 
-/* /assets/js/script.js */
+/* /assets/js/script.js (VERSÃO FINAL E FUNCIONAL) */
 (function () {
-  // ================================
-  // 1. DESTACAR LINK ATUAL NO MENU
-  // ================================
-  function highlightCurrentLink() {
-    const menu = document.querySelector(".site-nav");
-    if (!menu) return;
+  // ================================
+  // 1. DESTACAR LINK ATUAL NO MENU
+  // ================================
+  function highlightCurrentLink() {
+    // Busca o elemento de navegação principal (que agora tem o ID)
+    const menu = document.querySelector("#menu-navegacao"); 
+    if (!menu) return;
 
-    const links = menu.querySelectorAll("a[href]");
-    if (!links.length) return;
+    const links = menu.querySelectorAll("a[href]");
+    if (!links.length) return;
 
-    const path = window.location.pathname;
-    const currentPage = path.split("/").pop() || "index.html";
+    const path = window.location.pathname;
+    // Pega o nome do arquivo, tratando a raiz ('/') como 'index.html'
+    const currentPage = path.split("/").pop() || "index.html"; 
 
-    links.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href) return;
-      const linkPage = href.split("/").pop();
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+      const linkPage = href.split("/").pop() || "index.html";
 
-      const isHomePage =
-        (currentPage === "" || currentPage === "index.html") &&
-        (linkPage === "" || linkPage === "index.html");
+      const isHomePage =
+        (currentPage === "" || currentPage === "index.html") &&
+        (linkPage === "" || linkPage === "index.html");
 
-      const isSamePage = !isHomePage && currentPage === linkPage;
+      const isSamePage = !isHomePage && currentPage === linkPage;
 
-      if (isHomePage || isSamePage) {
-        link.setAttribute("aria-current", "page");
-        link.classList.add("is-active");
-      } else {
-        link.removeAttribute("aria-current");
-        link.classList.remove("is-active");
-      }
-    });
-  }
+      if (isHomePage || isSamePage) {
+        link.setAttribute("aria-current", "page");
+        link.classList.add("is-active");
+      } else {
+        link.removeAttribute("aria-current");
+        link.classList.remove("is-active");
+      }
+    });
+  }
 
-  // ================================
-  // 2. MENU HAMBÚRGUER
-  // ================================
-  function initHamburgerMenu() {
-    // CORRIGIDO: agora bate com o HTML (.site-headers__menu-toggle)
-    const btnHamb = document.querySelector(".site-headers__menu-toggle");
-    const menu = document.querySelector(".site-nav");
-    if (!btnHamb || !menu) return;
+  // ================================
+  // 2. MENU HAMBÚRGUER (Acessibilidade: Foco e Estado)
+  // ================================
+  function initHamburgerMenu() {
+    // 💡 CORREÇÃO APLICADA: Busca o container principal que foi alvo do includes.js
+    const headerElement = document.getElementById("site-headers"); 
+    if (!headerElement) return; // Se o container não existe, para.
 
-    btnHamb.setAttribute("aria-expanded", "false");
+    // Procura o botão e o menu DENTRO do header injetado (Infalível em páginas injetadas)
+    const btnHamb = headerElement.querySelector(".site-headers__menu-toggle");
+    const menu = headerElement.querySelector(".site-nav"); 
+    
+    if (!btnHamb || !menu) return; // Se os elementos internos não existirem, para.
 
-    const toggleMenu = () => {
-      const isAberto =
-        menu.classList.contains("aberto") ||
-        menu.classList.contains("ativo");
+    btnHamb.setAttribute("aria-expanded", "false");
 
-      if (isAberto) {
-        menu.classList.remove("aberto", "ativo");
-        btnHamb.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("no-scroll");
-      } else {
-        menu.classList.add("aberto", "ativo");
-        btnHamb.setAttribute("aria-expanded", "true");
-        document.body.classList.add("no-scroll");
-      }
-    };
+    const toggleMenu = (event) => {
+      const isAberto =
+        menu.classList.contains("aberto") ||
+        menu.classList.contains("ativo");
 
-    btnHamb.addEventListener("click", toggleMenu);
+      if (isAberto) {
+        // Ações de Fechamento
+        menu.classList.remove("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("no-scroll");
 
-    // Fecha ao clicar em um link do menu
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("aberto", "ativo");
-        btnHamb.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("no-scroll");
-      });
-    });
+        // Retorna o foco ao botão que abriu, exceto se for fechado por clique em link
+        if (event && event.type !== 'click') {
+           btnHamb.focus();
+        }
 
-    // Fecha com ESC
-    document.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        (menu.classList.contains("aberto") ||
-          menu.classList.contains("ativo"))
-      ) {
-        toggleMenu();
-        btnHamb.focus();
-      }
-    });
-  }
+      } else {
+        // Ações de Abertura
+        menu.classList.add("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "true");
+        document.body.classList.add("no-scroll");
 
-  // ================================
-  // 3. MODAIS (PORTFÓLIO / EXP)
-  // ================================
-  function initModals() {
-    const openBtns = document.querySelectorAll("[data-modal-target]");
-    const modals = document.querySelectorAll(".modal");
-    if (!openBtns.length || !modals.length) return;
+        // MELHORIA A11Y: Move o foco para o primeiro link do menu
+        const firstLink = menu.querySelector("a");
+        if (firstLink) {
+          firstLink.focus();
+        }
+      }
+    };
 
-    const openModal = (modal) => {
-      if (!modal) return;
-      modal.style.display = "flex";
-      requestAnimationFrame(() => {
-        modal.classList.add("visivel");
-      });
-      document.body.classList.add("no-scroll", "modal-aberto");
-    };
+    btnHamb.addEventListener("click", toggleMenu);
 
-    const closeModal = (modal) => {
-      if (!modal) return;
-      modal.classList.remove("visivel");
-      setTimeout(() => {
-        modal.style.display = "none";
-      }, 250);
-      document.body.classList.remove("no-scroll", "modal-aberto");
-    };
+    // Fecha ao clicar em um link do menu (Garante que o toggleMenu é chamado para fechar)
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        if (menu.classList.contains("aberto") || menu.classList.contains("ativo")) {
+            // Chama toggleMenu para atualizar estados, passando o evento de clique
+            toggleMenu(e); 
+        }
+      });
+    });
 
-    openBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const targetId = btn.getAttribute("data-modal-target");
-        const modal = document.getElementById(targetId);
-        openModal(modal);
-      });
-    });
+    // Fecha com ESC
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        (menu.classList.contains("aberto") ||
+          menu.classList.contains("ativo"))
+      ) {
+        // Chama toggleMenu para fechar, passando o evento de tecla
+        toggleMenu(e); 
+        btnHamb.focus(); // Retorna o foco para o botão após fechar com ESC
+      }
+    });
+  }
 
-    modals.forEach((modal) => {
-      const closeBtn = modal.querySelector(".modal-close");
-      if (closeBtn) {
-        closeBtn.addEventListener("click", () => closeModal(modal));
-      }
+  // ================================
+  // 3. MODAIS (PORTFÓLIO / EXP) - (Acessibilidade: Foco)
+  // ================================
+  function initModals() {
+    const openBtns = document.querySelectorAll("[data-modal-target]");
+    const modals = document.querySelectorAll(".modal");
+    if (!openBtns.length || !modals.length) return;
+    
+    // Variável para armazenar o botão que abriu o modal (para focar nele depois)
+    let triggerElement = null; 
 
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal(modal);
-      });
-    });
+    const openModal = (modal) => {
+      if (!modal) return;
+      modal.style.display = "flex";
+      requestAnimationFrame(() => {
+        modal.classList.add("visivel");
+        
+        // MELHORIA A11Y: Move o foco para o container do modal
+        const modalContent = modal.querySelector(".modal-content");
+        if (modalContent) {
+           modalContent.setAttribute("tabindex", "-1"); 
+           modalContent.focus(); // Move o foco para dentro do modal
+        }
+      });
+      document.body.classList.add("no-scroll", "modal-aberto");
+    };
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key !== "Escape") return;
-      const aberto = document.querySelector(".modal.visivel");
-      if (aberto) closeModal(aberto);
-    });
-  }
+    const closeModal = (modal) => {
+      if (!modal) return;
+      modal.classList.remove("visivel");
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 250);
+      document.body.classList.remove("no-scroll", "modal-aberto");
+      
+      // MELHORIA A11Y: Retorna o foco para o elemento que abriu
+      if (triggerElement) {
+        triggerElement.focus();
+        triggerElement = null; // Limpa o elemento de disparo
+      }
+    };
 
-  // ================================
-  // 4. INICIALIZAÇÃO GERAL
-  // ================================
-  function initSite() {
-    highlightCurrentLink();
-    initHamburgerMenu();
-    initModals();
-  }
+    openBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        triggerElement = btn; // Armazena o botão que abriu
+        const targetId = btn.getAttribute("data-modal-target");
+        const modal = document.getElementById(targetId);
+        openModal(modal);
+      });
+    });
 
-  if (window.includesReady) {
-    initSite();
-  } else {
-    document.addEventListener("includes:ready", initSite);
-  }
+    modals.forEach((modal) => {
+      const closeBtn = modal.querySelector(".modal-close");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => closeModal(modal));
+      }
+
+      // Fecha ao clicar fora do conteúdo
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      const aberto = document.querySelector(".modal.visivel");
+      if (aberto) closeModal(aberto);
+    });
+  }
+
+  // ================================
+  // 4. INICIALIZAÇÃO GERAL
+  // ================================
+function initSite() {
+    // EXECUTAR AS FUNÇÕES QUE DEPENDEM DE ELEMENTOS INJETADOS
+    highlightCurrentLink();
+    initHamburgerMenu(); 
+    initModals();
+}
+
+// 💡 GARANTIA DE EXECUÇÃO: Aguarda o evento 'includes:ready'
+document.addEventListener("includes:ready", initSite);
+
+// Redundância para navegadores que carregam includes rapidamente
+if (window.includesReady) {
+    initSite();
+}
 })();
 
 
 
 ################################################
-ARQUIVO: assets/style.css
+ARQUIVO: partials/header.html
 ################################################
 
-/* RESET GLOBAL */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!-- /partials/header.html (versão desktop + mobile) -->
+<div class="site-headers__inner">
+  <div class="site-headers__content container">
+    <!-- Marca/Logo à esquerda -->
+    <div class="brand">
+      <a href="index.html" class="brand__link">
+        <span class="brand__title">
+          THIAGO PLACIDO <span class="brand__dot">•</span>
+        </span>
+        <span class="brand__subtitle">
+          Portifólio &amp; Fábrica de Ideias
+        </span>
+      </a>
+    </div>
 
-body {
-  font-family: 'Noto Sans', sans-serif;
-  background-color: #000;
-  color: #f6f6f6;
-}
+    <nav class="site-nav" aria-label="Navegação principal" id="menu-navegacao">
+      <a class="site-nav__link" href="index.html">Início</a>
+      <a class="site-nav__link" href="portifolio.html">Projetos</a>
+      <a class="site-nav__link" href="fabrica.html">Fábrica de Ideias</a>
+      <a class="site-nav__link" href="skills.html">Skills</a>
+      <a class="site-nav__link" href="minha-entrega.html">Entrega</a>
+      <a class="site-nav__link" href="formacao.html">Formação</a>
+      <a class="site-nav__link" href="exp.html">Experiência</a>
+      <a class="site-nav__link" href="sobre.html">Sobre</a>
+      <a class="site-nav__link" href="contato.html">Contato</a>
+    </nav>
 
+    <button class="site-headers__menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
+        <img src="assets/img/menu-ham.png" alt="Menu" />
+      </button>
+  </div>
+</div>
+
+
+################################################
+ARQUIVO: partials/footer.html
+################################################
+
+<!-- /partials/footer.html -->
+<div class="rodape">
+  <p>
+    Desenvolvido por Thiago Placido. Feito com HTML, CSS e JavaScript.
+  </p>
+</div>
 
 
 ################################################
@@ -1393,6 +1604,11 @@ ARQUIVO: contato.html
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contato – Thiago Placido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
 
   <!-- CSS base / design system -->
   <link rel="stylesheet" href="assets/css/tokens.css">
@@ -1406,8 +1622,8 @@ ARQUIVO: contato.html
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/contato.css" />
 </head>
-<body class="bg-gradient">
-  <header id="site-headers" data-include="header.html"></header>
+<body>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
@@ -1453,7 +1669,7 @@ ARQUIVO: contato.html
     </section>
   </main>
 
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
@@ -1472,6 +1688,11 @@ ARQUIVO: exp.html
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Experiência – Thiago Placido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
 
   <!-- CSS base / design system -->
   <link rel="stylesheet" href="assets/css/tokens.css">
@@ -1485,8 +1706,8 @@ ARQUIVO: exp.html
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/experiencia.css" />
 </head>
-<body class="bg-gradient">
-  <header id="site-headers" data-include="header.html"></header>
+<body>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
@@ -1549,7 +1770,7 @@ ARQUIVO: exp.html
     </section>
   </main>
 
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
@@ -1568,6 +1789,11 @@ ARQUIVO: fabrica.html
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fábrica de Ideias – Thiago Placido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
 
   <!-- CSS base / design system -->
   <link rel="stylesheet" href="assets/css/tokens.css">
@@ -1582,9 +1808,9 @@ ARQUIVO: fabrica.html
   <link rel="stylesheet" href="assets/css/fabrica.css" />
 </head>
 
-<body class="bg-gradient">
+<body>
   <!-- Cabeçalho carregado por includes.js -->
-  <header id="site-headers" data-include="header.html"></header>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
   <main class="page">
     <!-- HERO / INTRO DA PÁGINA -->
@@ -1649,26 +1875,12 @@ ARQUIVO: fabrica.html
   </main>
 
   <!-- Rodapé carregado por includes.js -->
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
-
-
-
-################################################
-ARQUIVO: footer.html
-################################################
-
-<!-- /footer.html -->
-<footer class="rodape">
-  <p>
-    Desenvolvido por Thiago Placido •
-    <a href="mailto:thiago_placido@hotmail.com">thiago_placido@hotmail.com</a>
-  </p>
-</footer>
 
 
 
@@ -1682,6 +1894,11 @@ ARQUIVO: formacao.html
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formação – Thiago Placido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
 
   <!-- CSS base / design system -->
   <link rel="stylesheet" href="assets/css/tokens.css">
@@ -1695,8 +1912,8 @@ ARQUIVO: formacao.html
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/formacao.css" />
 </head>
-<body class="bg-gradient">
-  <header id="site-headers" data-include="header.html"></header>
+<body>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
@@ -1738,57 +1955,12 @@ ARQUIVO: formacao.html
     </section>
   </main>
 
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
-
-
-
-################################################
-ARQUIVO: header.html
-################################################
-
-<!-- /header.html (versão desktop + mobile) -->
-<div class="site-headers__inner container">
-
-  <!-- Marca/Logo à esquerda -->
-  <div class="brand">
-    <a href="index.html" class="brand__link">
-      <span class="brand__title">
-        THIAGO PLACIDO <span class="brand__dot">•</span>
-      </span>
-      <span class="brand__subtitle">
-        Portifólio &amp; Fábrica de Ideias
-      </span>
-    </a>
-  </div>
-
-  <!-- Navegação principal à direita -->
-  <nav class="site-nav" aria-label="Navegação principal">
-    <a class="site-nav__link" href="index.html">Início</a>
-    <a class="site-nav__link" href="portifolio.html">Projetos</a>
-    <a class="site-nav__link" href="fabrica.html">Fábrica de Ideias</a>
-    <a class="site-nav__link" href="skills.html">Skills</a>
-    <a class="site-nav__link" href="minha-entrega.html">Entrega</a>
-    <a class="site-nav__link" href="formacao.html">Formação</a>
-    <a class="site-nav__link" href="exp.html">Experiência</a>
-    <a class="site-nav__link" href="sobre.html">Sobre</a>
-    <a class="site-nav__link" href="contato.html">Contato</a>
-  </nav>
-
-  <!-- Botão hamburguer (mobile) -->
-  <button
-    class="site-headers__menu-toggle"
-    aria-label="Abrir menu"
-    aria-expanded="false"
-    aria-controls="menu-navegacao"
-  >
-    <img src="assets/img/menu-ham.png" alt="Menu" />
-  </button>
-</div>
 
 
 
@@ -1803,17 +1975,13 @@ ARQUIVO: index.html
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Título controlado pelo i18n -->
-
   <title>Thiago Placido • DEV</title>
-  <meta name="description" content="Portifólio de Thiago Placido: fábrica de ideias para transformar tecnologia e IA em soluções reais." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- CSS global + CSS específico da Home -->
@@ -1825,24 +1993,23 @@ ARQUIVO: index.html
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
   <link rel="stylesheet" href="assets/css/home.css" />
+
 </head>
-<body class="bg-gradient" id="topo">
+<body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- HEADER INJETADO -->
-  <header id="site-headers" data-include="header.html"></header>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
-  <main id="conteudo">
-    <div class="container">
-      <div class="apresentacao--home">
-        <div class="apresentacao__conteudo">
-          <h1 class="apresentacao__conteudo__titulo">Início</h1>
-          <p class="apresentacao__conteudo__subtitulo">Eleve seu negócio digital a outro nível com a minha fábrica de ideias.</p>
-          <p class="apresentacao__conteudo__texto">Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação. Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas, eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio crescente em tecnologia e IA, estou pronto para colaborar.</p>
-          <div class="home-cta">
-            <a href="portifolio.html" class="btn btn-primary">Projetos</a>
-            <a href="contato.html" class="btn btn-outline">Contato</a>
-          </div>
+  <main id="conteudo" class="container">
+    <div class="apresentacao--home">
+      <div class="apresentacao__conteudo">
+        <h1 class="apresentacao__conteudo__titulo">Início</h1>
+        <p class="apresentacao__conteudo__subtitulo">Eleve seu negócio digital a outro nível com a minha fábrica de ideias.</p>
+        <p class="apresentacao__conteudo__texto">Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação. Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas, eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio crescente em tecnologia e IA, estou pronto para colaborar.</p>
+        <div class="home-cta">
+          <a href="portifolio.html" class="btn btn-primary">Projetos</a>
+          <a href="contato.html" class="btn btn-outline">Contato</a>
         </div>
         <div class="apresentacao__imagem">
           <img src="assets/img/logo.png" alt="Logotipo Thiago Placido DEV" loading="eager" decoding="async" />
@@ -1850,8 +2017,7 @@ ARQUIVO: index.html
       </div>
     </div>
   </main>
-
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
@@ -1864,14 +2030,19 @@ ARQUIVO: index.html
 ARQUIVO: minha-entrega.html
 ################################################
 
+<!-- /minha-entrega.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Entrega – Thiago Placido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- CSS base / design system -->
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/reset.css">
 
@@ -1884,8 +2055,8 @@ ARQUIVO: minha-entrega.html
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/entrega.css" />
 </head>
-<body class="bg-gradient">
-  <header id="site-headers" data-include="header.html"></header>
+<body>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
@@ -1929,7 +2100,7 @@ ARQUIVO: minha-entrega.html
     </section>
   </main>
 
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
@@ -1949,7 +2120,11 @@ ARQUIVO: portifolio.html
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portifólio – Thiago Placido • DEV</title>
 
-  <!-- CSS base / design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
 
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/reset.css">
@@ -1963,8 +2138,8 @@ ARQUIVO: portifolio.html
   <link rel="stylesheet" href="assets/css/portifolio.css">
 </head>
 
-<body class="bg-gradient">
-  <header id="site-headers" data-include="header.html"></header>
+<body>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
   <main class="page container page-section">
     <header class="portifolio-headers">
@@ -2076,7 +2251,7 @@ ARQUIVO: portifolio.html
     </section>
   </main>
 
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
@@ -2096,7 +2271,11 @@ ARQUIVO: skills.html
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills – Thiago Placido</title>
 
-  <!-- CSS base / design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
@@ -2108,12 +2287,13 @@ ARQUIVO: skills.html
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/skills.css" />
 </head>
-<body class="bg-gradient">
+<body>
   <!-- Cabeçalho carregado por includes.js -->
-  <header id="site-headers" data-include="header.html"></header>
-
+  <header id="site-headers" data-include="partials/header.html"></header>
+s
   <main class="page">
     <!-- HERO -->
+  </main>
     <section class="page-hero page-hero--intern">
       <div class="container">
         <p class="page-kicker">Portifólio &amp; Fábrica de Ideias</p>
@@ -2164,7 +2344,7 @@ ARQUIVO: skills.html
   </main>
 
   <!-- Rodapé carregado por includes.js -->
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
@@ -2184,7 +2364,11 @@ ARQUIVO: sobre.html
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sobre – Thiago Placido</title>
 
-  <!-- CSS base / design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
@@ -2196,8 +2380,8 @@ ARQUIVO: sobre.html
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/sobre.css" />
 </head>
-<body class="bg-gradient">
-  <header id="site-header" data-include="header.html"></header>
+<body>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
@@ -2245,7 +2429,7 @@ ARQUIVO: sobre.html
     </section>
   </main>
 
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
@@ -2285,7 +2469,16 @@ SOFTWARE.
 RESUMO DA EXECUÇÃO
 ################################################
 
-Arquivos encontrados: 34
+Arquivos encontrados: 33
 Arquivos não encontrados: 0
-Total processado: 34
+Total processado: 33
 Taxa de sucesso: 100.0%
+
+✅ Todos os arquivos foram encontrados!
+
+MUDANÇAS APLICADAS:
+• assets/style.css removido da lista
+• partials/header.html adicionado
+• partials/footer.html adicionado
+• footer.html removido da raiz
+• header.html removido da raiz

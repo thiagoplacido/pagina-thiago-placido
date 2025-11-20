@@ -28,16 +28,15 @@ def criar_arquivo_consolidado():
         "assets/js/includes.js",
         "assets/js/script.js",
         
-        # CSS Principal
-        "assets/style.css",
+        # Partials (refatorados)
+        "partials/header.html",
+        "partials/footer.html",
         
         # HTML Pages
         "contato.html",
         "exp.html", 
         "fabrica.html",
-        "footer.html",
         "formacao.html",
-        "header.html",
         "index.html",
         "minha-entrega.html",
         "portifolio.html",
@@ -80,16 +79,16 @@ def criar_arquivo_consolidado():
         arquivo_final.write("│   │   ├── skills.css\n")
         arquivo_final.write("│   │   ├── sobre.css\n")
         arquivo_final.write("│   │   └── tokens.css\n")
-        arquivo_final.write("│   ├── js/\n")
-        arquivo_final.write("│   │   ├── includes.js\n")
-        arquivo_final.write("│   │   └── script.js\n")
-        arquivo_final.write("│   └── style.css\n")
+        arquivo_final.write("│   └── js/\n")
+        arquivo_final.write("│       ├── includes.js\n")
+        arquivo_final.write("│       └── script.js\n")
+        arquivo_final.write("├── partials/ (arquivos refatorados)\n")
+        arquivo_final.write("│   ├── header.html\n")
+        arquivo_final.write("│   └── footer.html\n")
         arquivo_final.write("├── contato.html\n")
         arquivo_final.write("├── exp.html\n")
         arquivo_final.write("├── fabrica.html\n")
-        arquivo_final.write("├── footer.html\n")
         arquivo_final.write("├── formacao.html\n")
-        arquivo_final.write("├── header.html\n")
         arquivo_final.write("├── index.html\n")
         arquivo_final.write("├── LICENSE\n")
         arquivo_final.write("├── minha-entrega.html\n")
@@ -101,8 +100,14 @@ def criar_arquivo_consolidado():
         arquivo_final.write(f"TOTAL DE ARQUIVOS: {len(arquivos)}\n")
         arquivo_final.write(f"ARQUIVOS CSS: 19\n")
         arquivo_final.write(f"ARQUIVOS JS: 2\n")
-        arquivo_final.write(f"ARQUIVOS HTML: 11\n")
+        arquivo_final.write(f"PARTIALS HTML: 2\n")
+        arquivo_final.write(f"PÁGINAS HTML: 9\n")
         arquivo_final.write(f"OUTROS: 1\n\n")
+        
+        arquivo_final.write("MUDANÇAS RECENTES:\n")
+        arquivo_final.write("✓ assets/style.css DELETADO\n")
+        arquivo_final.write("✓ footer.html REFATORADO para partials/footer.html\n")
+        arquivo_final.write("✓ header.html REFATORADO para partials/header.html\n\n")
         
         arquivo_final.write("################################################\n")
         arquivo_final.write("FIM DA ESTRUTURA DO PROJETO\n")
@@ -111,6 +116,7 @@ def criar_arquivo_consolidado():
         # SEÇÃO: CÓDIGOS DOS ARQUIVOS
         arquivos_encontrados = 0
         arquivos_nao_encontrados = 0
+        lista_nao_encontrados = []
         
         for caminho_arquivo in arquivos:
             # Verifica se o arquivo existe
@@ -129,6 +135,7 @@ def criar_arquivo_consolidado():
                     arquivo_final.write(f"ERRO ao ler arquivo: {e}\n\n")
             else:
                 arquivos_nao_encontrados += 1
+                lista_nao_encontrados.append(caminho_arquivo)
                 arquivo_final.write(f"\n################################################\n")
                 arquivo_final.write(f"ARQUIVO NÃO ENCONTRADO: {caminho_arquivo}\n")
                 arquivo_final.write(f"################################################\n\n")
@@ -140,10 +147,35 @@ def criar_arquivo_consolidado():
         arquivo_final.write(f"Arquivos encontrados: {arquivos_encontrados}\n")
         arquivo_final.write(f"Arquivos não encontrados: {arquivos_nao_encontrados}\n")
         arquivo_final.write(f"Total processado: {len(arquivos)}\n")
-        arquivo_final.write(f"Taxa de sucesso: {(arquivos_encontrados/len(arquivos))*100:.1f}%\n")
+        if len(arquivos) > 0:
+            arquivo_final.write(f"Taxa de sucesso: {(arquivos_encontrados/len(arquivos))*100:.1f}%\n")
+        
+        # LISTA DE ARQUIVOS NÃO ENCONTRADOS
+        if lista_nao_encontrados:
+            arquivo_final.write(f"\nARQUIVOS NÃO ENCONTRADOS ({arquivos_nao_encontrados}):\n")
+            for i, arquivo in enumerate(lista_nao_encontrados, 1):
+                arquivo_final.write(f"{i}. {arquivo}\n")
+        else:
+            arquivo_final.write(f"\n✅ Todos os arquivos foram encontrados!\n")
+        
+        arquivo_final.write("\nMUDANÇAS APLICADAS:\n")
+        arquivo_final.write("• assets/style.css removido da lista\n")
+        arquivo_final.write("• partials/header.html adicionado\n")
+        arquivo_final.write("• partials/footer.html adicionado\n")
+        arquivo_final.write("• footer.html removido da raiz\n")
+        arquivo_final.write("• header.html removido da raiz\n")
     
     print(f"Arquivo 'CODIGO_FONTE.TXT' criado com sucesso em: {caminho_saida}")
     print(f"Resumo: {arquivos_encontrados} arquivos encontrados, {arquivos_nao_encontrados} não encontrados")
+    
+    if lista_nao_encontrados:
+        print(f"\nArquivos não encontrados:")
+        for arquivo in lista_nao_encontrados:
+            print(f"  - {arquivo}")
+    else:
+        print("✅ Todos os arquivos foram encontrados!")
+    
+    print("Mudanças aplicadas: assets/style.css deletado, header/footer refatorados para partials/")
 
 # Executar a função
 if __name__ == "__main__":

@@ -3,9 +3,22 @@
    ========================== */
 
 .rodape {
-  padding: var(--space-4) var(--space-3);
+  /* POSICIONAMENTO FIXO (Única vez) */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px; /* Altura definida para compensação do body */
+  z-index: 2000;
+
+  /* VISUAL E ALINHAMENTO */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  
+  padding: 0 var(--space-3); /* Padding lateral, vertical 0 (pois height é fixo) */
   border-top: 1px solid rgba(248, 183, 29, 0.2);
-  background: var(--cor-fundo-alt);
+  background: var(--cor-fundo-alt); /* Cor de fundo (deve ser consistente) */
   color: var(--cor-texto-secundario);
   font-size: 0.85rem;
   text-align: center;
@@ -13,6 +26,7 @@
 
 .rodape p {
   line-height: 1.5;
+  margin: 0;
 }
 
 .rodape a {

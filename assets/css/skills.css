@@ -13,3 +13,17 @@
   margin-bottom: var(--space-3);
 }
 
+/* --- Responsividade de Skills --- */
+@media (max-width: 1024px) {
+  .skills-grid {
+    gap: var(--space-6); /* Reduz o espaçamento em tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    /* Quebra para uma única coluna em mobile/tablet portrait */
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+}

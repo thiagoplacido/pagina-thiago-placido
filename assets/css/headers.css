@@ -1,13 +1,11 @@
 /* ==========================
-   HEADER GLOBAL
+   HEADER GLOBAL (CORRIGIDO)
    ========================== */
-
 .site-headers__inner {
   height: 72px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
+  /* Removi a propriedade 'gap' daqui, pois ela pertence ao .site-headers__content (ou container interno) */
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(248, 183, 29, 0.16);
@@ -16,6 +14,16 @@
   left: 0;
   right: 0;
   z-index: 2000;
+  width: 100%;
+}
+
+.site-headers__content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Movido para o container interno */
+  gap: var(--space-4); 
 }
 
 /* Marca */
@@ -41,6 +49,7 @@
   color: var(--cor-texto-secundario);
   letter-spacing: 0.12em;
   margin-top: 2px;
+  white-space: nowrap;
 }
 
 /* Botão menu mobile */
@@ -56,14 +65,18 @@
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
 }
 
-/* Ajuste fino desktop */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .site-headers__menu-toggle {
-    display: block;
+    /* CORRIGIDO: Sintaxe de !important */
+    display: block !important; 
+  }
+  /* Esconde o menu desktop quando o botão é visível */
+  .site-nav {
+    display: none;
   }
 }
 
-/* Menu mobile ativado */
+/* Menu mobile ativado (gerenciado por script.js) */
 .no-scroll {
   overflow: hidden;
 }

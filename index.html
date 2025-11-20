@@ -5,17 +5,13 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Título controlado pelo i18n -->
-
   <title>Thiago Placido • DEV</title>
-  <meta name="description" content="Portifólio de Thiago Placido: fábrica de ideias para transformar tecnologia e IA em soluções reais." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="assets\img\Icon\favicon.svg" />
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- CSS global + CSS específico da Home -->
@@ -27,24 +23,23 @@
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
   <link rel="stylesheet" href="assets/css/home.css" />
+
 </head>
-<body class="bg-gradient" id="topo">
+<body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- HEADER INJETADO -->
-  <header id="site-headers" data-include="header.html"></header>
+  <header id="site-headers" data-include="partials/header.html"></header>
 
-  <main id="conteudo">
-    <div class="container">
-      <div class="apresentacao--home">
-        <div class="apresentacao__conteudo">
-          <h1 class="apresentacao__conteudo__titulo">Início</h1>
-          <p class="apresentacao__conteudo__subtitulo">Eleve seu negócio digital a outro nível com a minha fábrica de ideias.</p>
-          <p class="apresentacao__conteudo__texto">Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação. Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas, eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio crescente em tecnologia e IA, estou pronto para colaborar.</p>
-          <div class="home-cta">
-            <a href="portifolio.html" class="btn btn-primary">Projetos</a>
-            <a href="contato.html" class="btn btn-outline">Contato</a>
-          </div>
+  <main id="conteudo" class="container">
+    <div class="apresentacao--home">
+      <div class="apresentacao__conteudo">
+        <h1 class="apresentacao__conteudo__titulo">Início</h1>
+        <p class="apresentacao__conteudo__subtitulo">Eleve seu negócio digital a outro nível com a minha fábrica de ideias.</p>
+        <p class="apresentacao__conteudo__texto">Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação. Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas, eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio crescente em tecnologia e IA, estou pronto para colaborar.</p>
+        <div class="home-cta">
+          <a href="portifolio.html" class="btn btn-primary">Projetos</a>
+          <a href="contato.html" class="btn btn-outline">Contato</a>
         </div>
         <div class="apresentacao__imagem">
           <img src="assets/img/logo.png" alt="Logotipo Thiago Placido DEV" loading="eager" decoding="async" />
@@ -52,8 +47,7 @@
       </div>
     </div>
   </main>
-
-  <footer id="site-footer" data-include="footer.html"></footer>
+  <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>

@@ -5,7 +5,7 @@
 .site-nav {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-2);
   font-size: 0.9rem;
 }
 
@@ -44,16 +44,55 @@
   color: var(--cor-primaria-soft);
 }
 
-/* mobile – por enquanto, só some o menu */
-@media (max-width: 960px) {
-  .site-nav {
-    gap: var(--space-3);
-    font-size: 0.8rem;
+/* --- Mobile / Tablet Overlay --- */
+
+@media (max-width: 1024px) {
+  /* No desktop, o site-nav é escondido (vide headers.css) */
+
+  /* Estilo do Overlay */
+  .site-nav.aberto,
+  .site-nav.ativo {
+    display: flex; /* Exibe o menu */
+    position: fixed;
+    top: 72px; /* Abaixo do header fixo */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - 72px); /* Ocupa o restante da tela */
+    z-index: 1500; /* Abaixo do header (z-index 2000) */
+    background: var(--cor-fundo-alt); /* Cor de fundo para o overlay */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: var(--space-8);
+    gap: var(--space-5);
+    overflow-y: auto; /* Permite rolar se houver muitos links */
+    animation: fadeIn 0.3s ease-out; /* Animação simples de abertura */
+  }
+
+  /* Estilo dos links no modo Overlay */
+  .site-nav.aberto .site-nav__link,
+  .site-nav.ativo .site-nav__link {
+    font-size: 1.5rem; /* Links maiores para toque */
+    padding: var(--space-3) 0;
+    letter-spacing: 0.1em;
+  }
+
+  /* Ajuste no sublinhado dos links no overlay */
+  .site-nav.aberto .site-nav__link::after,
+  .site-nav.ativo .site-nav__link::after {
+    bottom: 0;
+    height: 3px;
   }
 }
-
-@media (max-width: 640px) {
-  .site-nav {
-    display: none;
+/* Animação para abertura suave do menu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

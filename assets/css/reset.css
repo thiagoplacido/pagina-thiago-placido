@@ -1,5 +1,5 @@
 /* ==========================
-   RESET & BASE
+   RESET & BASE (APENAS NORMALIZAÇÃO)
    ========================== */
 
 *,
@@ -12,17 +12,16 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--cor-fundo);
 }
 
 body {
+  /* CORRIGIDO: Adiciona tipografia e cor global puxadas do tokens.css */
   min-height: 100vh;
   font-family: var(--fonte-principal);
-  background:
-    radial-gradient(circle at top left, #201301 0, transparent 45%),
-    radial-gradient(circle at top right, #221302 0, transparent 50%),
-    #000;
   color: var(--cor-texto);
   -webkit-font-smoothing: antialiased;
+
 }
 
 img {
@@ -52,7 +51,7 @@ button {
   cursor: pointer;
 }
 
-/* Classes utilitárias básicas */
+/* Classes utilitárias básicas - MANTIDAS (utilidades) */
 .container {
   max-width: var(--max-width-container);
   margin: 0 auto;
@@ -70,7 +69,7 @@ button {
 .text-muted {
   color: var(--cor-texto-secundario);
 }
-/* Link de pular para o conteúdo (acessibilidade) */
+/* Link de pular para o conteúdo (acessibilidade) - MANTIDO */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -89,7 +88,9 @@ button {
   left: var(--space-3);
 }
 
-@media (max-width: 768px) {
+/* REMOVIDO: .section-title e .section-subtitle (movidos para layout.css) */
+
+@media (max-width: 768px) { /* Breakpoint atualizado */
   .container {
     padding-inline: var(--space-3);
   }
