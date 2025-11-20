@@ -7,11 +7,12 @@
   position: fixed;
   inset: 0;
   z-index: 3000;
-  background: radial-gradient(circle at top, rgba(248, 183, 29, 0.12), transparent 55%),
-              rgba(0, 0, 0, 0.92);
+  background:
+    radial-gradient(circle at top, rgba(248, 183, 29, 0.12), transparent 55%),
+    rgba(0, 0, 0, 0.92);
   align-items: center;
   justify-content: center;
-  padding: var(--espacamento-xl) var(--espacamento-m);
+  padding: var(--space-7) var(--space-4);
 }
 
 .modal.visivel {
@@ -22,11 +23,11 @@
 .modal-content {
   background: radial-gradient(circle at top left, #111625, #050710);
   border: 1px solid rgba(248, 183, 29, 0.5);
-  box-shadow: var(--sombra-padrao), 0 0 24px rgba(248, 183, 29, 0.25);
-  border-radius: var(--raio-borda);
+  box-shadow: var(--shadow-card), 0 0 24px rgba(248, 183, 29, 0.25);
+  border-radius: var(--radius-3);
   width: 100%;
   max-width: 720px;
-  padding: var(--espacamento-xl) var(--espacamento-l);
+  padding: var(--space-7) var(--space-5);
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
@@ -35,8 +36,8 @@
 /* Botão fechar (X) */
 .modal-close {
   position: absolute;
-  top: var(--espacamento-s);
-  right: var(--espacamento-m);
+  top: var(--space-2);
+  right: var(--space-4);
   font-size: 28px;
   color: #ffffff;
   cursor: pointer;
@@ -44,6 +45,7 @@
   border: none;
   line-height: 1;
 }
+
 .modal-close:hover {
   color: var(--cor-primaria);
 }
@@ -51,30 +53,50 @@
 /* Título e corpo */
 .modal-title {
   font-family: var(--fonte-destaque);
-  font-size: 22px;
+  font-size: 1.4rem;
   color: var(--cor-primaria);
-  margin-bottom: var(--espacamento-l);
+  margin-bottom: var(--space-5);
   padding-right: 40px;
 }
 
 .modal-body p,
 .modal-body ul {
-  font-size: 16px;
-  margin-bottom: var(--espacamento-m);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+  color: var(--cor-texto-secundario);
 }
 
 .modal-body ul {
-  padding-left: 18px;
+  padding-left: var(--space-3);
+  list-style: disc;
 }
 
 /* Scroll mais suave dentro do modal */
 .modal-content::-webkit-scrollbar {
   width: 8px;
 }
+
 .modal-content::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .modal-content::-webkit-scrollbar-thumb {
   background: rgba(248, 183, 29, 0.6);
   border-radius: 999px;
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .modal {
+    padding: var(--space-5) var(--space-3);
+  }
+
+  .modal-content {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
 }

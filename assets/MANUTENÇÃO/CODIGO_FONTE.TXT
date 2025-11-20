@@ -1,3 +1,58 @@
+################################################
+ESTRUTURA DO PROJETO
+################################################
+
+RAIZ DO PROJETO:
+├── assets/
+│   ├── css/
+│   │   ├── background.css
+│   │   ├── botoes.css
+│   │   ├── cards.css
+│   │   ├── contato.css
+│   │   ├── entrega.css
+│   │   ├── experiencia.css
+│   │   ├── fabrica.css
+│   │   ├── footer.css
+│   │   ├── formacao.css
+│   │   ├── headers.css
+│   │   ├── home.css
+│   │   ├── layout.css
+│   │   ├── menu.css
+│   │   ├── modals.css
+│   │   ├── portifolio.css
+│   │   ├── reset.css
+│   │   ├── skills.css
+│   │   ├── sobre.css
+│   │   └── tokens.css
+│   ├── js/
+│   │   ├── includes.js
+│   │   └── script.js
+│   └── style.css
+├── contato.html
+├── exp.html
+├── fabrica.html
+├── footer.html
+├── formacao.html
+├── header.html
+├── index.html
+├── LICENSE
+├── minha-entrega.html
+├── portifolio.html
+├── skills.html
+└── sobre.html
+
+ESTATÍSTICAS:
+TOTAL DE ARQUIVOS: 34
+ARQUIVOS CSS: 19
+ARQUIVOS JS: 2
+ARQUIVOS HTML: 11
+OUTROS: 1
+
+################################################
+FIM DA ESTRUTURA DO PROJETO
+################################################
+
+
 
 ################################################
 ARQUIVO: assets/css/background.css
@@ -6,6 +61,15 @@ ARQUIVO: assets/css/background.css
 /* ==========================
    BACKGROUND & SEÇÕES
    ========================== */
+
+/* Fundo padrão em gradiente para o body quando usada a classe .bg-gradient */
+.bg-gradient {
+  background:
+    radial-gradient(circle at top left, #201301 0, transparent 45%),
+    radial-gradient(circle at top right, #221302 0, transparent 50%),
+    #000;
+  min-height: 100vh;
+}
 
 /* Fundo suave em algumas seções (ex: experiência, formação, contato) */
 .section-surface {
@@ -194,11 +258,6 @@ ARQUIVO: assets/css/entrega.css
 
 
 ################################################
-ARQUIVO NÃO ENCONTRADO: assets/css/exp.css
-################################################
-
-
-################################################
 ARQUIVO: assets/css/experiencia.css
 ################################################
 
@@ -264,6 +323,7 @@ ARQUIVO: assets/css/fabrica.css
 ARQUIVO: assets/css/footer.css
 ################################################
 
+/* ==========================
    RODAPÉ
    ========================== */
 
@@ -288,7 +348,6 @@ ARQUIVO: assets/css/footer.css
 .rodape a:hover {
   color: var(--cor-primaria-soft);
 }
-
 
 
 
@@ -321,8 +380,79 @@ ARQUIVO: assets/css/formacao.css
 
 
 ################################################
-ARQUIVO NÃO ENCONTRADO: assets/css/headers.css
+ARQUIVO: assets/css/headers.css
 ################################################
+
+/* ==========================
+   HEADER GLOBAL
+   ========================== */
+
+.site-headers__inner {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(248, 183, 29, 0.16);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+/* Marca */
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand__title {
+  font-family: var(--fonte-destaque);
+  font-size: 1rem;
+  color: var(--cor-texto);
+  letter-spacing: 0.12em;
+}
+
+.brand__dot {
+  color: var(--cor-primaria);
+}
+
+.brand__subtitle {
+  font-size: 0.7rem;
+  color: var(--cor-texto-secundario);
+  letter-spacing: 0.12em;
+  margin-top: 2px;
+}
+
+/* Botão menu mobile */
+.site-headers__menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.site-headers__menu-toggle img {
+  width: 28px;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
+}
+
+/* Ajuste fino desktop */
+@media (max-width: 960px) {
+  .site-headers__menu-toggle {
+    display: block;
+  }
+}
+
+/* Menu mobile ativado */
+.no-scroll {
+  overflow: hidden;
+}
+
 
 
 ################################################
@@ -395,6 +525,7 @@ ARQUIVO: assets/css/layout.css
 /* ==========================
    LAYOUT GERAL
    ========================== */
+
 /* Adiciona padding ao body para compensar o header fixo */
 body {
   padding-top: 72px; /* Altura aproximada do header */
@@ -432,6 +563,7 @@ main {
   letter-spacing: 0.08em;
 }
 
+/* Título principal das páginas internas */
 .page-title {
   font-family: var(--fonte-destaque);
   font-size: 2.2rem;
@@ -439,6 +571,15 @@ main {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+
+/* Subtítulo das páginas internas */
+.page-subtitle {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 640px;
+  color: var(--cor-texto-secundario);
+}
+
 /* grid genérico de duas colunas */
 .grid-2 {
   display: grid;
@@ -476,6 +617,7 @@ main {
   list-style-type: "▹  ";
   list-style-position: outside;
 }
+
 @media (max-width: 960px) {
   main {
     padding-block: var(--space-5);
@@ -587,11 +729,12 @@ ARQUIVO: assets/css/modals.css
   position: fixed;
   inset: 0;
   z-index: 3000;
-  background: radial-gradient(circle at top, rgba(248, 183, 29, 0.12), transparent 55%),
-              rgba(0, 0, 0, 0.92);
+  background:
+    radial-gradient(circle at top, rgba(248, 183, 29, 0.12), transparent 55%),
+    rgba(0, 0, 0, 0.92);
   align-items: center;
   justify-content: center;
-  padding: var(--espacamento-xl) var(--espacamento-m);
+  padding: var(--space-7) var(--space-4);
 }
 
 .modal.visivel {
@@ -602,11 +745,11 @@ ARQUIVO: assets/css/modals.css
 .modal-content {
   background: radial-gradient(circle at top left, #111625, #050710);
   border: 1px solid rgba(248, 183, 29, 0.5);
-  box-shadow: var(--sombra-padrao), 0 0 24px rgba(248, 183, 29, 0.25);
-  border-radius: var(--raio-borda);
+  box-shadow: var(--shadow-card), 0 0 24px rgba(248, 183, 29, 0.25);
+  border-radius: var(--radius-3);
   width: 100%;
   max-width: 720px;
-  padding: var(--espacamento-xl) var(--espacamento-l);
+  padding: var(--space-7) var(--space-5);
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
@@ -615,8 +758,8 @@ ARQUIVO: assets/css/modals.css
 /* Botão fechar (X) */
 .modal-close {
   position: absolute;
-  top: var(--espacamento-s);
-  right: var(--espacamento-m);
+  top: var(--space-2);
+  right: var(--space-4);
   font-size: 28px;
   color: #ffffff;
   cursor: pointer;
@@ -624,6 +767,7 @@ ARQUIVO: assets/css/modals.css
   border: none;
   line-height: 1;
 }
+
 .modal-close:hover {
   color: var(--cor-primaria);
 }
@@ -631,50 +775,70 @@ ARQUIVO: assets/css/modals.css
 /* Título e corpo */
 .modal-title {
   font-family: var(--fonte-destaque);
-  font-size: 22px;
+  font-size: 1.4rem;
   color: var(--cor-primaria);
-  margin-bottom: var(--espacamento-l);
+  margin-bottom: var(--space-5);
   padding-right: 40px;
 }
 
 .modal-body p,
 .modal-body ul {
-  font-size: 16px;
-  margin-bottom: var(--espacamento-m);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+  color: var(--cor-texto-secundario);
 }
 
 .modal-body ul {
-  padding-left: 18px;
+  padding-left: var(--space-3);
+  list-style: disc;
 }
 
 /* Scroll mais suave dentro do modal */
 .modal-content::-webkit-scrollbar {
   width: 8px;
 }
+
 .modal-content::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .modal-content::-webkit-scrollbar-thumb {
   background: rgba(248, 183, 29, 0.6);
   border-radius: 999px;
 }
 
+/* Responsivo */
+@media (max-width: 640px) {
+  .modal {
+    padding: var(--space-5) var(--space-3);
+  }
+
+  .modal-content {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
+}
+
 
 
 ################################################
-ARQUIVO: assets/css/portfolio.css
+ARQUIVO: assets/css/portifolio.css
 ################################################
 
 /* ==========================
    PORTIFÓLIO
    ========================== */
 
-.portifolio-header {
+.portifolio-headers {
   text-align: center;
   margin-bottom: var(--space-7);
 }
 
-.portifolio-header .section-subtitle {
+.portifolio-headers .section-subtitle {
   margin-inline: auto;
   max-width: 70ch;
 }
@@ -694,11 +858,12 @@ ARQUIVO: assets/css/portfolio.css
   border: 1px solid var(--cor-borda-suave);
   background: var(--cor-fundo-card);
   overflow: hidden;
-  transition: box-shadow var(--transition-medium);
+  transition: box-shadow var(--transition-medium), transform var(--transition-medium);
 }
 
 .project-card:hover {
-  box-shadow: 0 0 24px rgba(248, 183, 29, 0.1);
+  box-shadow: 0 0 24px rgba(248, 183, 29, 0.12);
+  transform: translateY(-2px);
 }
 
 .project-card__thumb-wrapper {
@@ -748,6 +913,28 @@ ARQUIVO: assets/css/portfolio.css
   margin-top: auto;
   padding-top: var(--space-3);
 }
+
+/* Responsivo */
+@media (max-width: 960px) {
+  .project-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-card__thumb-wrapper {
+    max-height: 260px;
+  }
+
+  .project-card__thumb-wrapper img {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card__content {
+    padding: var(--space-4);
+  }
+}
+
 
 
 ################################################
@@ -1060,7 +1247,8 @@ ARQUIVO: assets/js/script.js
   // 2. MENU HAMBÚRGUER
   // ================================
   function initHamburgerMenu() {
-    const btnHamb = document.querySelector(".site-header__menu-toggle");
+    // CORRIGIDO: agora bate com o HTML (.site-headers__menu-toggle)
+    const btnHamb = document.querySelector(".site-headers__menu-toggle");
     const menu = document.querySelector(".site-nav");
     if (!btnHamb || !menu) return;
 
@@ -1107,7 +1295,7 @@ ARQUIVO: assets/js/script.js
   }
 
   // ================================
-  // 3. MODAIS (PORTiFÓLIO / EXP)
+  // 3. MODAIS (PORTFÓLIO / EXP)
   // ================================
   function initModals() {
     const openBtns = document.querySelectorAll("[data-modal-target]");
@@ -1162,19 +1350,36 @@ ARQUIVO: assets/js/script.js
   // 4. INICIALIZAÇÃO GERAL
   // ================================
   function initSite() {
-    // 1) marca link atual, menu e modais
     highlightCurrentLink();
     initHamburgerMenu();
     initModals();
   }
 
-  // Espera os includes ou roda direto se já estiver pronto
   if (window.includesReady) {
     initSite();
   } else {
     document.addEventListener("includes:ready", initSite);
   }
 })();
+
+
+
+################################################
+ARQUIVO: assets/style.css
+################################################
+
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #000;
+  color: #f6f6f6;
+}
 
 
 
@@ -1187,22 +1392,22 @@ ARQUIVO: contato.html
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contato – Thiago Placido • DEV</title>
+  <title>Contato – Thiago Placido</title>
 
   <!-- CSS base / design system -->
-  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/contato.css" />
 </head>
 <body class="bg-gradient">
-  <header id="site-header" data-include="header.html"></header>
+  <header id="site-headers" data-include="header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
@@ -1266,22 +1471,22 @@ ARQUIVO: exp.html
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experiência – Thiago Placido • DEV</title>
+  <title>Experiência – Thiago Placido</title>
 
   <!-- CSS base / design system -->
-  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/experiencia.css" />
 </head>
 <body class="bg-gradient">
-  <header id="site-header" data-include="header.html"></header>
+  <header id="site-headers" data-include="header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
@@ -1362,24 +1567,24 @@ ARQUIVO: fabrica.html
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fábrica de Ideias – Thiago Placido • DEV</title>
+  <title>Fábrica de Ideias – Thiago Placido</title>
 
   <!-- CSS base / design system -->
-  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/fabrica.css" />
 </head>
 
 <body class="bg-gradient">
   <!-- Cabeçalho carregado por includes.js -->
-  <header id="site-header" data-include="header.html"></header>
+  <header id="site-headers" data-include="header.html"></header>
 
   <main class="page">
     <!-- HERO / INTRO DA PÁGINA -->
@@ -1457,10 +1662,10 @@ ARQUIVO: fabrica.html
 ARQUIVO: footer.html
 ################################################
 
-<!-- /footer.html (versão sem i18n) -->
+<!-- /footer.html -->
 <footer class="rodape">
   <p>
-    Desenvolvido por Thiago Placido •  
+    Desenvolvido por Thiago Placido •
     <a href="mailto:thiago_placido@hotmail.com">thiago_placido@hotmail.com</a>
   </p>
 </footer>
@@ -1476,22 +1681,22 @@ ARQUIVO: formacao.html
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formação – Thiago Placido • DEV</title>
+  <title>Formação – Thiago Placido</title>
 
   <!-- CSS base / design system -->
-  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/formacao.css" />
 </head>
 <body class="bg-gradient">
-  <header id="site-header" data-include="header.html"></header>
+  <header id="site-headers" data-include="header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
@@ -1547,13 +1752,17 @@ ARQUIVO: header.html
 ################################################
 
 <!-- /header.html (versão desktop + mobile) -->
-<div class="site-header__inner container">
+<div class="site-headers__inner container">
 
   <!-- Marca/Logo à esquerda -->
   <div class="brand">
     <a href="index.html" class="brand__link">
-      <span class="brand__title">THIAGO PLACIDO <span class="brand__dot">•</span> DEV</span>
-      <span class="brand__subtitle">Portifólio &amp; Fábrica de Ideias</span>
+      <span class="brand__title">
+        THIAGO PLACIDO <span class="brand__dot">•</span>
+      </span>
+      <span class="brand__subtitle">
+        Portifólio &amp; Fábrica de Ideias
+      </span>
     </a>
   </div>
 
@@ -1562,8 +1771,8 @@ ARQUIVO: header.html
     <a class="site-nav__link" href="index.html">Início</a>
     <a class="site-nav__link" href="portifolio.html">Projetos</a>
     <a class="site-nav__link" href="fabrica.html">Fábrica de Ideias</a>
-    <a class="site-nav__link" href="skills.html">Habilidades</a>
-    <a class="site-nav__link" href="minha-entrega.html">Minha Entrega</a>
+    <a class="site-nav__link" href="skills.html">Skills</a>
+    <a class="site-nav__link" href="minha-entrega.html">Entrega</a>
     <a class="site-nav__link" href="formacao.html">Formação</a>
     <a class="site-nav__link" href="exp.html">Experiência</a>
     <a class="site-nav__link" href="sobre.html">Sobre</a>
@@ -1571,7 +1780,12 @@ ARQUIVO: header.html
   </nav>
 
   <!-- Botão hamburguer (mobile) -->
-  <button class="site-header__menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
+  <button
+    class="site-headers__menu-toggle"
+    aria-label="Abrir menu"
+    aria-expanded="false"
+    aria-controls="menu-navegacao"
+  >
     <img src="assets/img/menu-ham.png" alt="Menu" />
   </button>
 </div>
@@ -1606,7 +1820,7 @@ ARQUIVO: index.html
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
@@ -1616,7 +1830,7 @@ ARQUIVO: index.html
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- HEADER INJETADO -->
-  <header id="site-header" data-include="header.html"></header>
+  <header id="site-headers" data-include="header.html"></header>
 
   <main id="conteudo">
     <div class="container">
@@ -1655,28 +1869,29 @@ ARQUIVO: minha-entrega.html
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minha Entrega – Thiago Placido • DEV</title>
+  <title>Entrega – Thiago Placido</title>
 
   <!-- CSS base / design system -->
-  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/entrega.css" />
 </head>
 <body class="bg-gradient">
-  <header id="site-header" data-include="header.html"></header>
+  <header id="site-headers" data-include="header.html"></header>
 
   <main class="page">
     <section class="page-hero page-hero--intern">
       <div class="container">
         <p class="page-kicker">Portifólio &amp; Fábrica de Ideias</p>
-        <h1 class="page-title">Minha Entrega</h1>
+        <h1 class="page-title">Entrega</h1>
         <p class="page-subtitle">
           Aqui eu resumo como trabalho na prática e de que forma posso ajudar seu time
           ou o seu negócio, mesmo estando em início de carreira na área tech.
@@ -1724,8 +1939,150 @@ ARQUIVO: minha-entrega.html
 
 
 ################################################
-ARQUIVO NÃO ENCONTRADO: portfolio.html
+ARQUIVO: portifolio.html
 ################################################
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portifólio – Thiago Placido • DEV</title>
+
+  <!-- CSS base / design system -->
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/portifolio.css">
+</head>
+
+<body class="bg-gradient">
+  <header id="site-headers" data-include="header.html"></header>
+
+  <main class="page container page-section">
+    <header class="portifolio-headers">
+      <h1 class="section-title">Portifólio / Cases</h1>
+      <p class="section-subtitle">
+        Projetos que conectam design simples, código limpo e uso inteligente de IA.  
+        Meu foco é entregar clareza, organização e impacto — mesmo em início de carreira tech.
+      </p>
+    </header>
+
+    <section class="portifolio-list">
+
+      <!-- CARD 1 – THALLES CLASSIC -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/2.png" alt="Thumbnail do site Thalles Classic" />
+        </div>
+
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Identidade digital • Landing page</p>
+            <h2 class="project-card__title">Thalles Classic</h2>
+            <p class="project-card__meta">
+              Projeto real • Lançado em 09/11/2025 • Presença profissional para atleta
+            </p>
+          </header>
+
+          <p>
+            Landing page criada para apresentar a trajetória esportiva do atleta
+            Thalles Reis, com foco em impacto visual, fotos fortes e narrativa curta.
+            Trabalhei estrutura, copy simples e fluxo visual direto.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">Responsivo</span>
+            <span class="pill">Marca Pessoal</span>
+          </div>
+
+          <div class="project-card__actions">
+            <a class="btn btn-outline btn-sm" href="https://thallesclassic.vercel.app" target="_blank">Visitar projeto</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 – PORTIFÓLIO PESSOAL -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/3.png" alt="Preview do site pessoal de Thiago Placido" />
+        </div>
+
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Site currículo • Versão Premium</p>
+            <h2 class="project-card__title">Portifólio Pessoal</h2>
+            <p class="project-card__meta">
+              Projeto autoral • Iteração contínua • Focado em empregabilidade
+            </p>
+          </header>
+
+          <p>
+            Meu site atual funciona como um laboratório de aprendizado e evolução.
+            Aqui testo layouts, componentes, organização narrativa e boas práticas
+            para recrutadores e freela.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">UX</span>
+            <span class="pill">IA no fluxo</span>
+          </div>
+
+          <div class="project-card__actions">
+            <a class="btn btn-outline btn-sm" href="index.html">Abrir site</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3 – PROJETO FUTURO -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/Loading.gif" alt="Imagem de projeto em desenvolvimento" />
+        </div>
+
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Em desenvolvimento</p>
+            <h2 class="project-card__title">Próximo Case</h2>
+            <p class="project-card__meta">
+              Slot para app em Kotlin, automação ou ferramenta interna.
+            </p>
+          </header>
+
+          <p>
+            Este slot reserva espaço para seu próximo case real, documentado desde o problema
+            até a solução. Ideal para mostrar evolução contínua.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">Kotlin</span>
+            <span class="pill">Automação</span>
+            <span class="pill">Backlog</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
 
 
 ################################################
@@ -1737,30 +2094,30 @@ ARQUIVO: skills.html
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Habilidades – Thiago Placido • DEV</title>
+  <title>Skills – Thiago Placido</title>
 
   <!-- CSS base / design system -->
-  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/skills.css" />
 </head>
 <body class="bg-gradient">
   <!-- Cabeçalho carregado por includes.js -->
-  <header id="site-header" data-include="header.html"></header>
+  <header id="site-headers" data-include="header.html"></header>
 
   <main class="page">
     <!-- HERO -->
     <section class="page-hero page-hero--intern">
       <div class="container">
         <p class="page-kicker">Portifólio &amp; Fábrica de Ideias</p>
-        <h1 class="page-title">Habilidades</h1>
+        <h1 class="page-title">Skills</h1>
         <p class="page-subtitle">
           Aqui eu organizo o que já sei fazer hoje e o que estou desenvolvendo
           como base para crescer como desenvolvedor e, no futuro, como Product Engineer.
@@ -1825,17 +2182,17 @@ ARQUIVO: sobre.html
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre – Thiago Placido • DEV</title>
+  <title>Sobre – Thiago Placido</title>
 
   <!-- CSS base / design system -->
-  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/botoes.css">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/sobre.css" />
 </head>
@@ -1846,7 +2203,7 @@ ARQUIVO: sobre.html
     <section class="page-hero page-hero--intern">
       <div class="container">
         <p class="page-kicker">Quem sou por trás do código</p>
-        <h1 class="page-title">Sobre mim</h1>
+        <h1 class="page-title">Sobre</h1>
         <p class="page-subtitle">
           Um pouco da minha história, da forma como penso e de como uso tecnologia
           para organizar o caos do dia a dia.
@@ -1924,8 +2281,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-
 ################################################
-ARQUIVO NÃO ENCONTRADO: portfolio/style.css
+RESUMO DA EXECUÇÃO
 ################################################
 
+Arquivos encontrados: 34
+Arquivos não encontrados: 0
+Total processado: 34
+Taxa de sucesso: 100.0%

@@ -38,7 +38,8 @@
   // 2. MENU HAMBÚRGUER
   // ================================
   function initHamburgerMenu() {
-    const btnHamb = document.querySelector(".site-header__menu-toggle");
+    // CORRIGIDO: agora bate com o HTML (.site-headers__menu-toggle)
+    const btnHamb = document.querySelector(".site-headers__menu-toggle");
     const menu = document.querySelector(".site-nav");
     if (!btnHamb || !menu) return;
 
@@ -85,7 +86,7 @@
   }
 
   // ================================
-  // 3. MODAIS (PORTiFÓLIO / EXP)
+  // 3. MODAIS (PORTFÓLIO / EXP)
   // ================================
   function initModals() {
     const openBtns = document.querySelectorAll("[data-modal-target]");
@@ -140,13 +141,11 @@
   // 4. INICIALIZAÇÃO GERAL
   // ================================
   function initSite() {
-    // 1) marca link atual, menu e modais
     highlightCurrentLink();
     initHamburgerMenu();
     initModals();
   }
 
-  // Espera os includes ou roda direto se já estiver pronto
   if (window.includesReady) {
     initSite();
   } else {

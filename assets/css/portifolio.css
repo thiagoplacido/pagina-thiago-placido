@@ -2,12 +2,12 @@
    PORTIFÓLIO
    ========================== */
 
-.portifolio-header {
+.portifolio-headers {
   text-align: center;
   margin-bottom: var(--space-7);
 }
 
-.portifolio-header .section-subtitle {
+.portifolio-headers .section-subtitle {
   margin-inline: auto;
   max-width: 70ch;
 }
@@ -27,11 +27,12 @@
   border: 1px solid var(--cor-borda-suave);
   background: var(--cor-fundo-card);
   overflow: hidden;
-  transition: box-shadow var(--transition-medium);
+  transition: box-shadow var(--transition-medium), transform var(--transition-medium);
 }
 
 .project-card:hover {
-  box-shadow: 0 0 24px rgba(248, 183, 29, 0.1);
+  box-shadow: 0 0 24px rgba(248, 183, 29, 0.12);
+  transform: translateY(-2px);
 }
 
 .project-card__thumb-wrapper {
@@ -82,3 +83,23 @@
   padding-top: var(--space-3);
 }
 
+/* Responsivo */
+@media (max-width: 960px) {
+  .project-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-card__thumb-wrapper {
+    max-height: 260px;
+  }
+
+  .project-card__thumb-wrapper img {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card__content {
+    padding: var(--space-4);
+  }
+}

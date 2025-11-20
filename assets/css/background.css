@@ -2,6 +2,15 @@
    BACKGROUND & SEÇÕES
    ========================== */
 
+/* Fundo padrão em gradiente para o body quando usada a classe .bg-gradient */
+.bg-gradient {
+  background:
+    radial-gradient(circle at top left, #201301 0, transparent 45%),
+    radial-gradient(circle at top right, #221302 0, transparent 50%),
+    #000;
+  min-height: 100vh;
+}
+
 /* Fundo suave em algumas seções (ex: experiência, formação, contato) */
 .section-surface {
   background: radial-gradient(circle at top left, rgba(248, 183, 29, 0.06), transparent 60%), #020308;

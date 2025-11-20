@@ -1,6 +1,7 @@
 /* ==========================
    LAYOUT GERAL
    ========================== */
+
 /* Adiciona padding ao body para compensar o header fixo */
 body {
   padding-top: 72px; /* Altura aproximada do header */
@@ -38,6 +39,7 @@ main {
   letter-spacing: 0.08em;
 }
 
+/* Título principal das páginas internas */
 .page-title {
   font-family: var(--fonte-destaque);
   font-size: 2.2rem;
@@ -45,6 +47,15 @@ main {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+
+/* Subtítulo das páginas internas */
+.page-subtitle {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 640px;
+  color: var(--cor-texto-secundario);
+}
+
 /* grid genérico de duas colunas */
 .grid-2 {
   display: grid;
@@ -81,6 +92,29 @@ main {
   padding-left: var(--space-4);
   list-style-type: "▹  ";
   list-style-position: outside;
+}
+.section-title {
+  font-family: var(--fonte-destaque);
+  font-size: 1.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+  margin-bottom: var(--space-3);
+}
+
+.section-subtitle {
+  font-size: 0.98rem;
+  color: var(--cor-texto-secundario);
+  max-width: 640px;
+}
+
+/* Highlight (Movida de fabrica.css, entrega.css, sobre.css) */
+.section-highlight {
+  padding: var(--space-3);
+  border-left: 3px solid var(--cor-primaria);
+  background: rgba(248, 183, 29, 0.05);
+  color: var(--cor-texto);
+  font-size: 1.05rem;
 }
 @media (max-width: 960px) {
   main {
