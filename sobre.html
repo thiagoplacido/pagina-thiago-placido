@@ -1,64 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre – Thiago Placido • DEV</title>
 
-
-  <title>Sobre — Thiago Placido</title>
-  <meta name="description" content="Quem sou eu, minha transição para tecnologia e como conecto processos com soluções digitais." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Sobre — Thiago Placido" />
-  <meta property="og:description" content="Perfil investigativo e criativo, com foco em soluções tecnológicas úteis." />
-  <meta property="og:image" content="/assets/img/perfil.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/modals.css">
   <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/sobre.css" />
 </head>
-<body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
 
-  <div data-include="header" data-src="header.html"></div>
-
-  <main id="conteudo" class="apresentacao apresentacao--com-imagem">
-    <section class="apresentacao__conteudo">
-      <h1 class="apresentacao__conteudo__titulo">Quem sou por trás do código.</h1>
-
-      <p class="apresentacao__conteudo__texto">Sou um criador de soluções em formação, que enxerga tecnologia como ferramenta para organizar o caos do dia a dia. Curioso, analítico e realista, gosto de resolver problemas com simplicidade e propósito.</p>
-
-      <h2 class="skills__subtitulo">Alguns pontos que definem meu jeito de trabalhar:</h2>
-      <ul class="apresentacao__conteudo__lista">
-        <li>Valorizo autenticidade: prefiro conversas claras a promessas vazias;</li>
-        <li>Gosto de entender o “porquê” antes do “como fazer”;</li>
-        <li>Busco equilíbrio entre criatividade e eficiência: bonito é o que funciona e é fácil de usar;</li>
-        <li>Vejo a IA como exoesqueleto mental, não substituto de responsabilidade;</li>
-        <li>Cada projeto é uma oportunidade de aprender algo que leve para o próximo nível.</li>
-      </ul>
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Quem sou por trás do código</p>
+        <h1 class="page-title">Sobre mim</h1>
+        <p class="page-subtitle">
+          Um pouco da minha história, da forma como penso e de como uso tecnologia
+          para organizar o caos do dia a dia.
+        </p>
+      </div>
     </section>
 
-    <div class="apresentacao__foto_perfil">
-      <img src="assets/img/perfil.png" alt="Foto de Thiago Placido" width="400" height="400" loading="lazy" decoding="async" />
-    </div>
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text about-content">
+          <p>
+            Sou iniciante na área de tecnologia, estudante de Engenharia de Software
+            e desenvolvedor em formação. Minha transição de carreira é guiada por
+            curiosidade, método e vontade real de criar soluções que ajudem pessoas
+            na prática.
+          </p>
+          <p>
+            Antes da tech, atuei em áreas administrativas, financeiras e operacionais.
+            Essa bagagem me deu disciplina, organização e visão concreta de negócio,
+            que hoje levo para dentro dos projetos digitais que desenvolvo.
+          </p>
+          <p>
+            Gosto de entender o “porquê” antes do “como fazer”. Minha forma de pensar
+            é analítica e estruturada: prefiro clareza, documentação e combinados bem
+            definidos a promessas vagas. Ao mesmo tempo, não abro mão de criatividade
+            e experimentação.
+          </p>
+          <p>
+            Vejo a inteligência artificial como um exoesqueleto mental: algo que amplia
+            minha capacidade de pensar, escrever e testar ideias — mas nunca como
+            substituto de responsabilidade ou senso crítico.
+          </p>
+          <p class="section-highlight">
+            Meu objetivo é crescer como desenvolvedor e, com o tempo, atuar cada vez
+            mais próximo de produto, conectando tecnologia, negócio e pessoas.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <div data-include="footer" data-src="flooter.html"></div>
+  <footer id="site-footer" data-include="footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
-  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

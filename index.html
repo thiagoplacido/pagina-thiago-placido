@@ -9,7 +9,7 @@
   <!-- Título controlado pelo i18n -->
 
   <title>Thiago Placido • DEV</title>
-  <meta name="description" content="Portfólio de Thiago Placido: fábrica de ideias para transformar tecnologia e IA em soluções reais." />
+  <meta name="description" content="Portifólio de Thiago Placido: fábrica de ideias para transformar tecnologia e IA em soluções reais." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,50 +21,40 @@
   <!-- CSS global + CSS específico da Home -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/modals.css">
-  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
   <link rel="stylesheet" href="assets/css/home.css" />
 </head>
-<body id="topo">
+<body class="bg-gradient" id="topo">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- HEADER INJETADO -->
-  <div data-include="header" data-src="header.html"></div>
+  <header id="site-header" data-include="header.html"></header>
 
-  <main id="conteudo" class="apresentacao apresentacao--home">
-    <!-- Título fixo no canto (definido pelo CSS global) -->
-    <h1 class="apresentacao__conteudo__titulo">Início</h1>
-
-    <!-- Bloco de texto do hero -->
-    <div class="apresentacao__conteudo">
-      <p class="apresentacao__conteudo__subtitulo">Eleve seu negócio digital a outro nível com a minha fábrica de ideias.</p>
-      <p class="apresentacao__conteudo__texto">Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação. Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas, eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio crescente em tecnologia e IA, estou pronto para colaborar.</p>
-
-      <div class="home-cta">
-        <a href="portifolio.html" class="home-cta__btn home-cta__btn--primary">Projetos</a>
-        <a href="contato.html" class="home-cta__btn home-cta__btn--secondary">Contato</a>
+  <main id="conteudo">
+    <div class="container">
+      <div class="apresentacao--home">
+        <div class="apresentacao__conteudo">
+          <h1 class="apresentacao__conteudo__titulo">Início</h1>
+          <p class="apresentacao__conteudo__subtitulo">Eleve seu negócio digital a outro nível com a minha fábrica de ideias.</p>
+          <p class="apresentacao__conteudo__texto">Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação. Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas, eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio crescente em tecnologia e IA, estou pronto para colaborar.</p>
+          <div class="home-cta">
+            <a href="portifolio.html" class="btn btn-primary">Projetos</a>
+            <a href="contato.html" class="btn btn-outline">Contato</a>
+          </div>
+        </div>
+        <div class="apresentacao__imagem">
+          <img src="assets/img/logo.png" alt="Logotipo Thiago Placido DEV" loading="eager" decoding="async" />
+        </div>
       </div>
-    </div>
-
-    <div class="apresentacao__imagem">
-      <img
-        src="assets/img/logo.png"
-        alt="Logotipo Thiago Placido DEV"
-        loading="eager"
-        decoding="async"
-      />
     </div>
   </main>
 
-  <!-- FOOTER INJETADO -->
-  <div data-include="footer" data-src="flooter.html"></div>
+  <footer id="site-footer" data-include="footer.html"></footer>
 
-  <!-- ORDEM DOS SCRIPTS É IMPORTANTE -->
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/script.js"></script>
 </body>

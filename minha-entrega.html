@@ -1,46 +1,70 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta data-i18n-title="pageTitleDelivery" />
-  <title>Minha Entrega</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Entrega – Thiago Placido • DEV</title>
 
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/modals.css">
   <link rel="stylesheet" href="assets/css/cards.css">
-  <link rel="stylesheet" href="assets/css/minha-entrega.css" />
-  <link rel="icon" href="/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/entrega.css" />
 </head>
-<body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
 
-  <div data-include="header" data-src="header.html"></div>
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Portifólio &amp; Fábrica de Ideias</p>
+        <h1 class="page-title">Minha Entrega</h1>
+        <p class="page-subtitle">
+          Aqui eu resumo como trabalho na prática e de que forma posso ajudar seu time
+          ou o seu negócio, mesmo estando em início de carreira na área tech.
+        </p>
+      </div>
+    </section>
 
-  <main id="conteudo" class="apresentacao">
-    <h1 class="apresentacao__conteudo__titulo">
-      <span data-i18n="deliveryTitle"></span>
-    </h1>
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text">
+          <h2 class="section-title">Como eu costumo trabalhar</h2>
+          <p>
+            Meu trabalho é guiado por clareza, organização e atenção aos detalhes.
+            Antes de escrever código, eu estruturo o que precisa ser feito: contexto,
+            objetivos, fluxos e prioridades. Isso reduz retrabalho e facilita a vida
+            de quem precisa decidir e de quem vai desenvolver.
+          </p>
 
-    <p class="apresentacao__conteudo__texto" data-i18n="deliveryIntro"></p>
+          <h3 class="section-subtitle">Tipos de entrega que posso apoiar</h3>
+          <ul>
+            <li>Desenvolvimento front-end de interfaces simples e bem estruturadas;</li>
+            <li>Criação de protótipos, fluxos de navegação e documentação de telas;</li>
+            <li>Automação de rotinas e organização de processos usando planilhas e IA;</li>
+            <li>Uso de IA para gerar alternativas, validar ideias e acelerar entregas;</li>
+            <li>Apoio na estruturação de requisitos, escopo inicial e visão de produto;</li>
+            <li>Participação em equipes ágeis com foco em aprendizado e impacto real.</li>
+          </ul>
 
-    <h2 class="entrega__subtitulo" data-i18n="deliverySectionsTitle"></h2>
-    <ul class="entrega__lista" data-i18n-list="deliverySectionsItems"></ul>
+          <p class="section-highlight">
+            Mais do que “só programar”, minha entrega é combinar visão prática de negócio,
+            organização e uso inteligente de IA para tirar ideias do papel com eficiência.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <div data-include="footer" data-src="flooter.html"></div>
+  <footer id="site-footer" data-include="footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

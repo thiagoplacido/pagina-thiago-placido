@@ -1,13 +1,10 @@
-/* ================================
-   FUNDO GLOBAL
-=================================== */
+/* ==========================
+   BACKGROUND & SEÇÕES
+   ========================== */
 
-body {
-  /* Fundo preto + overlay escuro + imagem com estrelas */
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)),
-    url("../img/fundo1.png");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+/* Fundo suave em algumas seções (ex: experiência, formação, contato) */
+.section-surface {
+  background: radial-gradient(circle at top left, rgba(248, 183, 29, 0.06), transparent 60%), #020308;
+  border-top: 1px solid rgba(248, 183, 29, 0.12);
+  border-bottom: 1px solid rgba(248, 183, 29, 0.12);
 }

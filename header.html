@@ -1,35 +1,29 @@
 <!-- /header.html (versão desktop + mobile) -->
-<header class="cabecalho">
-  <div class="cabecalho__container">
+<div class="site-header__inner container">
 
-    <!-- Título / Logo -->
-    <a href="index.html" class="cabecalho__titulo">
-      Thiago Placido • DEV
+  <!-- Marca/Logo à esquerda -->
+  <div class="brand">
+    <a href="index.html" class="brand__link">
+      <span class="brand__title">THIAGO PLACIDO <span class="brand__dot">•</span> DEV</span>
+      <span class="brand__subtitle">Portifólio &amp; Fábrica de Ideias</span>
     </a>
-
-    <!-- Botão hamburguer (somente mobile) -->
-    <button
-      class="cabecalho__menu-hamburguer"
-      aria-label="Abrir menu"
-      aria-expanded="false"
-      aria-controls="menu-navegacao">
-      <img src="assets/img/menu-ham.png" alt="Menu" />
-    </button>
-
-    <!-- MENU -->
-    <nav id="menu-navegacao" class="cabecalho__menu" aria-label="Menu principal">
-
-      <a class="cabecalho__menu__link" href="index.html">Início</a>
-      <a class="cabecalho__menu__link" href="portifolio.html">Projetos</a>
-      <a class="cabecalho__menu__link" href="fabrica.html">Fábrica de Ideias</a>
-      <a class="cabecalho__menu__link" href="skills.html">Habilidades</a>
-      <a class="cabecalho__menu__link" href="minha-entrega.html">Minha Entrega</a>
-      <a class="cabecalho__menu__link" href="formacao.html">Formação</a>
-      <a class="cabecalho__menu__link" href="exp.html">Experiência</a>
-      <a class="cabecalho__menu__link" href="sobre.html">Sobre</a>
-      <a class="cabecalho__menu__link" href="contato.html">Contato</a>
-
-    </nav>
-
   </div>
-</header>
+
+  <!-- Navegação principal à direita -->
+  <nav class="site-nav" aria-label="Navegação principal">
+    <a class="site-nav__link" href="index.html">Início</a>
+    <a class="site-nav__link" href="portifolio.html">Projetos</a>
+    <a class="site-nav__link" href="fabrica.html">Fábrica de Ideias</a>
+    <a class="site-nav__link" href="skills.html">Habilidades</a>
+    <a class="site-nav__link" href="minha-entrega.html">Minha Entrega</a>
+    <a class="site-nav__link" href="formacao.html">Formação</a>
+    <a class="site-nav__link" href="exp.html">Experiência</a>
+    <a class="site-nav__link" href="sobre.html">Sobre</a>
+    <a class="site-nav__link" href="contato.html">Contato</a>
+  </nav>
+
+  <!-- Botão hamburguer (mobile) -->
+  <button class="site-header__menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
+    <img src="assets/img/menu-ham.png" alt="Menu" />
+  </button>
+</div>

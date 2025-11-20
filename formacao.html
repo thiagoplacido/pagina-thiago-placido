@@ -1,45 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta data-i18n-title="pageTitleEducation" />
-  <title>Formação</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formação – Thiago Placido • DEV</title>
 
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/modals.css">
   <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/formacao.css" />
-  <link rel="icon" href="/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
 </head>
-<body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
 
-  <div data-include="header" data-src="header.html"></div>
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Linha de Aprendizado</p>
+        <h1 class="page-title">Formação</h1>
+        <p class="page-subtitle">
+          Minha formação combina graduação em Engenharia de Software com estudos práticos
+          focados em desenvolvimento, UX e uso de IA como ferramenta.
+        </p>
+      </div>
+    </section>
 
-  <main id="conteudo" class="apresentacao">
-    <h1 class="apresentacao__conteudo__titulo">
-      <span data-i18n="educationTitle"></span>
-    </h1>
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text education-grid">
+          <div class="education-block">
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <ul>
+              <li>
+                <strong>Engenharia de Software – Descomplica</strong><br />
+                Graduação EAD em andamento, com foco em fundamentos de engenharia,
+                arquitetura de software e boas práticas de desenvolvimento.
+              </li>
+            </ul>
+          </div>
 
-    <p class="apresentacao__conteudo__texto" data-i18n="educationIntro"></p>
-
-    <ul class="formacao__lista" data-i18n-list="educationItems"></ul>
+          <div class="education-block">
+            <h2 class="section-title">Cursos e Estudos Práticos</h2>
+            <ul>
+              <li>Estudos contínuos de HTML, CSS e responsividade aplicados em projetos reais;</li>
+              <li>Prática de organização de portifólio, UX básico e escrita de documentação;</li>
+              <li>Uso de plataformas de ensino online para aprofundar lógica, Git e ferramentas de produtividade;</li>
+              <li>Exploração de IA generativa para apoiar estudos, experimentos e protótipos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <div data-include="footer" data-src="flooter.html"></div>
+  <footer id="site-footer" data-include="footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

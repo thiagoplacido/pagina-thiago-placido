@@ -1,197 +1,139 @@
-<!-- /portifolio.html -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portifólio – Thiago Placido • DEV</title>
 
-  <meta data-i18n-title="pageTitlePortfolio" />
-  <title>Portfólio — Thiago Placido</title>
-
-  <meta name="description" content="Projetos selecionados: landing pages, sistemas Alpha e estudo de arquitetura." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Portfólio — Thiago Placido" />
-  <meta property="og:description" content="Estudos e entregas com foco em eficiência e clareza." />
-  <meta property="og:image" content="/assets/portfolio/2.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- CSS global + CSS específico da página -->
-  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <!-- CSS base / design system -->
   <link rel="stylesheet" href="assets/css/reset.css" />
-  <link rel="stylesheet" href="assets/css/background.css" />
-  <link rel="stylesheet" href="assets/css/layout.css" />
-  <link rel="stylesheet" href="assets/css/header.css" />
-  <link rel="stylesheet" href="assets/css/menu.css" />
-  <link rel="stylesheet" href="assets/css/footer.css" />
-  <link rel="stylesheet" href="assets/css/modals.css" />
-  <link rel="stylesheet" href="assets/css/cards.css" />
-  <link rel="stylesheet" href="assets/css/portifolio.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
-<body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- Header injetado via includes.js -->
-  <div data-include="header" data-src="header.html"></div>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
 
-  <main id="conteudo" class="apresentacao apresentacao--portifolio">
-    <h1 class="apresentacao__conteudo__titulo">
-      <span data-i18n="portfolioTitle"></span>
-    </h1>
+  <main class="page container page-section">
+    <header class="portifolio-header">
+      <h1 class="section-title">Portifólio / Cases</h1>
+      <p class="section-subtitle">
+        Projetos que conectam design simples, código limpo e uso inteligente de IA.  
+        Meu foco é entregar clareza, organização e impacto — mesmo em início de carreira tech.
+      </p>
+    </header>
 
-    <div class="portfolio-container">
-      <!-- Projeto Thalles Classic -->
-      <article class="portfolio-item">
-        <div class="portfolio-item__imagem">
-          <a href="https://thallesclassic.vercel.app/" target="_blank" rel="noopener noreferrer">
-            <img
-              src="assets/portfolio/2.png"
-              alt="Preview do projeto Thalles Classic"
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
-          <button
-            class="portfolio-item__btn-modal"
-            data-modal-target="modal-thalles"
-            data-i18n="thallesModalBtn">
-          </button>
+    <section class="portifolio-list">
+
+      <!-- CARD 1 – THALLES CLASSIC -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/2.png" alt="Thumbnail do site Thalles Classic" />
         </div>
 
-        <div class="portfolio-item__conteudo">
-          <h2 class="portfolio-item__titulo" data-i18n="thallesTitle"></h2>
-          <a
-            href="https://thallesclassic.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="portfolio-item__url">
-            <em>https://thallesclassic.vercel.app</em>
-          </a>
-          <p class="portfolio-item__data">09/11/2025</p>
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Identidade digital • Landing page</p>
+            <h2 class="project-card__title">Thalles Classic</h2>
+            <p class="project-card__meta">
+              Projeto real • Lançado em 09/11/2025 • Presença profissional para atleta
+            </p>
+          </header>
 
-          <div class="portfolio-item__descricao">
-            <p data-i18n="thallesDesc1"></p>
-            <p data-i18n="thallesDesc2"></p>
-            <p data-i18n="thallesDesc3"></p>
+          <p>
+            Landing page criada para apresentar a trajetória esportiva do atleta
+            Thalles Reis, com foco em impacto visual, fotos fortes e narrativa curta.
+            Trabalhei estrutura, copy simples e fluxo visual direto.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">Responsivo</span>
+            <span class="pill">Marca Pessoal</span>
+          </div>
+
+          <div class="project-card__actions">
+            <a class="btn btn-outline btn-sm" href="https://thallesclassic.vercel.app" target="_blank">Visitar projeto</a>
           </div>
         </div>
       </article>
 
-      <!-- Projeto Alpha 1 -->
-      <article class="portfolio-item">
-        <div class="portfolio-item__imagem">
-          <img
-            src="assets/portfolio/Loading.gif"
-            alt="Desenvolvimento do projeto Alpha 1"
-            loading="lazy"
-            decoding="async"
-          />
-          <button
-            class="portfolio-item__btn-modal"
-            data-modal-target="modal-alpha1"
-            data-i18n="alpha1ModalBtn">
-          </button>
+      <!-- CARD 2 – PORTIFÓLIO PESSOAL -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/3.png" alt="Preview do site pessoal de Thiago Placido" />
         </div>
 
-        <div class="portfolio-item__conteudo">
-          <h2 class="portfolio-item__titulo" data-i18n="alpha1Title"></h2>
-          <div class="portfolio-item__descricao">
-            <p data-i18n="alpha1Desc1"></p>
-            <p data-i18n="alpha1Desc2"></p>
-            <p data-i18n="alpha1Desc3"></p>
-            <p data-i18n="alpha1Desc4"></p>
-            <ul class="portfolio-item__tech-list" data-i18n-list="alpha1TechItems"></ul>
-            <p data-i18n="alpha1Desc5"></p>
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Site currículo • Versão Premium</p>
+            <h2 class="project-card__title">Portifólio Pessoal</h2>
+            <p class="project-card__meta">
+              Projeto autoral • Iteração contínua • Focado em empregabilidade
+            </p>
+          </header>
+
+          <p>
+            Meu site atual funciona como um laboratório de aprendizado e evolução.
+            Aqui testo layouts, componentes, organização narrativa e boas práticas
+            para recrutadores e freela.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">UX</span>
+            <span class="pill">IA no fluxo</span>
+          </div>
+
+          <div class="project-card__actions">
+            <a class="btn btn-outline btn-sm" href="index.html">Abrir site</a>
           </div>
         </div>
       </article>
 
-      <!-- Projeto Alpha 2 -->
-      <article class="portfolio-item">
-        <div class="portfolio-item__imagem">
-          <img
-            src="assets/portfolio/Loading.gif"
-            alt="Desenvolvimento do projeto Alpha 2"
-            loading="lazy"
-            decoding="async"
-          />
-          <button
-            class="portfolio-item__btn-modal"
-            data-modal-target="modal-alpha2"
-            data-i18n="alpha2ModalBtn">
-          </button>
+      <!-- CARD 3 – PROJETO FUTURO -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/Loading.gif" alt="Imagem de projeto em desenvolvimento" />
         </div>
 
-        <div class="portfolio-item__conteudo">
-          <h2 class="portfolio-item__titulo" data-i18n="alpha2Title"></h2>
-          <div class="portfolio-item__descricao">
-            <p data-i18n="alpha2Desc1"></p>
-            <p data-i18n="alpha2Desc2"></p>
-            <p data-i18n="alpha2Desc3"></p>
-            <p data-i18n="alpha2Desc4"></p>
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Em desenvolvimento</p>
+            <h2 class="project-card__title">Próximo Case</h2>
+            <p class="project-card__meta">
+              Slot para app em Kotlin, automação ou ferramenta interna.
+            </p>
+          </header>
+
+          <p>
+            Este slot reserva espaço para seu próximo case real, documentado desde o problema
+            até a solução. Ideal para mostrar evolução contínua.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">Kotlin</span>
+            <span class="pill">Automação</span>
+            <span class="pill">Backlog</span>
           </div>
         </div>
       </article>
-    </div>
+
+    </section>
   </main>
 
-  <!-- Modal Alpha 2 -->
-  <div id="modal-alpha2" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Fechar modal">&times;</button>
-      <h3 class="modal-title" data-i18n="alpha2ModalTitle"></h3>
-      <div class="modal-body">
-        <p data-i18n="alpha2ModalDesc1"></p>
-        <p data-i18n="alpha2ModalDesc2"></p>
-        <ul data-i18n-list="alpha2ModalItems"></ul>
-        <p data-i18n="alpha2ModalDesc3"></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Alpha 1 -->
-  <div id="modal-alpha1" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Fechar modal">&times;</button>
-      <h3 class="modal-title" data-i18n="alpha1ModalTitle"></h3>
-      <div class="modal-body">
-        <p data-i18n="alpha1ModalDesc1"></p>
-        <p data-i18n="alpha1ModalDesc2"></p>
-        <ul data-i18n-list="alpha1ModalItems"></ul>
-        <p data-i18n="alpha1ModalDesc3"></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Thalles -->
-  <div id="modal-thalles" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Fechar modal">&times;</button>
-      <h3 class="modal-title" data-i18n="thallesModalTitle"></h3>
-      <div class="modal-body">
-        <p data-i18n="thallesModalDesc1"></p>
-        <p data-i18n="thallesModalDesc2"></p>
-        <ul data-i18n-list="thallesModalItems"></ul>
-        <p data-i18n="thallesModalDesc3"></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer injetado via includes.js -->
-  <div data-include="footer" data-src="flooter.html"></div>
+  <footer id="site-footer" data-include="footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
-<!-- /portifolio.html -->

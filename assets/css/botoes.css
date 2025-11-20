@@ -1,0 +1,67 @@
+/* ==========================
+   BOTÕES
+   ========================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* principal */
+.btn-primary {
+  background: linear-gradient(135deg, #f8b71d, #fdd765);
+  color: #171309;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 18px rgba(248, 183, 29, 0.6);
+}
+
+/* contornado */
+.btn-outline {
+  background: transparent;
+  border-color: rgba(248, 183, 29, 0.65);
+  color: var(--cor-texto);
+}
+
+.btn-outline:hover {
+  background: rgba(248, 183, 29, 0.08);
+}
+
+/* fantasma */
+.btn-ghost {
+  background: rgba(12, 8, 0, 0.85);
+  border-color: rgba(248, 183, 29, 0.22);
+  color: var(--cor-texto-secundario);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(248, 183, 29, 0.45);
+  color: var(--cor-texto);
+}
+
+/* botão pequeno (chips, etc.) */
+.btn-sm {
+  padding: 5px 14px;
+  font-size: 0.78rem;
+}

@@ -2,95 +2,71 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato – Thiago Placido • DEV</title>
 
-  <title>Contato • Thiago Placido • DEV</title>
-  <meta name="description" content="Canais oficiais de contato de Thiago Placido." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
-
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- CSS GLOBAL -->
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/modals.css">
   <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/contato.css" />
 </head>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
 
-<body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Canais Oficiais</p>
+        <h1 class="page-title">Contato</h1>
+        <p class="page-subtitle">
+          Se você busca alguém dedicado, organizado e em evolução constante,
+          aqui estão os canais para a gente conversar.
+        </p>
+      </div>
+    </section>
 
-  <!-- HEADER -->
-  <div data-include="header" data-src="header.html"></div>
-
-  <main id="conteudo" class="apresentacao">
-    <section class="apresentacao__conteudo">
-
-      <h2 class="contato__subtitulo titulo-destaque">
-        Canais oficiais de contato
-      </h2>
-
-      <p class="apresentacao__conteudo__texto" style="margin-bottom: 32px;">
-        Entre em contato pelos canais abaixo. Responderei assim que possível.
-      </p>
-
-      <div class="apresentacao__links__navegacao">
-
-        <a class="apresentacao__links__link"
-           href="https://www.linkedin.com/in/thiagoplacido/"
-           target="_blank" rel="noopener">
-          <img class="apresentacao__links__icone"
-               src="assets/img/Icon/linkedin.png"
-               alt="Ícone do LinkedIn" width="24" height="24" />
-          <span>LinkedIn</span>
-        </a>
-
-        <a class="apresentacao__links__link"
-           href="https://github.com/thiagoplacido"
-           target="_blank" rel="noopener">
-          <img class="apresentacao__links__icone"
-               src="assets/img/Icon/github.png"
-               alt="Ícone do GitHub" width="24" height="24" />
-          <span>GitHub</span>
-        </a>
-
-        <a class="apresentacao__links__link"
-           href="mailto:thiago_placido@hotmail.com">
-          <img class="apresentacao__links__icone"
-               src="assets/img/Icon/Email.png"
-               alt="Ícone de Email" width="24" height="24" />
-          <span>Email</span>
-        </a>
-
-        <a class="apresentacao__links__link"
-           href="https://wa.me/5521976987126"
-           target="_blank" rel="noopener">
-          <img class="apresentacao__links__icone"
-               src="assets/img/Icon/Whatsapp.png"
-               alt="Ícone do WhatsApp" width="24" height="24" />
-          <span>WhatsApp</span>
-        </a>
-
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text contact-list">
+          <ul>
+            <li>
+              <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                Perfil profissional para conexões e oportunidades
+              </a>
+            </li>
+            <li>
+              <strong>GitHub:</strong>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                Repositórios e projetos em desenvolvimento
+              </a>
+            </li>
+            <li>
+              <strong>E-mail:</strong>
+              <a href="mailto:thiago_placido@hotmail.com">
+                thiago_placido@hotmail.com
+              </a>
+            </li>
+            <li>
+              <strong>WhatsApp:</strong>
+              Canal direto para conversas rápidas sobre projetos, freelas ou dúvidas.
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <div data-include="footer" data-src="flooter.html"></div>
+  <footer id="site-footer" data-include="footer.html"></footer>
 
-  <!-- JS -->
   <script src="assets/js/includes.js"></script>
-  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

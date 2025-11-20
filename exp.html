@@ -1,207 +1,89 @@
-<!-- /exp.html (versão sem i18n) -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiência – Thiago Placido • DEV</title>
 
-  <title>Experiência Profissional • Thiago Placido</title>
-  <meta name="description" content="Resumo da experiência profissional de Thiago Placido e detalhes de atuação." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
-
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- CSS GLOBAL -->
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/background.css">
   <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/modals.css">
   <link rel="stylesheet" href="assets/css/cards.css">
-  <link rel="stylesheet" href="assets/css/exp.css" />
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/experiencia.css" />
 </head>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
 
-<body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Trajetória Profissional</p>
+        <h1 class="page-title">Experiência</h1>
+        <p class="page-subtitle">
+          Minha experiência anterior, fora da área tech, é o que sustenta minha forma
+          de trabalhar hoje: organizada, responsável e focada em resultado.
+        </p>
+      </div>
+    </section>
 
-  <!-- HEADER -->
-  <div data-include="header" data-src="header.html"></div>
+    <section class="page-section">
+      <div class="container experiencia-content">
+        <div class="experiencia-list">
+          <article class="experiencia-item">
+            <h2 class="section-title">Consultoria Digital e Desenvolvimento</h2>
+            <p class="experiencia-periodo">2024 – Atual</p>
+            <p>
+              Atuação como consultor independente em desenvolvimento de interfaces e
+              organização de ideias para pequenos projetos digitais.
+            </p>
+            <ul>
+              <li>Criação de estruturas de sites e landing pages;</li>
+              <li>Organização de conteúdo e narrativa visual para portifólio;</li>
+              <li>Uso de IA para rascunhar, validar e documentar soluções.</li>
+            </ul>
+          </article>
 
-  <main id="conteudo" class="apresentacao">
-    <h1 class="apresentacao__conteudo__titulo">
-      Experiência Profissional
-    </h1>
+          <article class="experiencia-item">
+            <h2 class="section-title">Secretário Administrativo — Curumim Psicomotricidade</h2>
+            <p class="experiencia-periodo">2022 – 2025</p>
+            <p>
+              Atuação administrativa e acadêmica, organizando informações, rotinas e
+              processos internos.
+            </p>
+            <ul>
+              <li>Organização de dados, documentos e relatórios;</li>
+              <li>Atendimento e comunicação com alunos e responsáveis;</li>
+              <li>Suporte à direção em rotinas e decisões do dia a dia.</li>
+            </ul>
+          </article>
 
-    <div class="apresentacao__experiencia-container">
-
-      <!-- ******************************* -->
-      <!-- ITEM 1 - FREELANCER / CONSULTORIA -->
-      <!-- ******************************* -->
-      <div class="experiencia__item">
-        <img class="experiencia__imagem"
-             src="assets/img/freelancer.png"
-             alt="Freelancer"
-             width="100" height="100"
-             loading="lazy" decoding="async" />
-
-        <div class="experiencia__descricao">
-
-          <div class="experiencia__info">
-            <h2 class="experiencia__subtitulo">Consultoria Digital e Desenvolvimento</h2>
-            <em class="experiencia__data">2024 – Atual</em>
-          </div>
-
-          <button class="experiencia__btn-detalhes"
-                  data-modal-target="exp-modal"
-                  data-exp-titulo="Consultoria Digital e Desenvolvimento"
-                  data-exp-list="
-                    • Criação de landing pages e identidade visual.  
-                    • Organização de fluxos, telas e requisitos para sistemas.  
-                    • Produção de conteúdo para redes e documentação técnica.  
-                    • Uso de IA para acelerar brainstorm, prototipação e revisão.  
-                    • Suporte a pequenos negócios com soluções digitais acessíveis.">
-            Detalhes
-          </button>
-
+          <article class="experiencia-item">
+            <h2 class="section-title">Assistente Financeiro — 3A Distribuidora</h2>
+            <p class="experiencia-periodo">2013 – 2017</p>
+            <p>
+              Atuação na área financeira, lidando com contas a pagar e receber, fluxo de caixa
+              e suporte a operações de importação.
+            </p>
+            <ul>
+              <li>Controle financeiro e conciliação bancária;</li>
+              <li>Organização de informações para tomada de decisão;</li>
+              <li>Visão prática de negócio e responsabilidade com resultados.</li>
+            </ul>
+          </article>
         </div>
       </div>
-
-      <!-- ******************************* -->
-      <!-- ITEM 2 - CURUMIM -->
-      <!-- ******************************* -->
-      <div class="experiencia__item">
-        <img class="experiencia__imagem"
-             src="assets/img/curumim.png"
-             alt="Curumim Psicomotricidade"
-             width="100" height="100"
-             loading="lazy" decoding="async" />
-
-        <div class="experiencia__descricao">
-
-          <div class="experiencia__info">
-            <h2 class="experiencia__subtitulo">Secretário Administrativo — Curumim Psicomotricidade</h2>
-            <em class="experiencia__data">2022 – 2025</em>
-          </div>
-
-          <button class="experiencia__btn-detalhes"
-                  data-modal-target="exp-modal"
-                  data-exp-titulo="Secretário Administrativo — Curumim Psicomotricidade"
-                  data-exp-list="
-                    • Atendimento a pais, alunos e corpo docente.  
-                    • Organização de documentos, contratos, matrículas e plataformas acadêmicas.  
-                    • Controle financeiro: boletos, pagamentos, relatórios e conciliações.  
-                    • Suporte à direção, professores e organização de eventos.  
-                    • Comunicação e gestão de processos acadêmicos.">
-            Detalhes
-          </button>
-
-        </div>
-      </div>
-
-      <!-- ******************************* -->
-      <!-- ITEM 3 - 3A DISTRIBUIDORA -->
-      <!-- ******************************* -->
-      <div class="experiencia__item">
-        <img class="experiencia__imagem"
-             src="assets/img/3ADistribuidora.png"
-             alt="3A Distribuidora"
-             width="100" height="100"
-             loading="lazy" decoding="async" />
-
-        <div class="experiencia__descricao">
-
-          <div class="experiencia__info">
-            <h2 class="experiencia__subtitulo">Assistente Financeiro — 3A Distribuidora</h2>
-            <em class="experiencia__data">2013 – 2017</em>
-          </div>
-
-          <button class="experiencia__btn-detalhes"
-                  data-modal-target="exp-modal"
-                  data-exp-titulo="Assistente Financeiro — 3A Distribuidora"
-                  data-exp-list="
-                    • Rotinas de contas a pagar e receber.  
-                    • Conciliação bancária, fluxo de caixa e relatórios financeiros.  
-                    • Importação: documentos, câmbio, impostos, transportadoras.  
-                    • Apoio ao setor de compras e logística.  
-                    • Atendimento, documentação e suporte administrativo.">
-            Detalhes
-          </button>
-
-        </div>
-      </div>
-
-    </div>
+    </section>
   </main>
 
-  <!-- **************** -->
-  <!-- MODAL ÚNICO -->
-  <!-- **************** -->
-  <div id="exp-modal" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Fechar modal">&times;</button>
+  <footer id="site-footer" data-include="footer.html"></footer>
 
-      <h2 id="exp-modal-title" class="modal-title"></h2>
-      <div id="exp-modal-body" class="modal-body"></div>
-
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div data-include="footer" data-src="flooter.html"></div>
-
-  <!-- JS -->
   <script src="assets/js/includes.js"></script>
-
-  <script>
-    // Sistema simples de modal sem i18n
-    document.addEventListener("click", function (e) {
-      const btn = e.target.closest("[data-modal-target]");
-      if (!btn) return;
-
-      const modal = document.getElementById("exp-modal");
-      const titulo = btn.getAttribute("data-exp-titulo");
-      const lista = btn.getAttribute("data-exp-list");
-
-      document.getElementById("exp-modal-title").textContent = titulo;
-      document.getElementById("exp-modal-body").innerHTML =
-        lista.split("•")
-             .filter(i => i.trim() !== "")
-             .map(i => `<p>• ${i.trim()}</p>`)
-             .join("");
-
-      modal.classList.add("visivel");
-      modal.style.display = "flex";
-      document.body.classList.add("no-scroll");
-    });
-
-    document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("modal-close") ||
-          e.target.classList.contains("modal")) {
-
-        const modal = document.getElementById("exp-modal");
-        modal.classList.remove("visivel");
-        modal.style.display = "none";
-        document.body.classList.remove("no-scroll");
-      }
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        const modal = document.getElementById("exp-modal");
-        modal.classList.remove("visivel");
-        modal.style.display = "none";
-        document.body.classList.remove("no-scroll");
-      }
-    });
-  </script>
-
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

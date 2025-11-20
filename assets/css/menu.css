@@ -1,96 +1,59 @@
-/* ================================
-   MENU LATERAL / HAMBÚRGUER
-=================================== */
+/* ==========================
+   MENU DE NAVEGAÇÃO
+   ========================== */
 
-.cabecalho__menu-hamburguer {
-  display: block;
-  background: none;
-  border: 0;
-  padding: var(--espacamento-xs);
-  cursor: pointer;
-  z-index: 2001;
-}
-.cabecalho__menu-hamburguer img {
-  width: 32px;
-  height: 32px;
-  transition: transform 0.3s ease;
-}
-.cabecalho__menu-hamburguer[aria-expanded="true"] img {
-  transform: rotate(90deg);
-}
-
-/* Painel de navegação lateral */
-.cabecalho__menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 300px;
-  height: 100vh;
-  background-color: rgba(5, 5, 10, 0.98);
-  border-left: 2px solid var(--cor-primaria);
-  display: none;
-  flex-direction: column;
-  justify-content: center;
+.site-nav {
+  display: flex;
   align-items: center;
-  gap: var(--espacamento-m, 16px);
-  padding: 80px 24px 40px;
-  z-index: 900;
-  box-shadow: -5px 0 18px rgba(0, 0, 0, 0.7);
-  transition: right 0.4s ease-in-out;
-}
-.cabecalho__menu.aberto {
-  right: 0;
-  display: flex;
+  gap: var(--space-4);
+  font-size: 0.9rem;
 }
 
-/* Links do menu */
-.cabecalho__menu__link {
-  font-family: var(--fonte-destaque);
-  font-size: 18px;
+.site-nav__link {
+  position: relative;
+  padding-block: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  color: var(--cor-texto-secundario);
+  transition: color var(--transition-fast);
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--cor-primaria);
+  transition: width var(--transition-fast);
+}
+
+.site-nav__link:hover {
   color: var(--cor-texto);
-  text-decoration: none;
-  padding: var(--espacamento-s) var(--espacamento-m);
-  width: 100%;
-  text-align: center;
-  transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
-}
-.cabecalho__menu__link:hover {
-  color: var(--cor-primaria);
-  background-color: rgba(248, 183, 29, 0.08);
-  transform: translateX(-4px);
-}
-.cabecalho__menu__link[aria-current="page"] {
-  color: var(--cor-primaria);
-  border-bottom: 1px solid var(--cor-primaria);
 }
 
-/* Seletor de idiomas */
-.cabecalho__idiomas {
-  display: flex;
-  gap: var(--espacamento-l);
-  margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid #333;
+.site-nav__link:hover::after,
+.site-nav__link.is-active::after {
   width: 100%;
-  justify-content: center;
-}
-.cabecalho__idiomas__link img {
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-.cabecalho__idiomas__link:hover img {
-  transform: scale(1.12);
-  filter: drop-shadow(0 0 6px rgba(248, 183, 29, 0.4));
-}
-.cabecalho__idiomas__link[aria-pressed="true"] {
-  padding-bottom: var(--espacamento-m);
-  border-bottom: 2px solid var(--cor-primaria);
 }
 
-/* Em telas maiores, dá pra futuramente transformar em menu superior
-   se você quiser – por enquanto fica igual. */
-@media (min-width: 960px) {
-  .cabecalho__menu-hamburguer img {
-    width: 40px;
-    height: 40px;
+.site-nav__link.is-active {
+  color: var(--cor-primaria-soft);
+}
+
+/* mobile – por enquanto, só some o menu */
+@media (max-width: 960px) {
+  .site-nav {
+    gap: var(--space-3);
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-nav {
+    display: none;
   }
 }

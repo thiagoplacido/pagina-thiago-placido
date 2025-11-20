@@ -1,0 +1,21 @@
+/* ==========================
+   FORMAÇÃO
+   ========================== */
+
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  max-width: 1000px;
+}
+
+.education-block ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.education-block li {
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--cor-borda-suave);
+}
+

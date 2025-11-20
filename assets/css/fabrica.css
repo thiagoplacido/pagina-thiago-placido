@@ -1,9 +1,12 @@
-.apresentacao__conteudo__texto:first-of-type {
-  font-size: 20px;
-  font-weight: 600;
+/* ==========================
+   FÁBRICA DE IDEIAS
+   ========================== */
+
+.section-highlight {
+  padding: var(--space-3);
+  border-left: 3px solid var(--cor-primaria);
+  background: rgba(248, 183, 29, 0.05);
+  color: var(--cor-texto);
+  font-size: 1.05rem;
 }
-.apresentacao__conteudo__lista li::before {
-  content: "▹";
-  margin-right: 8px;
-  color: var(--cor-primaria);
-}
+

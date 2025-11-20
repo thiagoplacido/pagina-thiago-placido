@@ -1,121 +1,42 @@
-/* ================================
-   CARDS / PORTFÓLIO
-=================================== */
+/* ==========================
+   CARDS & PILLS
+   ========================== */
 
-.portfolio-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--espacamento-xxl);
-  width: 100%;
+.card {
+  border-radius: var(--radius-3);
+  border: 1px solid var(--cor-borda-suave);
+  background:
+    radial-gradient(circle at top left, rgba(248, 183, 29, 0.09), transparent 55%),
+    var(--cor-fundo-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-4);
 }
 
-/* Cada projeto */
-.portfolio-item {
-  display: flex;
-  flex-direction: column;        /* mobile first */
-  gap: var(--espacamento-l);
-  padding: var(--espacamento-l);
-  border-radius: var(--raio-borda);
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 0 1px rgba(248, 183, 29, 0.15);
+/* Versão mais compacta (ex: experiências) */
+.card--compact {
+  padding: var(--space-3);
 }
 
-/* Imagem / thumb */
-.portfolio-item__imagem {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--raio-borda);
-  box-shadow: var(--sombra-padrao);
-}
-
-.portfolio-item__imagem img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Botão "Mais informações" sobre a imagem (mobile: abaixo) */
-.portfolio-item__btn-modal {
-  margin-top: 8px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: 1px solid var(--cor-primaria);
-  background: rgba(0, 0, 0, 0.85);
-  color: var(--cor-primaria);
-  font-weight: 600;
-  font-size: 14px;
+/* Pill / tag */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  align-self: flex-start;
-}
-.portfolio-item__btn-modal:hover {
-  background: var(--cor-primaria);
-  color: #000;
+  border: 1px solid rgba(248, 183, 29, 0.35);
+  color: var(--cor-primaria-soft);
+  background: radial-gradient(circle at top left, rgba(248, 183, 29, 0.18), transparent 55%);
 }
 
-/* Conteúdo textual */
-.portfolio-item__conteudo {
-  width: 100%;
+/* Badge simples (ex: “Projeto real”, “Site currículo”) */
+.badge {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
 }
 
-.portfolio-item__titulo {
-  font-size: 22px;
-  font-family: var(--fonte-destaque);
-  color: var(--cor-primaria);
-  margin-bottom: var(--espacamento-s);
-}
-
-.portfolio-item__url {
-  font-size: 14px;
-  color: #7fb8ff;
-  text-decoration: underline;
-  word-break: break-all;
-  display: inline-block;
-  margin-bottom: var(--espacamento-xs);
-}
-
-.portfolio-item__data {
-  display: block;
-  font-size: 13px;
-  color: var(--cor-texto-secundario);
-  margin-bottom: var(--espacamento-m);
-}
-
-.portfolio-item__descricao p {
-  font-size: 16px;
-  margin-bottom: var(--espacamento-s);
-}
-
-/* Lista de tecnologias / tópicos */
-.portfolio-item__tech-list {
-  margin: var(--espacamento-s) 0;
-  padding-left: 18px;
-  font-size: 15px;
-}
-
-/* ====== RESPONSIVO ====== */
-
-@media (min-width: 900px) {
-  .portfolio-item {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .portfolio-item__imagem {
-    flex: 0 0 360px;
-  }
-
-  .portfolio-item__conteudo {
-    flex: 1;
-  }
-
-  /* Botão flutuando sobre a imagem no desktop (fica chique) */
-  .portfolio-item__btn-modal {
-    position: absolute;
-    inset-inline-start: 16px;
-    inset-block-end: 16px;
-    margin-top: 0;
-  }
+.badge strong {
+  color: var(--cor-primaria-soft);
 }

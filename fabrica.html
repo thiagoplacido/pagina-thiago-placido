@@ -1,87 +1,93 @@
-<!-- /fabrica.html (versão sem i18n) -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fábrica de Ideias – Thiago Placido • DEV</title>
 
-  <title>Fábrica de Ideias • Thiago Placido • DEV</title>
-  <meta name="description" content="Como organizo problemas, fluxos e requisitos antes do código — meu lado Product / Designer de Fluxos." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- CSS global -->
-  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <!-- CSS base / design system -->
   <link rel="stylesheet" href="assets/css/reset.css" />
-  <link rel="stylesheet" href="assets/css/background.css" />
-  <link rel="stylesheet" href="assets/css/layout.css" />
-  <link rel="stylesheet" href="assets/css/header.css" />
-  <link rel="stylesheet" href="assets/css/menu.css" />
-  <link rel="stylesheet" href="assets/css/flooter.css" />
-  <link rel="stylesheet" href="assets/css/modals.css" />
-  <link rel="stylesheet" href="assets/css/cards.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/fabrica.css" />
 </head>
 
-<body id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<body class="bg-gradient">
+  <!-- Cabeçalho carregado por includes.js -->
+  <header id="site-header" data-include="header.html"></header>
 
-  <!-- HEADER INJETADO -->
-  <div data-include="header" data-src="header.html"></div>
+  <main class="page">
+    <!-- HERO / INTRO DA PÁGINA -->
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Portifólio &amp; Fábrica de Ideias</p>
+        <h1 class="page-title">Fábrica de Ideias</h1>
+        <p class="page-subtitle">
+          Aqui compartilho como transformo ideias em estruturas claras:
+          fluxos, requisitos, protótipos e documentação. Minha experiência
+          pré-tech me ajuda a enxergar necessidades reais e criar soluções
+          eficientes antes da primeira linha de código.
+        </p>
+      </div>
+    </section>
 
-  <main id="conteudo" class="apresentacao apresentacao--coluna">
-    <section class="apresentacao__conteudo">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text">
+          <h2 class="section-title">Como atuo na fase de ideias</h2>
 
-      <h1 class="apresentacao__conteudo__titulo">
-        Fábrica de Ideias
-      </h1>
+          <p>
+            Em vez de sair escrevendo código sem direção, eu organizo o problema,
+            desenho caminhos possíveis e documento o que realmente importa.
+            Isso reduz retrabalho, dá segurança para quem decide e torna o
+            desenvolvimento muito mais objetivo.
+          </p>
 
-      <p class="apresentacao__conteudo__texto">
-        Aqui compartilho como transformo ideias em estruturas claras: fluxos, requisitos, protótipos e documentação.
-        Minha experiência pré-tech me ajuda a enxergar necessidades reais e criar soluções eficientes antes do código.
-      </p>
+          <ul>
+            <li>
+              Exploro o problema com visão analítica, entendendo contexto, restrições
+              e objetivos.
+            </li>
+            <li>
+              Mapeio jornadas de usuário e pontos de atrito do dia a dia, conectando
+              necessidades reais com a solução.
+            </li>
+            <li>
+              Desenho fluxos simples, que qualquer pessoa do time consegue entender
+              sem depender de jargões técnicos.
+            </li>
+            <li>
+              Rascunho telas, layouts e componentes principais antes da implementação,
+              alinhando expectativas de quem decide e de quem desenvolve.
+            </li>
+            <li>
+              Uso IA para acelerar brainstorm, benchmark e documentação, sempre
+              mantendo o olhar crítico humano e o foco no impacto.
+            </li>
+          </ul>
 
-      <p class="apresentacao__conteudo__texto">
-        Em vez de sair escrevendo código sem direção, gosto de organizar o problema, desenhar caminhos possíveis e
-        documentar o que importa. Isso reduz retrabalho, dá segurança para quem decide e torna o desenvolvimento muito
-        mais objetivo.
-      </p>
-
-      <h2 class="skills__subtitulo">
-        Como atuo na fase de ideias
-      </h2>
-
-      <ul class="apresentacao__conteudo__lista">
-        <li>Exploro o problema com visão analítica, entendendo contexto, restrições e objetivos.</li>
-        <li>Mapeio jornadas de usuário e pontos de atrito do dia a dia.</li>
-        <li>Desenho fluxos simples, que qualquer pessoa do time consegue entender.</li>
-        <li>Rascunho telas, layouts e componentes principais antes da implementação.</li>
-        <li>Uso IA para acelerar brainstorm, benchmark e documentação, mantendo sempre o olhar crítico humano.</li>
-      </ul>
-
-      <p class="apresentacao__conteudo__texto">
-        Essa combinação de visão de produto, organização e uso de IA me ajuda a fugir do padrão “iniciante que só copia código”.
-        Meu foco é pensar soluções que façam sentido para o negócio e que sejam viáveis para o time técnico implementar.
-      </p>
-
+          <p class="section-highlight">
+            Essa combinação de visão de produto, organização e uso de IA me
+            ajuda a fugir do padrão “iniciante que só copia código”. Meu foco
+            é pensar soluções que façam sentido para o negócio e que sejam
+            viáveis para o time técnico implementar.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- FOOTER INJETADO -->
-  <div data-include="footer" data-src="flooter.html"></div>
+  <!-- Rodapé carregado por includes.js -->
+  <footer id="site-footer" data-include="footer.html"></footer>
 
-  <!-- JS -->
   <script src="assets/js/includes.js"></script>
-  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

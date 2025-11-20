@@ -1,75 +1,69 @@
-/* ================================
-   CABEÇALHO (barra fixa)
-=================================== */
+/* ==========================
+   HEADER GLOBAL
+   ========================== */
 
-.cabecalho {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  width: 100%;
-  padding: var(--espacamento-s) 5%;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(248, 183, 29, 0.2);
-}
-
-.cabecalho__container {
-  max-width: var(--largura-max-conteudo);
-  margin: 0 auto;
+.site-header__inner {
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
+  gap: var(--space-4);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(248, 183, 29, 0.16);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
 }
-  /* Esconde o hambúrguer */
-  .cabecalho__menu-hamburguer {
-    display: none !important;
-  }
 
-  /* Menu vira horizontal */
-  .cabecalho__menu {
-    position: static;
-    display: flex !important;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    gap: var(--espacamento-l);
-    height: auto;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    width: auto;
-  }
+/* Marca */
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
 
-  /* Links do menu desktop */
-  .cabecalho__menu__link {
-    color: var(--cor-texto);
-    font-size: 16px;
-    padding: var(--espacamento-s) var(--espacamento-m);
-    border-bottom: 2px solid transparent;
-    transition: 0.25s ease;
-  }
+.brand__title {
+  font-family: var(--fonte-destaque);
+  font-size: 1rem;
+  color: var(--cor-texto);
+  letter-spacing: 0.12em;
+}
 
-  .cabecalho__menu__link:hover {
-    color: var(--cor-primaria);
-    border-bottom-color: var(--cor-primaria);
-  }
+.brand__dot {
+  color: var(--cor-primaria);
+}
 
-  /* Contêiner alinhado */
-  .cabecalho__container {
-    height: 64px;
-    display: flex;
-    justify-content: space-between;
+.brand__subtitle {
+  font-size: 0.7rem;
+  color: var(--cor-texto-secundario);
+  letter-spacing: 0.12em;
+  margin-top: 2px;
+}
+
+/* Botão menu mobile */
+.site-header__menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.site-header__menu-toggle img {
+  width: 28px;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
+}
+
+/* Ajuste fino desktop */
+@media (max-width: 960px) {
+  .site-header__menu-toggle {
+    display: block;
   }
-/* ================================
-   VERSÃO MOBILE (padrão)
-================================ */
-@media (max-width: 959px) {
-  .cabecalho__menu-hamburguer img {
-    width: 32px;
-    height: 32px;
-  }
+}
+
+/* Menu mobile ativado */
+.no-scroll {
+  overflow: hidden;
 }

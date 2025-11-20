@@ -1,0 +1,15 @@
+/* ==========================
+   HABILIDADES (SKILLS)
+   ========================== */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  max-width: 1000px;
+}
+
+.skills-block p {
+  margin-bottom: var(--space-3);
+}
+

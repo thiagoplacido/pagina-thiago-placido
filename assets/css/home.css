@@ -1,78 +1,56 @@
 /* HOME — Estilização da página inicial */
 
-.home-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 80px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
+.apresentacao--home {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: center;
+  min-height: calc(100vh - 72px - 50px); /* view height - header - footer */
+  padding-block: var(--space-5);
 }
 
-.home-text {
-    flex: 1;
+.apresentacao__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
-.home-title {
-    font-size: 3rem;
-    color: var(--gold);
-    font-weight: 800;
-    margin-bottom: 25px;
+.apresentacao__conteudo__titulo {
+  font-family: var(--fonte-destaque);
+  font-size: 1.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
 }
 
-.home-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.7;
-    max-width: 600px;
-    margin-bottom: 40px;
+.apresentacao__conteudo__subtitulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 28ch;
 }
 
-.home-buttons {
-    display: flex;
-    gap: 16px;
-    margin-top: 20px;
+.apresentacao__conteudo__texto {
+  font-size: 0.98rem;
+  color: var(--cor-texto-secundario);
+  max-width: 640px;
+  line-height: 1.6;
 }
 
-.btn-primary {
-    background: var(--gold);
-    color: #000;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: 0.3s ease;
+.home-cta {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
 }
 
-.btn-primary:hover {
-    background: #ffcc33;
+.apresentacao__imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn-secondary {
-    background: transparent;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    padding: 12px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 204, 51, 0.2);
-}
-
-.home-logo {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.home-logo img {
-    max-width: 420px;
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 22px #00000088);
+.apresentacao__imagem img {
+  max-width: 450px;
+  width: 100%;
+  filter: drop-shadow(0 0 32px rgba(0, 0, 0, 0.5));
 }

@@ -1,0 +1,11 @@
+/* ==========================
+   SOBRE
+   ========================== */
+
+.section-highlight {
+  padding: var(--space-3);
+  border-left: 3px solid var(--cor-primaria);
+  background: rgba(248, 183, 29, 0.05);
+  color: var(--cor-texto);
+  font-size: 1.05rem;
+}

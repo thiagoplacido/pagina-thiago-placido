@@ -1,0 +1,1931 @@
+
+################################################
+ARQUIVO: assets/css/background.css
+################################################
+
+/* ==========================
+   BACKGROUND & SEÇÕES
+   ========================== */
+
+/* Fundo suave em algumas seções (ex: experiência, formação, contato) */
+.section-surface {
+  background: radial-gradient(circle at top left, rgba(248, 183, 29, 0.06), transparent 60%), #020308;
+  border-top: 1px solid rgba(248, 183, 29, 0.12);
+  border-bottom: 1px solid rgba(248, 183, 29, 0.12);
+}
+
+
+
+################################################
+ARQUIVO: assets/css/botoes.css
+################################################
+
+/* ==========================
+   BOTÕES
+   ========================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* principal */
+.btn-primary {
+  background: linear-gradient(135deg, #f8b71d, #fdd765);
+  color: #171309;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 18px rgba(248, 183, 29, 0.6);
+}
+
+/* contornado */
+.btn-outline {
+  background: transparent;
+  border-color: rgba(248, 183, 29, 0.65);
+  color: var(--cor-texto);
+}
+
+.btn-outline:hover {
+  background: rgba(248, 183, 29, 0.08);
+}
+
+/* fantasma */
+.btn-ghost {
+  background: rgba(12, 8, 0, 0.85);
+  border-color: rgba(248, 183, 29, 0.22);
+  color: var(--cor-texto-secundario);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(248, 183, 29, 0.45);
+  color: var(--cor-texto);
+}
+
+/* botão pequeno (chips, etc.) */
+.btn-sm {
+  padding: 5px 14px;
+  font-size: 0.78rem;
+}
+
+
+
+################################################
+ARQUIVO: assets/css/cards.css
+################################################
+
+/* ==========================
+   CARDS & PILLS
+   ========================== */
+
+.card {
+  border-radius: var(--radius-3);
+  border: 1px solid var(--cor-borda-suave);
+  background:
+    radial-gradient(circle at top left, rgba(248, 183, 29, 0.09), transparent 55%),
+    var(--cor-fundo-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-4);
+}
+
+/* Versão mais compacta (ex: experiências) */
+.card--compact {
+  padding: var(--space-3);
+}
+
+/* Pill / tag */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid rgba(248, 183, 29, 0.35);
+  color: var(--cor-primaria-soft);
+  background: radial-gradient(circle at top left, rgba(248, 183, 29, 0.18), transparent 55%);
+}
+
+/* Badge simples (ex: “Projeto real”, “Site currículo”) */
+.badge {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.badge strong {
+  color: var(--cor-primaria-soft);
+}
+
+
+
+################################################
+ARQUIVO: assets/css/contato.css
+################################################
+
+/* ==========================
+   CONTATO
+   ========================== */
+
+.contact-list ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.contact-list li {
+  font-size: 1.1rem;
+}
+
+.contact-list strong {
+  display: block;
+  font-family: var(--fonte-destaque);
+  color: var(--cor-primaria-soft);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-1);
+}
+
+
+
+
+################################################
+ARQUIVO: assets/css/entrega.css
+################################################
+
+/* ==========================
+   MINHA ENTREGA
+   ========================== */
+
+.rich-text .section-subtitle {
+  font-size: 1.2rem;
+  color: var(--cor-texto);
+  margin-top: var(--space-6);
+}
+
+.section-highlight {
+  padding: var(--space-3);
+  border-left: 3px solid var(--cor-primaria);
+  background: rgba(248, 183, 29, 0.05);
+  color: var(--cor-texto);
+  font-size: 1.05rem;
+}
+
+
+################################################
+ARQUIVO NÃO ENCONTRADO: assets/css/exp.css
+################################################
+
+
+################################################
+ARQUIVO: assets/css/experiencia.css
+################################################
+
+/* ==========================
+   EXPERIÊNCIA
+   ========================== */
+
+.experiencia-list {
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.experiencia-item .section-title {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-1);
+}
+
+.experiencia-periodo {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--space-3);
+}
+
+.experiencia-item p {
+  line-height: 1.6;
+  color: var(--cor-texto-secundario);
+  margin-bottom: var(--space-3);
+}
+
+.experiencia-item ul {
+  padding-left: var(--space-4);
+  list-style-type: "▹  ";
+  line-height: 1.7;
+  color: var(--cor-texto-secundario);
+}
+
+
+
+
+################################################
+ARQUIVO: assets/css/fabrica.css
+################################################
+
+/* ==========================
+   FÁBRICA DE IDEIAS
+   ========================== */
+
+.section-highlight {
+  padding: var(--space-3);
+  border-left: 3px solid var(--cor-primaria);
+  background: rgba(248, 183, 29, 0.05);
+  color: var(--cor-texto);
+  font-size: 1.05rem;
+}
+
+
+
+
+################################################
+ARQUIVO: assets/css/footer.css
+################################################
+
+   RODAPÉ
+   ========================== */
+
+.rodape {
+  padding: var(--space-4) var(--space-3);
+  border-top: 1px solid rgba(248, 183, 29, 0.2);
+  background: var(--cor-fundo-alt);
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.rodape p {
+  line-height: 1.5;
+}
+
+.rodape a {
+  color: var(--cor-texto-suave);
+  transition: color var(--transition-fast);
+}
+
+.rodape a:hover {
+  color: var(--cor-primaria-soft);
+}
+
+
+
+
+################################################
+ARQUIVO: assets/css/formacao.css
+################################################
+
+/* ==========================
+   FORMAÇÃO
+   ========================== */
+
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  max-width: 1000px;
+}
+
+.education-block ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.education-block li {
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--cor-borda-suave);
+}
+
+
+
+
+################################################
+ARQUIVO NÃO ENCONTRADO: assets/css/headers.css
+################################################
+
+
+################################################
+ARQUIVO: assets/css/home.css
+################################################
+
+/* HOME — Estilização da página inicial */
+
+.apresentacao--home {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: center;
+  min-height: calc(100vh - 72px - 50px); /* view height - header - footer */
+  padding-block: var(--space-5);
+}
+
+.apresentacao__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.apresentacao__conteudo__titulo {
+  font-family: var(--fonte-destaque);
+  font-size: 1.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+}
+
+.apresentacao__conteudo__subtitulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 28ch;
+}
+
+.apresentacao__conteudo__texto {
+  font-size: 0.98rem;
+  color: var(--cor-texto-secundario);
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.home-cta {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.apresentacao__imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apresentacao__imagem img {
+  max-width: 450px;
+  width: 100%;
+  filter: drop-shadow(0 0 32px rgba(0, 0, 0, 0.5));
+}
+
+
+
+################################################
+ARQUIVO: assets/css/layout.css
+################################################
+
+/* ==========================
+   LAYOUT GERAL
+   ========================== */
+/* Adiciona padding ao body para compensar o header fixo */
+body {
+  padding-top: 72px; /* Altura aproximada do header */
+}
+
+main {
+  padding-bottom: var(--space-8);
+}
+
+/* Seções de página */
+.page-section {
+  padding-block: var(--space-6);
+}
+
+/* Hero de páginas internas */
+.page-hero {
+  padding-block: var(--space-7) var(--space-6);
+  text-align: center;
+}
+
+.page-hero--intern {
+  background: radial-gradient(circle at 50% 0%, rgba(248, 183, 29, 0.08), transparent 40%);
+}
+
+.page-hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.page-kicker {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  letter-spacing: 0.08em;
+}
+
+.page-title {
+  font-family: var(--fonte-destaque);
+  font-size: 2.2rem;
+  color: var(--cor-primaria-soft);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+/* grid genérico de duas colunas */
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.grid-2--reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+/* Conteúdo de texto rico (rich-text) */
+.rich-text {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.rich-text h2,
+.rich-text h3 {
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-3);
+}
+
+.rich-text p,
+.rich-text ul {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--cor-texto-secundario);
+  margin-bottom: var(--space-4);
+}
+
+.rich-text ul {
+  padding-left: var(--space-4);
+  list-style-type: "▹  ";
+  list-style-position: outside;
+}
+@media (max-width: 960px) {
+  main {
+    padding-block: var(--space-5);
+  }
+
+  .grid-2,
+  .grid-2--reverse {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-section {
+    padding-block: var(--space-4);
+  }
+}
+
+/* Uso comum para colunas de conteúdo */
+.col-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.col-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+################################################
+ARQUIVO: assets/css/menu.css
+################################################
+
+/* ==========================
+   MENU DE NAVEGAÇÃO
+   ========================== */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: 0.9rem;
+}
+
+.site-nav__link {
+  position: relative;
+  padding-block: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  color: var(--cor-texto-secundario);
+  transition: color var(--transition-fast);
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--cor-primaria);
+  transition: width var(--transition-fast);
+}
+
+.site-nav__link:hover {
+  color: var(--cor-texto);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link.is-active::after {
+  width: 100%;
+}
+
+.site-nav__link.is-active {
+  color: var(--cor-primaria-soft);
+}
+
+/* mobile – por enquanto, só some o menu */
+@media (max-width: 960px) {
+  .site-nav {
+    gap: var(--space-3);
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-nav {
+    display: none;
+  }
+}
+
+
+
+################################################
+ARQUIVO: assets/css/modals.css
+################################################
+
+/* ================================
+   MODAIS (Portifólio, Experiência etc.)
+=================================== */
+
+.modal {
+  display: none;                /* JS muda para flex */
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: radial-gradient(circle at top, rgba(248, 183, 29, 0.12), transparent 55%),
+              rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacamento-xl) var(--espacamento-m);
+}
+
+.modal.visivel {
+  display: flex;
+}
+
+/* Container interno */
+.modal-content {
+  background: radial-gradient(circle at top left, #111625, #050710);
+  border: 1px solid rgba(248, 183, 29, 0.5);
+  box-shadow: var(--sombra-padrao), 0 0 24px rgba(248, 183, 29, 0.25);
+  border-radius: var(--raio-borda);
+  width: 100%;
+  max-width: 720px;
+  padding: var(--espacamento-xl) var(--espacamento-l);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Botão fechar (X) */
+.modal-close {
+  position: absolute;
+  top: var(--espacamento-s);
+  right: var(--espacamento-m);
+  font-size: 28px;
+  color: #ffffff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+.modal-close:hover {
+  color: var(--cor-primaria);
+}
+
+/* Título e corpo */
+.modal-title {
+  font-family: var(--fonte-destaque);
+  font-size: 22px;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-l);
+  padding-right: 40px;
+}
+
+.modal-body p,
+.modal-body ul {
+  font-size: 16px;
+  margin-bottom: var(--espacamento-m);
+}
+
+.modal-body ul {
+  padding-left: 18px;
+}
+
+/* Scroll mais suave dentro do modal */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(248, 183, 29, 0.6);
+  border-radius: 999px;
+}
+
+
+
+################################################
+ARQUIVO: assets/css/portfolio.css
+################################################
+
+/* ==========================
+   PORTIFÓLIO
+   ========================== */
+
+.portifolio-header {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+
+.portifolio-header .section-subtitle {
+  margin-inline: auto;
+  max-width: 70ch;
+}
+
+.portifolio-list {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Card de Projeto */
+.project-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--space-5);
+  align-items: start;
+  border-radius: var(--radius-2);
+  border: 1px solid var(--cor-borda-suave);
+  background: var(--cor-fundo-card);
+  overflow: hidden;
+  transition: box-shadow var(--transition-medium);
+}
+
+.project-card:hover {
+  box-shadow: 0 0 24px rgba(248, 183, 29, 0.1);
+}
+
+.project-card__thumb-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.project-card__thumb-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card__content {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.project-card__subtitle {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.project-card__title {
+  font-family: var(--fonte-destaque);
+  font-size: 1.4rem;
+  color: var(--cor-primaria-soft);
+}
+
+.project-card__meta {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+}
+
+.project-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.project-card__actions {
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+
+################################################
+ARQUIVO: assets/css/reset.css
+################################################
+
+/* ==========================
+   RESET & BASE
+   ========================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--fonte-principal);
+  background:
+    radial-gradient(circle at top left, #201301 0, transparent 45%),
+    radial-gradient(circle at top right, #221302 0, transparent 50%),
+    #000;
+  color: var(--cor-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--cor-primaria);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Classes utilitárias básicas */
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding-inline: var(--space-4);
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-xs {
+  font-size: 0.78rem;
+}
+
+.text-muted {
+  color: var(--cor-texto-secundario);
+}
+/* Link de pular para o conteúdo (acessibilidade) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: var(--space-2);
+  padding: 8px 16px;
+  background: #000;
+  color: var(--cor-primaria);
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(248, 183, 29, 0.6);
+  z-index: 999;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: var(--space-3);
+}
+
+.section-title {
+  font-family: var(--fonte-destaque);
+  font-size: 1.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+  margin-bottom: var(--space-3);
+}
+
+.section-subtitle {
+  font-size: 0.98rem;
+  color: var(--cor-texto-secundario);
+  max-width: 640px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: var(--space-3);
+  }
+}
+
+
+
+################################################
+ARQUIVO: assets/css/skills.css
+################################################
+
+/* ==========================
+   HABILIDADES (SKILLS)
+   ========================== */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  max-width: 1000px;
+}
+
+.skills-block p {
+  margin-bottom: var(--space-3);
+}
+
+
+
+
+################################################
+ARQUIVO: assets/css/sobre.css
+################################################
+
+/* ==========================
+   SOBRE
+   ========================== */
+
+.section-highlight {
+  padding: var(--space-3);
+  border-left: 3px solid var(--cor-primaria);
+  background: rgba(248, 183, 29, 0.05);
+  color: var(--cor-texto);
+  font-size: 1.05rem;
+}
+
+
+################################################
+ARQUIVO: assets/css/tokens.css
+################################################
+
+/* ==========================
+   TOKENS – Paleta & Design
+   ========================== */
+
+:root {
+  /* Cores principais */
+  --cor-primaria: #F8B71D;
+  --cor-primaria-soft: #f3c956;
+  --cor-primaria-dark: #c48d05;
+
+  --cor-fundo: #020308;
+  --cor-fundo-alt: #080910;
+  --cor-fundo-card: #050609;
+
+  --cor-texto: #F6F6F6;
+  --cor-texto-secundario: #a8a8a8;
+  --cor-texto-suave: #858585;
+
+  --cor-borda: rgba(248, 183, 29, 0.35);
+  --cor-borda-suave: rgba(248, 183, 29, 0.18);
+
+  /* Tipografia */
+  --fonte-principal: 'Montserrat', 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --fonte-destaque: 'Krona One', system-ui, sans-serif;
+
+  /* Espaçamentos */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 56px;
+
+  /* Raios */
+  --radius-1: 6px;
+  --radius-2: 12px;
+  --radius-3: 18px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-soft: 0 0 24px rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.75);
+  --shadow-glow: 0 0 28px rgba(248, 183, 29, 0.35);
+
+  /* Largura máx de conteúdo */
+  --max-width-container: 1160px;
+
+  /* Transições */
+  --transition-fast: 0.18s ease-out;
+  --transition-medium: 0.25s ease-out;
+}
+
+
+
+################################################
+ARQUIVO: assets/js/includes.js
+################################################
+
+document.addEventListener("DOMContentLoaded", () => {
+  /**
+   * Carrega arquivos HTML em elementos com o atributo [data-include],
+   * garantindo que outros scripts possam aguardar sua conclusão.
+   */
+  async function loadIncludes() {
+    const elements = document.querySelectorAll("[data-include]");
+
+    // Cria um array de promises para cada operação de fetch.
+    // O map sempre retornará uma promise, mesmo que a operação falhe,
+    // permitindo que Promise.all aguarde a conclusão de todas.
+    const promises = Array.from(elements).map(async (el) => {
+      const file = el.dataset.include;
+      if (!file) return;
+
+      try {
+        const response = await fetch(file);
+
+        if (!response.ok) {
+          // Lança um erro para ser capturado pelo bloco catch.
+          throw new Error(`Falha na requisição com status ${response.status}`);
+        }
+
+        el.innerHTML = await response.text();
+      } catch (error) {
+        console.error(`Erro ao carregar o include: ${file}`, error);
+        // Insere um comentário no HTML para facilitar a depuração.
+        el.innerHTML = `<!-- Erro ao carregar ${file} -->`;
+      }
+    });
+
+    // Aguarda que todos os includes (sucessos ou falhas) terminem.
+    await Promise.all(promises);
+
+    // Sinaliza globalmente que o processo foi concluído.
+    window.includesReady = true;
+    document.dispatchEvent(new CustomEvent("includes:ready"));
+  }
+
+  loadIncludes();
+});
+
+
+
+
+################################################
+ARQUIVO: assets/js/script.js
+################################################
+
+/* /assets/js/script.js */
+(function () {
+  // ================================
+  // 1. DESTACAR LINK ATUAL NO MENU
+  // ================================
+  function highlightCurrentLink() {
+    const menu = document.querySelector(".site-nav");
+    if (!menu) return;
+
+    const links = menu.querySelectorAll("a[href]");
+    if (!links.length) return;
+
+    const path = window.location.pathname;
+    const currentPage = path.split("/").pop() || "index.html";
+
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+      const linkPage = href.split("/").pop();
+
+      const isHomePage =
+        (currentPage === "" || currentPage === "index.html") &&
+        (linkPage === "" || linkPage === "index.html");
+
+      const isSamePage = !isHomePage && currentPage === linkPage;
+
+      if (isHomePage || isSamePage) {
+        link.setAttribute("aria-current", "page");
+        link.classList.add("is-active");
+      } else {
+        link.removeAttribute("aria-current");
+        link.classList.remove("is-active");
+      }
+    });
+  }
+
+  // ================================
+  // 2. MENU HAMBÚRGUER
+  // ================================
+  function initHamburgerMenu() {
+    const btnHamb = document.querySelector(".site-header__menu-toggle");
+    const menu = document.querySelector(".site-nav");
+    if (!btnHamb || !menu) return;
+
+    btnHamb.setAttribute("aria-expanded", "false");
+
+    const toggleMenu = () => {
+      const isAberto =
+        menu.classList.contains("aberto") ||
+        menu.classList.contains("ativo");
+
+      if (isAberto) {
+        menu.classList.remove("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("no-scroll");
+      } else {
+        menu.classList.add("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "true");
+        document.body.classList.add("no-scroll");
+      }
+    };
+
+    btnHamb.addEventListener("click", toggleMenu);
+
+    // Fecha ao clicar em um link do menu
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("no-scroll");
+      });
+    });
+
+    // Fecha com ESC
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        (menu.classList.contains("aberto") ||
+          menu.classList.contains("ativo"))
+      ) {
+        toggleMenu();
+        btnHamb.focus();
+      }
+    });
+  }
+
+  // ================================
+  // 3. MODAIS (PORTiFÓLIO / EXP)
+  // ================================
+  function initModals() {
+    const openBtns = document.querySelectorAll("[data-modal-target]");
+    const modals = document.querySelectorAll(".modal");
+    if (!openBtns.length || !modals.length) return;
+
+    const openModal = (modal) => {
+      if (!modal) return;
+      modal.style.display = "flex";
+      requestAnimationFrame(() => {
+        modal.classList.add("visivel");
+      });
+      document.body.classList.add("no-scroll", "modal-aberto");
+    };
+
+    const closeModal = (modal) => {
+      if (!modal) return;
+      modal.classList.remove("visivel");
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 250);
+      document.body.classList.remove("no-scroll", "modal-aberto");
+    };
+
+    openBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-modal-target");
+        const modal = document.getElementById(targetId);
+        openModal(modal);
+      });
+    });
+
+    modals.forEach((modal) => {
+      const closeBtn = modal.querySelector(".modal-close");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => closeModal(modal));
+      }
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      const aberto = document.querySelector(".modal.visivel");
+      if (aberto) closeModal(aberto);
+    });
+  }
+
+  // ================================
+  // 4. INICIALIZAÇÃO GERAL
+  // ================================
+  function initSite() {
+    // 1) marca link atual, menu e modais
+    highlightCurrentLink();
+    initHamburgerMenu();
+    initModals();
+  }
+
+  // Espera os includes ou roda direto se já estiver pronto
+  if (window.includesReady) {
+    initSite();
+  } else {
+    document.addEventListener("includes:ready", initSite);
+  }
+})();
+
+
+
+################################################
+ARQUIVO: contato.html
+################################################
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato – Thiago Placido • DEV</title>
+
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/contato.css" />
+</head>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
+
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Canais Oficiais</p>
+        <h1 class="page-title">Contato</h1>
+        <p class="page-subtitle">
+          Se você busca alguém dedicado, organizado e em evolução constante,
+          aqui estão os canais para a gente conversar.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text contact-list">
+          <ul>
+            <li>
+              <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                Perfil profissional para conexões e oportunidades
+              </a>
+            </li>
+            <li>
+              <strong>GitHub:</strong>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                Repositórios e projetos em desenvolvimento
+              </a>
+            </li>
+            <li>
+              <strong>E-mail:</strong>
+              <a href="mailto:thiago_placido@hotmail.com">
+                thiago_placido@hotmail.com
+              </a>
+            </li>
+            <li>
+              <strong>WhatsApp:</strong>
+              Canal direto para conversas rápidas sobre projetos, freelas ou dúvidas.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+################################################
+ARQUIVO: exp.html
+################################################
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiência – Thiago Placido • DEV</title>
+
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/experiencia.css" />
+</head>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
+
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Trajetória Profissional</p>
+        <h1 class="page-title">Experiência</h1>
+        <p class="page-subtitle">
+          Minha experiência anterior, fora da área tech, é o que sustenta minha forma
+          de trabalhar hoje: organizada, responsável e focada em resultado.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container experiencia-content">
+        <div class="experiencia-list">
+          <article class="experiencia-item">
+            <h2 class="section-title">Consultoria Digital e Desenvolvimento</h2>
+            <p class="experiencia-periodo">2024 – Atual</p>
+            <p>
+              Atuação como consultor independente em desenvolvimento de interfaces e
+              organização de ideias para pequenos projetos digitais.
+            </p>
+            <ul>
+              <li>Criação de estruturas de sites e landing pages;</li>
+              <li>Organização de conteúdo e narrativa visual para portifólio;</li>
+              <li>Uso de IA para rascunhar, validar e documentar soluções.</li>
+            </ul>
+          </article>
+
+          <article class="experiencia-item">
+            <h2 class="section-title">Secretário Administrativo — Curumim Psicomotricidade</h2>
+            <p class="experiencia-periodo">2022 – 2025</p>
+            <p>
+              Atuação administrativa e acadêmica, organizando informações, rotinas e
+              processos internos.
+            </p>
+            <ul>
+              <li>Organização de dados, documentos e relatórios;</li>
+              <li>Atendimento e comunicação com alunos e responsáveis;</li>
+              <li>Suporte à direção em rotinas e decisões do dia a dia.</li>
+            </ul>
+          </article>
+
+          <article class="experiencia-item">
+            <h2 class="section-title">Assistente Financeiro — 3A Distribuidora</h2>
+            <p class="experiencia-periodo">2013 – 2017</p>
+            <p>
+              Atuação na área financeira, lidando com contas a pagar e receber, fluxo de caixa
+              e suporte a operações de importação.
+            </p>
+            <ul>
+              <li>Controle financeiro e conciliação bancária;</li>
+              <li>Organização de informações para tomada de decisão;</li>
+              <li>Visão prática de negócio e responsabilidade com resultados.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+################################################
+ARQUIVO: fabrica.html
+################################################
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fábrica de Ideias – Thiago Placido • DEV</title>
+
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/fabrica.css" />
+</head>
+
+<body class="bg-gradient">
+  <!-- Cabeçalho carregado por includes.js -->
+  <header id="site-header" data-include="header.html"></header>
+
+  <main class="page">
+    <!-- HERO / INTRO DA PÁGINA -->
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Portifólio &amp; Fábrica de Ideias</p>
+        <h1 class="page-title">Fábrica de Ideias</h1>
+        <p class="page-subtitle">
+          Aqui compartilho como transformo ideias em estruturas claras:
+          fluxos, requisitos, protótipos e documentação. Minha experiência
+          pré-tech me ajuda a enxergar necessidades reais e criar soluções
+          eficientes antes da primeira linha de código.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text">
+          <h2 class="section-title">Como atuo na fase de ideias</h2>
+
+          <p>
+            Em vez de sair escrevendo código sem direção, eu organizo o problema,
+            desenho caminhos possíveis e documento o que realmente importa.
+            Isso reduz retrabalho, dá segurança para quem decide e torna o
+            desenvolvimento muito mais objetivo.
+          </p>
+
+          <ul>
+            <li>
+              Exploro o problema com visão analítica, entendendo contexto, restrições
+              e objetivos.
+            </li>
+            <li>
+              Mapeio jornadas de usuário e pontos de atrito do dia a dia, conectando
+              necessidades reais com a solução.
+            </li>
+            <li>
+              Desenho fluxos simples, que qualquer pessoa do time consegue entender
+              sem depender de jargões técnicos.
+            </li>
+            <li>
+              Rascunho telas, layouts e componentes principais antes da implementação,
+              alinhando expectativas de quem decide e de quem desenvolve.
+            </li>
+            <li>
+              Uso IA para acelerar brainstorm, benchmark e documentação, sempre
+              mantendo o olhar crítico humano e o foco no impacto.
+            </li>
+          </ul>
+
+          <p class="section-highlight">
+            Essa combinação de visão de produto, organização e uso de IA me
+            ajuda a fugir do padrão “iniciante que só copia código”. Meu foco
+            é pensar soluções que façam sentido para o negócio e que sejam
+            viáveis para o time técnico implementar.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé carregado por includes.js -->
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+################################################
+ARQUIVO: footer.html
+################################################
+
+<!-- /footer.html (versão sem i18n) -->
+<footer class="rodape">
+  <p>
+    Desenvolvido por Thiago Placido •  
+    <a href="mailto:thiago_placido@hotmail.com">thiago_placido@hotmail.com</a>
+  </p>
+</footer>
+
+
+
+################################################
+ARQUIVO: formacao.html
+################################################
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formação – Thiago Placido • DEV</title>
+
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/formacao.css" />
+</head>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
+
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Linha de Aprendizado</p>
+        <h1 class="page-title">Formação</h1>
+        <p class="page-subtitle">
+          Minha formação combina graduação em Engenharia de Software com estudos práticos
+          focados em desenvolvimento, UX e uso de IA como ferramenta.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text education-grid">
+          <div class="education-block">
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <ul>
+              <li>
+                <strong>Engenharia de Software – Descomplica</strong><br />
+                Graduação EAD em andamento, com foco em fundamentos de engenharia,
+                arquitetura de software e boas práticas de desenvolvimento.
+              </li>
+            </ul>
+          </div>
+
+          <div class="education-block">
+            <h2 class="section-title">Cursos e Estudos Práticos</h2>
+            <ul>
+              <li>Estudos contínuos de HTML, CSS e responsividade aplicados em projetos reais;</li>
+              <li>Prática de organização de portifólio, UX básico e escrita de documentação;</li>
+              <li>Uso de plataformas de ensino online para aprofundar lógica, Git e ferramentas de produtividade;</li>
+              <li>Exploração de IA generativa para apoiar estudos, experimentos e protótipos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+################################################
+ARQUIVO: header.html
+################################################
+
+<!-- /header.html (versão desktop + mobile) -->
+<div class="site-header__inner container">
+
+  <!-- Marca/Logo à esquerda -->
+  <div class="brand">
+    <a href="index.html" class="brand__link">
+      <span class="brand__title">THIAGO PLACIDO <span class="brand__dot">•</span> DEV</span>
+      <span class="brand__subtitle">Portifólio &amp; Fábrica de Ideias</span>
+    </a>
+  </div>
+
+  <!-- Navegação principal à direita -->
+  <nav class="site-nav" aria-label="Navegação principal">
+    <a class="site-nav__link" href="index.html">Início</a>
+    <a class="site-nav__link" href="portifolio.html">Projetos</a>
+    <a class="site-nav__link" href="fabrica.html">Fábrica de Ideias</a>
+    <a class="site-nav__link" href="skills.html">Habilidades</a>
+    <a class="site-nav__link" href="minha-entrega.html">Minha Entrega</a>
+    <a class="site-nav__link" href="formacao.html">Formação</a>
+    <a class="site-nav__link" href="exp.html">Experiência</a>
+    <a class="site-nav__link" href="sobre.html">Sobre</a>
+    <a class="site-nav__link" href="contato.html">Contato</a>
+  </nav>
+
+  <!-- Botão hamburguer (mobile) -->
+  <button class="site-header__menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-navegacao">
+    <img src="assets/img/menu-ham.png" alt="Menu" />
+  </button>
+</div>
+
+
+
+################################################
+ARQUIVO: index.html
+################################################
+
+<!-- /index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Título controlado pelo i18n -->
+
+  <title>Thiago Placido • DEV</title>
+  <meta name="description" content="Portifólio de Thiago Placido: fábrica de ideias para transformar tecnologia e IA em soluções reais." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- CSS global + CSS específico da Home -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/home.css" />
+</head>
+<body class="bg-gradient" id="topo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- HEADER INJETADO -->
+  <header id="site-header" data-include="header.html"></header>
+
+  <main id="conteudo">
+    <div class="container">
+      <div class="apresentacao--home">
+        <div class="apresentacao__conteudo">
+          <h1 class="apresentacao__conteudo__titulo">Início</h1>
+          <p class="apresentacao__conteudo__subtitulo">Eleve seu negócio digital a outro nível com a minha fábrica de ideias.</p>
+          <p class="apresentacao__conteudo__texto">Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação. Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas, eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio crescente em tecnologia e IA, estou pronto para colaborar.</p>
+          <div class="home-cta">
+            <a href="portifolio.html" class="btn btn-primary">Projetos</a>
+            <a href="contato.html" class="btn btn-outline">Contato</a>
+          </div>
+        </div>
+        <div class="apresentacao__imagem">
+          <img src="assets/img/logo.png" alt="Logotipo Thiago Placido DEV" loading="eager" decoding="async" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+################################################
+ARQUIVO: minha-entrega.html
+################################################
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Entrega – Thiago Placido • DEV</title>
+
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/entrega.css" />
+</head>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
+
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Portifólio &amp; Fábrica de Ideias</p>
+        <h1 class="page-title">Minha Entrega</h1>
+        <p class="page-subtitle">
+          Aqui eu resumo como trabalho na prática e de que forma posso ajudar seu time
+          ou o seu negócio, mesmo estando em início de carreira na área tech.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text">
+          <h2 class="section-title">Como eu costumo trabalhar</h2>
+          <p>
+            Meu trabalho é guiado por clareza, organização e atenção aos detalhes.
+            Antes de escrever código, eu estruturo o que precisa ser feito: contexto,
+            objetivos, fluxos e prioridades. Isso reduz retrabalho e facilita a vida
+            de quem precisa decidir e de quem vai desenvolver.
+          </p>
+
+          <h3 class="section-subtitle">Tipos de entrega que posso apoiar</h3>
+          <ul>
+            <li>Desenvolvimento front-end de interfaces simples e bem estruturadas;</li>
+            <li>Criação de protótipos, fluxos de navegação e documentação de telas;</li>
+            <li>Automação de rotinas e organização de processos usando planilhas e IA;</li>
+            <li>Uso de IA para gerar alternativas, validar ideias e acelerar entregas;</li>
+            <li>Apoio na estruturação de requisitos, escopo inicial e visão de produto;</li>
+            <li>Participação em equipes ágeis com foco em aprendizado e impacto real.</li>
+          </ul>
+
+          <p class="section-highlight">
+            Mais do que “só programar”, minha entrega é combinar visão prática de negócio,
+            organização e uso inteligente de IA para tirar ideias do papel com eficiência.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+################################################
+ARQUIVO NÃO ENCONTRADO: portfolio.html
+################################################
+
+
+################################################
+ARQUIVO: skills.html
+################################################
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habilidades – Thiago Placido • DEV</title>
+
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/skills.css" />
+</head>
+<body class="bg-gradient">
+  <!-- Cabeçalho carregado por includes.js -->
+  <header id="site-header" data-include="header.html"></header>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Portifólio &amp; Fábrica de Ideias</p>
+        <h1 class="page-title">Habilidades</h1>
+        <p class="page-subtitle">
+          Aqui eu organizo o que já sei fazer hoje e o que estou desenvolvendo
+          como base para crescer como desenvolvedor e, no futuro, como Product Engineer.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text skills-grid">
+          <div class="skills-block">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <p>
+              Estou construindo uma base sólida em desenvolvimento, focando em fundamentos
+              que posso aplicar em projetos reais e em evolução.
+            </p>
+            <ul>
+              <li>HTML5 e CSS3 para criação de interfaces responsivas;</li>
+              <li>JavaScript básico para interações e comportamento de página;</li>
+              <li>Git e GitHub para versionamento e colaboração;</li>
+              <li>Uso de IA como ferramenta para acelerar aprendizado e revisão de código;</li>
+              <li>Noções iniciais de UX e organização de layout para leitura fácil.</li>
+            </ul>
+          </div>
+
+          <div class="skills-block">
+            <h2 class="section-title">Competências Comportamentais</h2>
+            <p>
+              Minha experiência anterior fora da área tech me deu base de disciplina,
+              organização e visão prática, que agora levo para a tecnologia.
+            </p>
+            <ul>
+              <li>Pensamento analítico e foco em entender o “porquê” dos problemas;</li>
+              <li>Comunicação clara e objetiva, sem excesso de jargão;</li>
+              <li>Organização e planejamento das entregas antes de executar;</li>
+              <li>Aprendizado contínuo, sempre transformando teoria em prática;</li>
+              <li>Responsabilidade com prazos e alinhamento com o time.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé carregado por includes.js -->
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+################################################
+ARQUIVO: sobre.html
+################################################
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre – Thiago Placido • DEV</title>
+
+  <!-- CSS base / design system -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
+  <link rel="stylesheet" href="assets/css/botoes.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/sobre.css" />
+</head>
+<body class="bg-gradient">
+  <header id="site-header" data-include="header.html"></header>
+
+  <main class="page">
+    <section class="page-hero page-hero--intern">
+      <div class="container">
+        <p class="page-kicker">Quem sou por trás do código</p>
+        <h1 class="page-title">Sobre mim</h1>
+        <p class="page-subtitle">
+          Um pouco da minha história, da forma como penso e de como uso tecnologia
+          para organizar o caos do dia a dia.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container fabrica-content">
+        <div class="rich-text about-content">
+          <p>
+            Sou iniciante na área de tecnologia, estudante de Engenharia de Software
+            e desenvolvedor em formação. Minha transição de carreira é guiada por
+            curiosidade, método e vontade real de criar soluções que ajudem pessoas
+            na prática.
+          </p>
+          <p>
+            Antes da tech, atuei em áreas administrativas, financeiras e operacionais.
+            Essa bagagem me deu disciplina, organização e visão concreta de negócio,
+            que hoje levo para dentro dos projetos digitais que desenvolvo.
+          </p>
+          <p>
+            Gosto de entender o “porquê” antes do “como fazer”. Minha forma de pensar
+            é analítica e estruturada: prefiro clareza, documentação e combinados bem
+            definidos a promessas vagas. Ao mesmo tempo, não abro mão de criatividade
+            e experimentação.
+          </p>
+          <p>
+            Vejo a inteligência artificial como um exoesqueleto mental: algo que amplia
+            minha capacidade de pensar, escrever e testar ideias — mas nunca como
+            substituto de responsabilidade ou senso crítico.
+          </p>
+          <p class="section-highlight">
+            Meu objetivo é crescer como desenvolvedor e, com o tempo, atuar cada vez
+            mais próximo de produto, conectando tecnologia, negócio e pessoas.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" data-include="footer.html"></footer>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+################################################
+ARQUIVO: LICENSE
+################################################
+
+MIT License
+
+Copyright (c) 2025 Thiago Placido
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+################################################
+ARQUIVO NÃO ENCONTRADO: portfolio/style.css
+################################################
+

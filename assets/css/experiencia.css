@@ -1,0 +1,36 @@
+/* ==========================
+   EXPERIÊNCIA
+   ========================== */
+
+.experiencia-list {
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.experiencia-item .section-title {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-1);
+}
+
+.experiencia-periodo {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--space-3);
+}
+
+.experiencia-item p {
+  line-height: 1.6;
+  color: var(--cor-texto-secundario);
+  margin-bottom: var(--space-3);
+}
+
+.experiencia-item ul {
+  padding-left: var(--space-4);
+  list-style-type: "▹  ";
+  line-height: 1.7;
+  color: var(--cor-texto-secundario);
+}
+

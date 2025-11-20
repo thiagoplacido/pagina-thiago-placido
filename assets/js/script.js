@@ -4,7 +4,7 @@
   // 1. DESTACAR LINK ATUAL NO MENU
   // ================================
   function highlightCurrentLink() {
-    const menu = document.getElementById("menu-navegacao");
+    const menu = document.querySelector(".site-nav");
     if (!menu) return;
 
     const links = menu.querySelectorAll("a[href]");
@@ -26,10 +26,10 @@
 
       if (isHomePage || isSamePage) {
         link.setAttribute("aria-current", "page");
-        link.classList.add("cabecalho__menu__link--ativo");
+        link.classList.add("is-active");
       } else {
         link.removeAttribute("aria-current");
-        link.classList.remove("cabecalho__menu__link--ativo");
+        link.classList.remove("is-active");
       }
     });
   }
@@ -38,8 +38,8 @@
   // 2. MENU HAMBÚRGUER
   // ================================
   function initHamburgerMenu() {
-    const btnHamb = document.querySelector(".cabecalho__menu-hamburguer");
-    const menu = document.getElementById("menu-navegacao");
+    const btnHamb = document.querySelector(".site-header__menu-toggle");
+    const menu = document.querySelector(".site-nav");
     if (!btnHamb || !menu) return;
 
     btnHamb.setAttribute("aria-expanded", "false");
@@ -47,15 +47,14 @@
     const toggleMenu = () => {
       const isAberto =
         menu.classList.contains("aberto") ||
-        menu.classList.contains("cabecalho__menu--aberto") ||
         menu.classList.contains("ativo");
 
       if (isAberto) {
-        menu.classList.remove("aberto", "cabecalho__menu--aberto", "ativo");
+        menu.classList.remove("aberto", "ativo");
         btnHamb.setAttribute("aria-expanded", "false");
         document.body.classList.remove("no-scroll");
       } else {
-        menu.classList.add("aberto", "cabecalho__menu--aberto", "ativo");
+        menu.classList.add("aberto", "ativo");
         btnHamb.setAttribute("aria-expanded", "true");
         document.body.classList.add("no-scroll");
       }
@@ -66,7 +65,7 @@
     // Fecha ao clicar em um link do menu
     menu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        menu.classList.remove("aberto", "cabecalho__menu--aberto", "ativo");
+        menu.classList.remove("aberto", "ativo");
         btnHamb.setAttribute("aria-expanded", "false");
         document.body.classList.remove("no-scroll");
       });
@@ -77,7 +76,6 @@
       if (
         e.key === "Escape" &&
         (menu.classList.contains("aberto") ||
-          menu.classList.contains("cabecalho__menu--aberto") ||
           menu.classList.contains("ativo"))
       ) {
         toggleMenu();
@@ -87,7 +85,7 @@
   }
 
   // ================================
-  // 3. MODAIS (PORTFÓLIO / EXP)
+  // 3. MODAIS (PORTiFÓLIO / EXP)
   // ================================
   function initModals() {
     const openBtns = document.querySelectorAll("[data-modal-target]");
