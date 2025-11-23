@@ -25,12 +25,16 @@
   /* Movido para o container interno */
   gap: var(--space-4); 
 }
+.site-nav__link[href="fabrica.html"] {
+  white-space: nowrap;
+}
 
 /* Marca */
 .brand {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
+  min-width: max-content; /* força o texto a caber em 1 linha */
 }
 
 .brand__title {
@@ -44,13 +48,19 @@
   color: var(--cor-primaria);
 }
 
+.brand__and {
+  color: var(--cor-primaria-soft);   /* mesma cor do link ativo */
+  font-weight: 300 !important;
+}
 .brand__subtitle {
   font-size: 0.7rem;
   color: var(--cor-texto-secundario);
   letter-spacing: 0.12em;
   margin-top: 2px;
-  white-space: nowrap;
+  white-space: nowrap; /* mantém na mesma linha */
+  display: block;
 }
+
 
 /* Botão menu mobile */
 .site-headers__menu-toggle {
@@ -60,6 +70,7 @@
   cursor: pointer;
 }
 
+
 .site-headers__menu-toggle img {
   width: 28px;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
@@ -67,16 +78,18 @@
 
 @media (max-width: 1024px) {
   .site-headers__menu-toggle {
-    /* CORRIGIDO: Sintaxe de !important */
-    display: block !important; 
+    /* Botão visível em mobile/tablet */
+    display: block !important;
   }
+
   /* Esconde o menu desktop quando o botão é visível */
-  .site-nav {
+  .site-headers__content .site-nav {
     display: none;
   }
-}
 
-/* Menu mobile ativado (gerenciado por script.js) */
-.no-scroll {
-  overflow: hidden;
+  /* Quando o menu está aberto, força a exibição */
+  .site-headers__content .site-nav.aberto,
+  .site-headers__content .site-nav.ativo {
+    display: flex;
+  }
 }

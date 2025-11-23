@@ -29,7 +29,9 @@
   max-width: 720px;
   padding: var(--space-7) var(--space-5);
   position: relative;
-  max-height: 90vh;
+
+  /* Limite de altura + rolagem interna (desktop + mobile) */
+  max-height: 80vh;
   overflow-y: auto;
 }
 
@@ -86,7 +88,7 @@
   border-radius: 999px;
 }
 
-/* Responsivo */
+/* Responsivo (mobile) */
 @media (max-width: 640px) {
   .modal {
     padding: var(--space-5) var(--space-3);
@@ -94,6 +96,10 @@
 
   .modal-content {
     padding: var(--space-6) var(--space-4);
+
+    /* Tamanho recomendado em mobile (~90% da largura e até 80% da altura) */
+    max-width: 90vw;
+    max-height: 80vh;
   }
 
   .modal-title {

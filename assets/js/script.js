@@ -1,198 +1,212 @@
-/* /assets/js/script.js (VERSÃO FINAL E FUNCIONAL) */
+/* /assets/js/script.js (VERSÃO AJUSTADA E SEGURA) */
 (function () {
-  // ================================
-  // 1. DESTACAR LINK ATUAL NO MENU
-  // ================================
-  function highlightCurrentLink() {
-    // Busca o elemento de navegação principal (que agora tem o ID)
-    const menu = document.querySelector("#menu-navegacao"); 
-    if (!menu) return;
+  // Flags para evitar inicializações duplicadas
+  let linksHighlighted = false;
+  let hamburgerInitialized = false;
+  let modalsInitialized = false;
 
-    const links = menu.querySelectorAll("a[href]");
-    if (!links.length) return;
+  // ================================
+  // 1. DESTACAR LINK ATUAL NO MENU
+  // ================================
+  function highlightCurrentLink() {
+    if (linksHighlighted) return;
 
-    const path = window.location.pathname;
-    // Pega o nome do arquivo, tratando a raiz ('/') como 'index.html'
-    const currentPage = path.split("/").pop() || "index.html"; 
+    const menu = document.querySelector("#menu-navegacao");
+    if (!menu) return;
 
-    links.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href) return;
-      const linkPage = href.split("/").pop() || "index.html";
+    const links = menu.querySelectorAll("a[href]");
+    if (!links.length) return;
 
-      const isHomePage =
-        (currentPage === "" || currentPage === "index.html") &&
-        (linkPage === "" || linkPage === "index.html");
+    const path = window.location.pathname;
+    const currentPage = path.split("/").pop() || "index.html";
 
-      const isSamePage = !isHomePage && currentPage === linkPage;
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
 
-      if (isHomePage || isSamePage) {
-        link.setAttribute("aria-current", "page");
-        link.classList.add("is-active");
-      } else {
-        link.removeAttribute("aria-current");
-        link.classList.remove("is-active");
-      }
-    });
-  }
+      const linkPage = href.split("/").pop() || "index.html";
 
-  // ================================
-  // 2. MENU HAMBÚRGUER (Acessibilidade: Foco e Estado)
-  // ================================
-  function initHamburgerMenu() {
-    // 💡 CORREÇÃO APLICADA: Busca o container principal que foi alvo do includes.js
-    const headerElement = document.getElementById("site-headers"); 
-    if (!headerElement) return; // Se o container não existe, para.
+      const isHomePage =
+        (currentPage === "" || currentPage === "index.html") &&
+        (linkPage === "" || linkPage === "index.html");
 
-    // Procura o botão e o menu DENTRO do header injetado (Infalível em páginas injetadas)
-    const btnHamb = headerElement.querySelector(".site-headers__menu-toggle");
-    const menu = headerElement.querySelector(".site-nav"); 
-    
-    if (!btnHamb || !menu) return; // Se os elementos internos não existirem, para.
+      const isSamePage = !isHomePage && currentPage === linkPage;
 
-    btnHamb.setAttribute("aria-expanded", "false");
+      if (isHomePage || isSamePage) {
+        link.setAttribute("aria-current", "page");
+        link.classList.add("is-active");
+      } else {
+        link.removeAttribute("aria-current");
+        link.classList.remove("is-active");
+      }
+    });
 
-    const toggleMenu = (event) => {
-      const isAberto =
-        menu.classList.contains("aberto") ||
-        menu.classList.contains("ativo");
+    linksHighlighted = true;
+  }
 
-      if (isAberto) {
-        // Ações de Fechamento
-        menu.classList.remove("aberto", "ativo");
-        btnHamb.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("no-scroll");
+  // ================================
+  // 2. MENU HAMBÚRGUER (MOBILE)
+  // ================================
+  function initHamburgerMenu() {
+    // Evita registrar eventos mais de uma vez
+    if (hamburgerInitialized) return;
 
-        // Retorna o foco ao botão que abriu, exceto se for fechado por clique em link
-        if (event && event.type !== 'click') {
-           btnHamb.focus();
-        }
+    // Busca direta no documento (mais robusto entre páginas)
+    const btnHamb = document.querySelector(".site-headers__menu-toggle");
+    const menu = document.querySelector("#menu-navegacao");
 
-      } else {
-        // Ações de Abertura
-        menu.classList.add("aberto", "ativo");
-        btnHamb.setAttribute("aria-expanded", "true");
-        document.body.classList.add("no-scroll");
+    if (!btnHamb || !menu) {
+      // Se ainda não existirem (includes não carregados), não marca como inicializado
+      return;
+    }
 
-        // MELHORIA A11Y: Move o foco para o primeiro link do menu
-        const firstLink = menu.querySelector("a");
-        if (firstLink) {
-          firstLink.focus();
-        }
-      }
-    };
+    hamburgerInitialized = true;
 
-    btnHamb.addEventListener("click", toggleMenu);
+    btnHamb.setAttribute("aria-expanded", "false");
 
-    // Fecha ao clicar em um link do menu (Garante que o toggleMenu é chamado para fechar)
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", (e) => {
-        if (menu.classList.contains("aberto") || menu.classList.contains("ativo")) {
-            // Chama toggleMenu para atualizar estados, passando o evento de clique
-            toggleMenu(e); 
-        }
-      });
-    });
+    const toggleMenu = (event) => {
+      const isAberto =
+        menu.classList.contains("aberto") || menu.classList.contains("ativo");
 
-    // Fecha com ESC
-    document.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        (menu.classList.contains("aberto") ||
-          menu.classList.contains("ativo"))
-      ) {
-        // Chama toggleMenu para fechar, passando o evento de tecla
-        toggleMenu(e); 
-        btnHamb.focus(); // Retorna o foco para o botão após fechar com ESC
-      }
-    });
-  }
+      if (isAberto) {
+        // FECHAR
+        menu.classList.remove("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("no-scroll");
 
-  // ================================
-  // 3. MODAIS (PORTFÓLIO / EXP) - (Acessibilidade: Foco)
-  // ================================
-  function initModals() {
-    const openBtns = document.querySelectorAll("[data-modal-target]");
-    const modals = document.querySelectorAll(".modal");
-    if (!openBtns.length || !modals.length) return;
-    
-    // Variável para armazenar o botão que abriu o modal (para focar nele depois)
-    let triggerElement = null; 
+        // Se fechou por ESC, devolve foco ao botão
+        if (event && event.type === "keydown") {
+          btnHamb.focus();
+        }
+      } else {
+        // ABRIR
+        menu.classList.add("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "true");
+        document.body.classList.add("no-scroll");
 
-    const openModal = (modal) => {
-      if (!modal) return;
-      modal.style.display = "flex";
-      requestAnimationFrame(() => {
-        modal.classList.add("visivel");
-        
-        // MELHORIA A11Y: Move o foco para o container do modal
-        const modalContent = modal.querySelector(".modal-content");
-        if (modalContent) {
-           modalContent.setAttribute("tabindex", "-1"); 
-           modalContent.focus(); // Move o foco para dentro do modal
-        }
-      });
-      document.body.classList.add("no-scroll", "modal-aberto");
-    };
+        // Acessibilidade: foco no primeiro link
+        const firstLink = menu.querySelector("a");
+        if (firstLink) {
+          firstLink.focus();
+        }
+      }
+    };
 
-    const closeModal = (modal) => {
-      if (!modal) return;
-      modal.classList.remove("visivel");
-      setTimeout(() => {
-        modal.style.display = "none";
-      }, 250);
-      document.body.classList.remove("no-scroll", "modal-aberto");
-      
-      // MELHORIA A11Y: Retorna o foco para o elemento que abriu
-      if (triggerElement) {
-        triggerElement.focus();
-        triggerElement = null; // Limpa o elemento de disparo
-      }
-    };
+    // Clique no ícone do hambúrguer
+    btnHamb.addEventListener("click", toggleMenu);
 
-    openBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        triggerElement = btn; // Armazena o botão que abriu
-        const targetId = btn.getAttribute("data-modal-target");
-        const modal = document.getElementById(targetId);
-        openModal(modal);
-      });
-    });
+    // Fecha ao clicar em um link do menu
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        if (menu.classList.contains("aberto") || menu.classList.contains("ativo")) {
+          toggleMenu(e);
+        }
+      });
+    });
 
-    modals.forEach((modal) => {
-      const closeBtn = modal.querySelector(".modal-close");
-      if (closeBtn) {
-        closeBtn.addEventListener("click", () => closeModal(modal));
-      }
+    // Fecha com ESC
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        (menu.classList.contains("aberto") || menu.classList.contains("ativo"))
+      ) {
+        toggleMenu(e);
+      }
+    });
+  }
 
-      // Fecha ao clicar fora do conteúdo
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal(modal);
-      });
-    });
+  // ================================
+  // 3. MODAIS (PORTFÓLIO / EXP)
+  // ================================
+  function initModals() {
+    if (modalsInitialized) return;
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key !== "Escape") return;
-      const aberto = document.querySelector(".modal.visivel");
-      if (aberto) closeModal(aberto);
-    });
-  }
+    const openBtns = document.querySelectorAll("[data-modal-target]");
+    const modals = document.querySelectorAll(".modal");
 
-  // ================================
-  // 4. INICIALIZAÇÃO GERAL
-  // ================================
-function initSite() {
-    // EXECUTAR AS FUNÇÕES QUE DEPENDEM DE ELEMENTOS INJETADOS
-    highlightCurrentLink();
-    initHamburgerMenu(); 
-    initModals();
-}
+    // Se não houver modais na página, apenas marca como inicializado
+    if (!openBtns.length || !modals.length) {
+      modalsInitialized = true;
+      return;
+    }
 
-// 💡 GARANTIA DE EXECUÇÃO: Aguarda o evento 'includes:ready'
-document.addEventListener("includes:ready", initSite);
+    modalsInitialized = true;
 
-// Redundância para navegadores que carregam includes rapidamente
-if (window.includesReady) {
-    initSite();
-}
+    let triggerElement = null;
+
+    const openModal = (modal) => {
+      if (!modal) return;
+
+      modal.style.display = "flex";
+      requestAnimationFrame(() => {
+        modal.classList.add("visivel");
+
+        const modalContent = modal.querySelector(".modal-content");
+        if (modalContent) {
+          modalContent.setAttribute("tabindex", "-1");
+          modalContent.focus();
+        }
+      });
+      document.body.classList.add("no-scroll", "modal-aberto");
+    };
+
+    const closeModal = (modal) => {
+      if (!modal) return;
+
+      modal.classList.remove("visivel");
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 250);
+      document.body.classList.remove("no-scroll", "modal-aberto");
+
+      if (triggerElement) {
+        triggerElement.focus();
+        triggerElement = null;
+      }
+    };
+
+    openBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        triggerElement = btn;
+        const targetId = btn.getAttribute("data-modal-target");
+        const modal = document.getElementById(targetId);
+        openModal(modal);
+      });
+    });
+
+    modals.forEach((modal) => {
+      const closeBtn = modal.querySelector(".modal-close");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => closeModal(modal));
+      }
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      const aberto = document.querySelector(".modal.visivel");
+      if (aberto) closeModal(aberto);
+    });
+  }
+
+  // ================================
+  // 4. INICIALIZAÇÃO GERAL
+  // ================================
+  function initSite() {
+    // Tudo que depende do header injetado
+    highlightCurrentLink();
+    initHamburgerMenu();
+    initModals();
+  }
+
+  // Aguarda includes.js sinalizar que terminou
+  document.addEventListener("includes:ready", initSite);
+
+  // Se o includes já terminou antes do script carregar
+  if (window.includesReady) {
+    initSite();
+  }
 })();

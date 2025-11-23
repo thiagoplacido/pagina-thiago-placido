@@ -1,0 +1,21 @@
+.about-container {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.about-content .rich-text p {
+  max-width: 65ch; /* Melhora a legibilidade */
+}
+
+/* Em telas maiores, divide em duas colunas */
+@media (min-width: 1024px) {
+  .about-container {
+    grid-template-columns: 400px 1fr; /* Ajuste o 400px conforme necessário */
+    
+  }
+
+  .apresentacao__imagem {
+    justify-self: center;
+  }
+}

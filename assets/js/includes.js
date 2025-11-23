@@ -30,10 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Aguarda que todos os includes (sucessos ou falhas) terminem.
-    await Promise.all(promises);
+// Aguarda que todos os includes (sucessos ou falhas) terminem.
+    await Promise.all(promises);
 
-    // Sinaliza globalmente que o processo foi concluído.
-    window.includesReady = true;
+    // **********************************************
+    // 💡 CORREÇÃO FINAL: FORÇA UM DELAY DE ESTABILIZAÇÃO DO DOM (50ms)
+    // Isso garante que os elementos injetados (Header/Footer) 
+    // sejam totalmente processados e pesquisáveis.
+    await new Promise(resolve => setTimeout(resolve, 50)); 
+    // **********************************************
+
+    // Sinaliza globalmente que o processo foi concluído.
+    window.includesReady = true;
     document.dispatchEvent(new CustomEvent("includes:ready"));
   }
 

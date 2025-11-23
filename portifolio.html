@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="assets/css/headers.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/portifolio.css">
+  <link rel="stylesheet" href="assets/css/modals.css">
 </head>
 
 <body>
@@ -30,17 +31,183 @@
     <header class="portifolio-headers">
       <h1 class="section-title">Portifólio / Cases</h1>
       <p class="section-subtitle">
-        Projetos que conectam design simples, código limpo e uso inteligente de IA.  
+        Projetos que conectam design simples, código limpo e uso inteligente de IA.
         Meu foco é entregar clareza, organização e impacto — mesmo em início de carreira tech.
       </p>
     </header>
 
     <section class="portifolio-list">
 
-      <!-- CARD 1 – THALLES CLASSIC -->
+      <!-- CARD 1 – ALPHA1 PRODUTIVIDADE EM PLANTÕES -->
       <article class="project-card">
         <div class="project-card__thumb-wrapper">
-          <img src="assets/portifolio/2.png" alt="Thumbnail do site Thalles Classic" />
+          <img src="assets/portifolio/case-1.png" alt="Preview do app Alpha1 para plantões" />
+        </div>
+
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Aplicativo mobile • Produtividade em plantões</p>
+            <h2 class="project-card__title">Alpha1 – Plantões</h2>
+            <p class="project-card__meta">
+              Conceito baseado em rotina real de Residências Inclusivas
+            </p>
+          </header>
+
+          <p>
+            O Alpha1 foi criado a partir da experiência real em Residências Inclusivas para resolver problemas críticos de
+            comunicação e registro durante plantões. Organiza acompanhamento de residentes, registros rápidos, geração de
+            relatórios estruturados e transição de plantão sem perda de informação. A arquitetura segue princípios de Clean
+            Architecture com UX centrada em usabilidade e fluxo direto.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">UX</span>
+            <span class="pill">Protótipo</span>
+            <span class="pill">Arquitetura Clean</span>
+            <span class="pill">Flow</span>
+            <span class="pill">Kotlin (conceito)</span>
+          </div>
+
+          <div class="project-card__actions">
+            <button class="btn btn-primary btn-sm" data-modal-target="modal-alpha1-plantao">
+              Maiores informações
+            </button>
+            <a class="btn btn-outline btn-sm" href="#" target="_blank">
+              Visitar projeto
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 – ALPHA2 GESTÃO PARA PEQUENOS NEGÓCIOS -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/case-2.png" alt="Preview do app Alpha2 para pequenos negócios" />
+        </div>
+
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Aplicativo mobile • Gestão para pequenos negócios</p>
+            <h2 class="project-card__title">Alpha2 – Gestão</h2>
+            <p class="project-card__meta">
+              Conceito de app Android com foco em fluxo operacional simples e offline
+            </p>
+          </header>
+
+          <p>
+            O Alpha2 é um conceito de gestão para pequenos empreendedores que precisam organizar vendas, clientes e estoque
+            de forma rápida, simples e offline. Estruturado com Clean Architecture e MVVM, modela entidades como Cliente,
+            Produto, Venda e Estoque, permitindo registros ágeis, armazenamento local com Room e DataStore e exportação de
+            relatórios em PDF/CSV.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">Kotlin (conceito)</span>
+            <span class="pill">Android</span>
+            <span class="pill">Room (conceito)</span>
+            <span class="pill">MVVM</span>
+            <span class="pill">Arquitetura limpa</span>
+            <span class="pill">PDF/CSV</span>
+          </div>
+
+          <div class="project-card__actions">
+            <button class="btn btn-primary btn-sm" data-modal-target="modal-alpha2-gestao">
+              Maiores informações
+            </button>
+            <a class="btn btn-outline btn-sm" href="#" target="_blank">
+              Visitar projeto
+            </a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- CARD 3 – IDENTIDADE VISUAL THIAGO PLACIDO DEV -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src=assets/portifolio/case-3.png alt="Identidade visual Thiago Placido DEV" />
+        </div>
+
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Identidade visual • Marca pessoal</p>
+            <h2 class="project-card__title">Thiago Placido DEV</h2>
+            <p class="project-card__meta">
+              Marca autoral criada com base em tecnologia, geometria e propósito pessoal
+            </p>
+          </header>
+
+          <p>
+            Desenvolvi minha identidade visual como parte da construção da minha presença profissional. A marca une
+            tecnologia, geometria e propósito através de um hexágono representando visão analítica, circuitos simbolizando
+            ideias em ebulição e paleta preto/amarelo transmitindo energia e contraste tecnológico. Todo o processo foi
+            estruturado no Canva com apoio de IA para sketching e refinamento.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">Identidade visual</span>
+            <span class="pill">Design</span>
+            <span class="pill">Branding</span>
+            <span class="pill">IA no fluxo</span>
+            <span class="pill">Narrativa visual</span>
+          </div>
+
+          <div class="project-card__actions">
+            <button class="btn btn-primary btn-sm" data-modal-target="modal-identidade-visual">
+              Maiores informações
+            </button>
+            <a class="btn btn-outline btn-sm" href="assets\portifolio\case3.png" target="_blank">
+              Ver logo
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4 – SITE CURRÍCULO / PORTiFÓLIO PROFISSIONAL -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/case-4.png" alt="Preview do site portifólio profissional de Thiago Placido" />
+        </div>
+
+        <div class="project-card__content">
+          <header>
+            <p class="project-card__subtitle">Site currículo • Versão Premium</p>
+            <h2 class="project-card__title">Portifólio Profissional</h2>
+            <p class="project-card__meta">
+              Projeto autoral • Iteração contínua • Focado em empregabilidade e clareza técnica
+            </p>
+          </header>
+
+          <p>
+            Meu site funciona como laboratório vivo de aprendizado e evolução, onde experimento layouts, componentes
+            reutilizáveis, responsividade, semântica HTML5 e organização modular de CSS/JS. Integro IA no fluxo de trabalho
+            para otimizar copy, documentação técnica e refino visual — transformando estudos em entregas concretas com
+            arquitetura limpa e modular.
+          </p>
+
+          <div class="project-card__chips">
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">UX</span>
+            <span class="pill">Responsivo</span>
+            <span class="pill">IA no fluxo</span>
+          </div>
+
+          <div class="project-card__actions">
+            <button class="btn btn-primary btn-sm" data-modal-target="modal-portifolio-premium">
+              Maiores informações
+            </button>
+            <a class="btn btn-outline btn-sm" href="index.html">
+              Visitar projeto
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5 – THALLES CLASSIC LANDING PAGE -->
+      <article class="project-card">
+        <div class="project-card__thumb-wrapper">
+          <img src="assets/portifolio/case-5.png" alt="Thumbnail do site Thalles Classic" />
         </div>
 
         <div class="project-card__content">
@@ -53,88 +220,235 @@
           </header>
 
           <p>
-            Landing page criada para apresentar a trajetória esportiva do atleta
-            Thalles Reis, com foco em impacto visual, fotos fortes e narrativa curta.
-            Trabalhei estrutura, copy simples e fluxo visual direto.
+            Desenvolvi a landing page oficial do atleta Thalles Reis como estratégia de profissionalização da presença
+            digital para ampliar visibilidade e atrair patrocinadores. A interface em Dark Mode com verde neon inspirado no
+            pré-treino SHARDS reforça energia, performance e identidade visual do atleta, com foco em história, vídeos
+            verticais e bloco de cupom como elemento central de conversão.
           </p>
 
           <div class="project-card__chips">
             <span class="pill">HTML5</span>
             <span class="pill">CSS3</span>
             <span class="pill">Responsivo</span>
-            <span class="pill">Marca Pessoal</span>
+            <span class="pill">Marca pessoal</span>
+            <span class="pill">Performance</span>
           </div>
 
           <div class="project-card__actions">
-            <a class="btn btn-outline btn-sm" href="https://thallesclassic.vercel.app" target="_blank">Visitar projeto</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 2 – PORTIFÓLIO PESSOAL -->
-      <article class="project-card">
-        <div class="project-card__thumb-wrapper">
-          <img src="assets/portifolio/3.png" alt="Preview do site pessoal de Thiago Placido" />
-        </div>
-
-        <div class="project-card__content">
-          <header>
-            <p class="project-card__subtitle">Site currículo • Versão Premium</p>
-            <h2 class="project-card__title">Portifólio Pessoal</h2>
-            <p class="project-card__meta">
-              Projeto autoral • Iteração contínua • Focado em empregabilidade
-            </p>
-          </header>
-
-          <p>
-            Meu site atual funciona como um laboratório de aprendizado e evolução.
-            Aqui testo layouts, componentes, organização narrativa e boas práticas
-            para recrutadores e freela.
-          </p>
-
-          <div class="project-card__chips">
-            <span class="pill">HTML5</span>
-            <span class="pill">CSS3</span>
-            <span class="pill">UX</span>
-            <span class="pill">IA no fluxo</span>
-          </div>
-
-          <div class="project-card__actions">
-            <a class="btn btn-outline btn-sm" href="index.html">Abrir site</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 3 – PROJETO FUTURO -->
-      <article class="project-card">
-        <div class="project-card__thumb-wrapper">
-          <img src="assets/portifolio/Loading.gif" alt="Imagem de projeto em desenvolvimento" />
-        </div>
-
-        <div class="project-card__content">
-          <header>
-            <p class="project-card__subtitle">Em desenvolvimento</p>
-            <h2 class="project-card__title">Próximo Case</h2>
-            <p class="project-card__meta">
-              Slot para app em Kotlin, automação ou ferramenta interna.
-            </p>
-          </header>
-
-          <p>
-            Este slot reserva espaço para seu próximo case real, documentado desde o problema
-            até a solução. Ideal para mostrar evolução contínua.
-          </p>
-
-          <div class="project-card__chips">
-            <span class="pill">Kotlin</span>
-            <span class="pill">Automação</span>
-            <span class="pill">Backlog</span>
+            <button class="btn btn-primary btn-sm" data-modal-target="modal-thalles-classic">
+              Maiores informações
+            </button>
+            <a class="btn btn-outline btn-sm" href="https://thallesclassic.vercel.app" target="_blank">
+              Visitar projeto
+            </a>
           </div>
         </div>
       </article>
 
     </section>
   </main>
+
+  <!-- MODAIS DE DETALHES DOS PROJETOS -->
+
+  <!-- MODAL 1 – ALPHA1 PLANTÕES -->
+  <div id="modal-alpha1-plantao" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+      <h2 class="modal-title">Alpha1 – Produtividade em plantões</h2>
+      <div class="modal-body">
+        <h3>Contexto e problema</h3>
+        <p>
+          O Alpha1 resolve problemas reais enfrentados diariamente em Residências Inclusivas: falta de continuidade entre
+          plantões, comunicação descentralizada, registros inconsistentes, intercorrências perdidas na rotina e ausência de
+          histórico por residente. O objetivo é tornar o plantão mais organizado, seguro e eficiente, evitando perda de
+          informação entre equipes.
+        </p>
+
+        <h3>Usuários e ambiente</h3>
+        <p>
+          Projetado para plantonistas, cuidadores, vigias e coordenação que atuam em corredores escuros, quartos e postos
+          de enfermagem — onde o celular precisa funcionar rapidamente, mesmo durante atendimentos. A interface usa modo
+          dark obrigatório, paleta azul petróleo e navegação linear sem distrações.
+        </p>
+
+        <h3>Funcionalidades principais</h3>
+        <p>
+          Registra intercorrências, cuidados, medicamentos, comportamentos e consumo de inventário durante o plantão. Gera
+          relatórios completos e editáveis incluindo eventos por residente, pendências, checklist e observações gerais.
+          Exporta em PDF, copia como texto ou envia diretamente via WhatsApp.
+        </p>
+
+        <h3>Modelagem e arquitetura</h3>
+        <p>
+          A estrutura de dados reflete o fluxo real: Plantão, Residente, Evento, Pendências e Medicação organizados com
+          Clean Architecture. A UX segue três pilares: registrar rápido, consultar rápido e gerar relatório claro. O app
+          será usado pelo próprio desenvolvedor como ferramenta prática no trabalho real.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2 – ALPHA2 GESTÃO -->
+  <div id="modal-alpha2-gestao" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+      <h2 class="modal-title">Alpha2 – Gestão para pequenos negócios</h2>
+      <div class="modal-body">
+        <h3>Propósito e problema</h3>
+        <p>
+          O Alpha2 surgiu da observação de uma necessidade real: pequenos comerciantes precisam de uma ferramenta simples,
+          rápida e offline para unificar vendas, clientes, estoque, catálogo e comunicação via WhatsApp — sem mensalidade,
+          sem burocracia e com fluxo intuitivo. O objetivo é permitir que qualquer empreendedor organize seu negócio no
+          celular sem precisar de treinamento ou sistemas complexos.
+        </p>
+
+        <h3>Público-alvo</h3>
+        <p>
+          MEIs, autônomos, vendedores informais, revendedores, criadores de conteúdo e lojas pequenas que precisam de
+          catálogo simples e controle próprio do estoque. Projetado para quem trabalha sozinho, com pouco tempo e precisa
+          de praticidade.
+        </p>
+
+        <h3>Funcionalidades principais</h3>
+        <p>
+          Registra vendas com fluxo direto (escolher produto → adicionar cliente → definir pagamento → salvar → atualizar
+          estoque). Controla estoque inteligente com quantidade mínima e atualização automática. Gera catálogo online
+          sincronizado e cards personalizados para WhatsApp. Exporta relatórios completos em PDF/CSV com histórico de
+          vendas, dashboards simples e rankings por cliente e produto.
+        </p>
+
+        <h3>Modelagem e arquitetura</h3>
+        <p>
+          Entidades previstas incluem Cliente, Produto, Venda, ItemVenda, Categoria, Estoque, Configurações e Histórico,
+          com relacionamentos naturais para Room (Cliente → Vendas 1:N, Venda → Itens 1:N, Categoria → Produtos 1:N). A
+          arquitetura utiliza MVVM e Clean Architecture, garantindo organização, manutenção facilitada e evolução futura.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3 – IDENTIDADE VISUAL -->
+  <div id="modal-identidade-visual" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+      <h2 class="modal-title">Identidade Visual – Thiago Placido DEV</h2>
+      <div class="modal-body">
+        <h3>Contexto e propósito</h3>
+        <p>
+          A identidade visual foi desenvolvida para representar minha trajetória como desenvolvedor e criador de soluções
+          tecnológicas. Desde o início, a intenção não era apenas criar uma logo, mas um símbolo de quem sou e de como
+          penso tecnologia. A versão final surgiu após ciclo de exploração e evolução no Canva, com apoio de IA (ChatGPT e
+          Gemini) como extensão criativa para gerar interpretações visuais, variações e refinamentos rápidos.
+        </p>
+
+        <h3>Elementos e significados</h3>
+        <p>
+          O núcleo preto central representa conhecimento profundo, misterioso e em expansão. O hexágono superior funciona
+          como olho tecnológico, representando visão analítica, leitura de padrões e criatividade aplicada. Os circuitos
+          ao redor simbolizam processo mental ativo: ideias em ebulição, conexões rápidas e inquietação criativa.
+        </p>
+
+        <h3>Identidade tipográfica e cromática</h3>
+        <p>
+          O nome "Thiago Placido" aparece em destaque como assinatura profissional — sólida e confiável. A paleta
+          preto/amarelo foi escolha pessoal, reforçando tecnologia, energia, impacto visual e destaque em interfaces
+          escuras.
+        </p>
+
+        <h3>Aplicações</h3>
+        <p>
+          A marca será usada em site, portifólio, produtos de desenvolvimento, mockups, materiais de apresentação,
+          plataformas de divulgação, LinkedIn e assinaturas profissionais. Foi criada para ser versátil, modular e
+          compatível com futuras soluções — incluindo apps, dashboards e páginas multilíngues. Mensagem da marca:
+          conhecimento, solidez e ideias em ebulição.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4 – PORTIFÓLIO PREMIUM -->
+  <div id="modal-poritifolio-premium" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+      <h2 class="modal-title">Site Currículo – Portifólio Profissional</h2>
+      <div class="modal-body">
+        <h3>Arquitetura e organização</h3>
+        <p>
+          O site segue arquitetura limpa e modular: 19 arquivos CSS divididos por função (cards, botões, layout, menu),
+          JavaScript organizado em <code>includes.js</code> (injeção de Header/Footer) e <code>script.js</code> (UI e interações),
+          e partials como componentes reutilizáveis. Essa divisão nasceu intuitivamente da necessidade de organizar melhor
+          o projeto — mais tarde percebi que estava aplicando princípios de CSS modular e Design System.
+        </p>
+
+        <h3>CSS modular e design tokens</h3>
+        <p>
+          O CSS é dividido por função, não por página, criando componentes reutilizáveis, fácil manutenção e padronização
+          com design tokens (<code>--cor-primaria</code>, <code>--cor-texto</code>, <code>--radius-3</code>, <code>--space-4</code>,
+          <code>--shadow-card</code>). Essa abordagem mostra que meu aprendizado já caminha em direção a práticas de engenharia de
+          interfaces, não apenas estética.
+        </p>
+
+        <h3>Responsividade e semântica</h3>
+        <p>
+          A responsividade utiliza CSS Grid, Flexbox e media queries em 1024px e 768px com abordagem desktop-first.
+          A semântica HTML5 foi revisada com tags corretas (header, main, section, footer), textos alternativos, hierarquia
+          de títulos, contraste otimizado e navegação intuitiva.
+        </p>
+
+        <h3>IA no fluxo de desenvolvimento</h3>
+        <p>
+          A IA foi usada como extensão da capacidade, auxiliando em revisão de semântica, padrões modernos de layout,
+          validação de modularização, copywriting, planejamento de backlog, detecção de inconsistências CSS, melhoria de
+          acessibilidade e estruturação de i18n para versões futuras.
+        </p>
+
+        <h3>Roadmap de evolução</h3>
+        <p>
+          Implementar i18n completo, microinterações e animações suaves, reestruturação para Vite ou Astro, mais
+          componentes reutilizáveis, otimizações de performance e seção de poritfólio expandida com filtros por tipo de
+          projeto.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 5 – THALLES CLASSIC -->
+  <div id="modal-thalles-classic" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+      <h2 class="modal-title">Thalles Classic – Landing Page para atleta</h2>
+      <div class="modal-body">
+        <h3>Contexto e objetivo</h3>
+        <p>
+          O atleta buscava fortalecer sua marca pessoal e profissionalizar sua presença digital para atrair patrocinadores.
+          Organizei suas demandas (cupom de desconto, vídeos do YouTube, apresentação da história profissional) dentro de
+          uma landing page moderna, clara e focada em conversão.
+        </p>
+
+        <h3>Identidade visual e estética</h3>
+        <p>
+          A estética foi guiada pela arte do SHARDS PRE-WORKOUT: Dark Mode com fundo preto, verde neon em títulos e CTAs,
+          fontes robustas, brilho/box-shadow neon em fotos e cupom e hero com vídeo de treino transmitindo ação em
+          segundos, representando a categoria Classic Physique.
+        </p>
+
+        <h3>Arquitetura e layout</h3>
+        <p>
+          Projeto estático simples (index.html, style.css, /assets). O CSS usa variáveis em <code>:root</code> e classes dedicadas
+          por seção. Responsividade com Flexbox, CSS Grid (seção de vídeos 9:16) e media queries mobile-first. Assets
+          otimizados para performance.
+        </p>
+
+        <h3>Storytelling, público e desafio técnico</h3>
+        <p>
+          A narrativa transmite disciplina, foco e potencial de destaque. Público-alvo: patrocinadores, seguidores de
+          fitness, consumidores de suplementos, fãs e recrutadores de eventos. Um dos desafios foi fazer vídeos verticais
+          manterem proporção perfeita ao lado de imagens horizontais, resolvido com técnica de CSS usando
+          <code>padding-bottom: 177.77%</code> e <code>height: 0</code>, além de overlay escuro para garantir legibilidade no hero.
+        </p>
+      </div>
+    </div>
+  </div>
 
   <footer id="site-footer" data-include="partials/footer.html"></footer>
 

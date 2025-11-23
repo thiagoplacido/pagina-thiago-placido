@@ -1,66 +1,4 @@
 ################################################
-ESTRUTURA DO PROJETO
-################################################
-
-RAIZ DO PROJETO:
-├── assets/
-│   ├── css/
-│   │   ├── background.css
-│   │   ├── botoes.css
-│   │   ├── cards.css
-│   │   ├── contato.css
-│   │   ├── entrega.css
-│   │   ├── experiencia.css
-│   │   ├── fabrica.css
-│   │   ├── footer.css
-│   │   ├── formacao.css
-│   │   ├── headers.css
-│   │   ├── home.css
-│   │   ├── layout.css
-│   │   ├── menu.css
-│   │   ├── modals.css
-│   │   ├── portifolio.css
-│   │   ├── reset.css
-│   │   ├── skills.css
-│   │   ├── sobre.css
-│   │   └── tokens.css
-│   └── js/
-│       ├── includes.js
-│       └── script.js
-├── partials/ (arquivos refatorados)
-│   ├── header.html
-│   └── footer.html
-├── contato.html
-├── exp.html
-├── fabrica.html
-├── formacao.html
-├── index.html
-├── LICENSE
-├── minha-entrega.html
-├── portifolio.html
-├── skills.html
-└── sobre.html
-
-ESTATÍSTICAS:
-TOTAL DE ARQUIVOS: 33
-ARQUIVOS CSS: 19
-ARQUIVOS JS: 2
-PARTIALS HTML: 2
-PÁGINAS HTML: 9
-OUTROS: 1
-
-MUDANÇAS RECENTES:
-✓ assets/style.css DELETADO
-✓ footer.html REFATORADO para partials/footer.html
-✓ header.html REFATORADO para partials/header.html
-
-################################################
-FIM DA ESTRUTURA DO PROJETO
-################################################
-
-
-
-################################################
 ARQUIVO: assets/css/background.css
 ################################################
 
@@ -429,6 +367,7 @@ ARQUIVO: assets/css/headers.css
   display: flex;
   flex-direction: column;
   line-height: 1.1;
+  min-width: max-content; /* força o texto a caber em 1 linha */
 }
 
 .brand__title {
@@ -442,13 +381,19 @@ ARQUIVO: assets/css/headers.css
   color: var(--cor-primaria);
 }
 
+.brand__and {
+  color: var(--cor-primaria-soft);   /* mesma cor do link ativo */
+  font-weight: 300 !important;
+}
 .brand__subtitle {
   font-size: 0.7rem;
   color: var(--cor-texto-secundario);
   letter-spacing: 0.12em;
   margin-top: 2px;
-  white-space: nowrap;
+  white-space: nowrap; /* mantém na mesma linha */
+  display: block;
 }
+
 
 /* Botão menu mobile */
 .site-headers__menu-toggle {
@@ -458,6 +403,7 @@ ARQUIVO: assets/css/headers.css
   cursor: pointer;
 }
 
+
 .site-headers__menu-toggle img {
   width: 28px;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
@@ -465,18 +411,20 @@ ARQUIVO: assets/css/headers.css
 
 @media (max-width: 1024px) {
   .site-headers__menu-toggle {
-    /* CORRIGIDO: Sintaxe de !important */
-    display: block !important; 
+    /* Botão visível em mobile/tablet */
+    display: block !important;
   }
+
   /* Esconde o menu desktop quando o botão é visível */
-  .site-nav {
+  .site-headers__content .site-nav {
     display: none;
   }
-}
 
-/* Menu mobile ativado (gerenciado por script.js) */
-.no-scroll {
-  overflow: hidden;
+  /* Quando o menu está aberto, força a exibição */
+  .site-headers__content .site-nav.aberto,
+  .site-headers__content .site-nav.ativo {
+    display: flex;
+  }
 }
 
 
@@ -1326,10 +1274,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Aguarda que todos os includes (sucessos ou falhas) terminem.
-    await Promise.all(promises);
+// Aguarda que todos os includes (sucessos ou falhas) terminem.
+    await Promise.all(promises);
 
-    // Sinaliza globalmente que o processo foi concluído.
-    window.includesReady = true;
+    // **********************************************
+    // 💡 CORREÇÃO FINAL: FORÇA UM DELAY DE ESTABILIZAÇÃO DO DOM (50ms)
+    // Isso garante que os elementos injetados (Header/Footer) 
+    // sejam totalmente processados e pesquisáveis.
+    await new Promise(resolve => setTimeout(resolve, 50)); 
+    // **********************************************
+
+    // Sinaliza globalmente que o processo foi concluído.
+    window.includesReady = true;
     document.dispatchEvent(new CustomEvent("includes:ready"));
   }
 
@@ -1343,203 +1299,217 @@ document.addEventListener("DOMContentLoaded", () => {
 ARQUIVO: assets/js/script.js
 ################################################
 
-/* /assets/js/script.js (VERSÃO FINAL E FUNCIONAL) */
+/* /assets/js/script.js (VERSÃO AJUSTADA E SEGURA) */
 (function () {
-  // ================================
-  // 1. DESTACAR LINK ATUAL NO MENU
-  // ================================
-  function highlightCurrentLink() {
-    // Busca o elemento de navegação principal (que agora tem o ID)
-    const menu = document.querySelector("#menu-navegacao"); 
-    if (!menu) return;
+  // Flags para evitar inicializações duplicadas
+  let linksHighlighted = false;
+  let hamburgerInitialized = false;
+  let modalsInitialized = false;
 
-    const links = menu.querySelectorAll("a[href]");
-    if (!links.length) return;
+  // ================================
+  // 1. DESTACAR LINK ATUAL NO MENU
+  // ================================
+  function highlightCurrentLink() {
+    if (linksHighlighted) return;
 
-    const path = window.location.pathname;
-    // Pega o nome do arquivo, tratando a raiz ('/') como 'index.html'
-    const currentPage = path.split("/").pop() || "index.html"; 
+    const menu = document.querySelector("#menu-navegacao");
+    if (!menu) return;
 
-    links.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href) return;
-      const linkPage = href.split("/").pop() || "index.html";
+    const links = menu.querySelectorAll("a[href]");
+    if (!links.length) return;
 
-      const isHomePage =
-        (currentPage === "" || currentPage === "index.html") &&
-        (linkPage === "" || linkPage === "index.html");
+    const path = window.location.pathname;
+    const currentPage = path.split("/").pop() || "index.html";
 
-      const isSamePage = !isHomePage && currentPage === linkPage;
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
 
-      if (isHomePage || isSamePage) {
-        link.setAttribute("aria-current", "page");
-        link.classList.add("is-active");
-      } else {
-        link.removeAttribute("aria-current");
-        link.classList.remove("is-active");
-      }
-    });
-  }
+      const linkPage = href.split("/").pop() || "index.html";
 
-  // ================================
-  // 2. MENU HAMBÚRGUER (Acessibilidade: Foco e Estado)
-  // ================================
-  function initHamburgerMenu() {
-    // 💡 CORREÇÃO APLICADA: Busca o container principal que foi alvo do includes.js
-    const headerElement = document.getElementById("site-headers"); 
-    if (!headerElement) return; // Se o container não existe, para.
+      const isHomePage =
+        (currentPage === "" || currentPage === "index.html") &&
+        (linkPage === "" || linkPage === "index.html");
 
-    // Procura o botão e o menu DENTRO do header injetado (Infalível em páginas injetadas)
-    const btnHamb = headerElement.querySelector(".site-headers__menu-toggle");
-    const menu = headerElement.querySelector(".site-nav"); 
-    
-    if (!btnHamb || !menu) return; // Se os elementos internos não existirem, para.
+      const isSamePage = !isHomePage && currentPage === linkPage;
 
-    btnHamb.setAttribute("aria-expanded", "false");
+      if (isHomePage || isSamePage) {
+        link.setAttribute("aria-current", "page");
+        link.classList.add("is-active");
+      } else {
+        link.removeAttribute("aria-current");
+        link.classList.remove("is-active");
+      }
+    });
 
-    const toggleMenu = (event) => {
-      const isAberto =
-        menu.classList.contains("aberto") ||
-        menu.classList.contains("ativo");
+    linksHighlighted = true;
+  }
 
-      if (isAberto) {
-        // Ações de Fechamento
-        menu.classList.remove("aberto", "ativo");
-        btnHamb.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("no-scroll");
+  // ================================
+  // 2. MENU HAMBÚRGUER (MOBILE)
+  // ================================
+  function initHamburgerMenu() {
+    // Evita registrar eventos mais de uma vez
+    if (hamburgerInitialized) return;
 
-        // Retorna o foco ao botão que abriu, exceto se for fechado por clique em link
-        if (event && event.type !== 'click') {
-           btnHamb.focus();
-        }
+    // Busca direta no documento (mais robusto entre páginas)
+    const btnHamb = document.querySelector(".site-headers__menu-toggle");
+    const menu = document.querySelector("#menu-navegacao");
 
-      } else {
-        // Ações de Abertura
-        menu.classList.add("aberto", "ativo");
-        btnHamb.setAttribute("aria-expanded", "true");
-        document.body.classList.add("no-scroll");
+    if (!btnHamb || !menu) {
+      // Se ainda não existirem (includes não carregados), não marca como inicializado
+      return;
+    }
 
-        // MELHORIA A11Y: Move o foco para o primeiro link do menu
-        const firstLink = menu.querySelector("a");
-        if (firstLink) {
-          firstLink.focus();
-        }
-      }
-    };
+    hamburgerInitialized = true;
 
-    btnHamb.addEventListener("click", toggleMenu);
+    btnHamb.setAttribute("aria-expanded", "false");
 
-    // Fecha ao clicar em um link do menu (Garante que o toggleMenu é chamado para fechar)
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", (e) => {
-        if (menu.classList.contains("aberto") || menu.classList.contains("ativo")) {
-            // Chama toggleMenu para atualizar estados, passando o evento de clique
-            toggleMenu(e); 
-        }
-      });
-    });
+    const toggleMenu = (event) => {
+      const isAberto =
+        menu.classList.contains("aberto") || menu.classList.contains("ativo");
 
-    // Fecha com ESC
-    document.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        (menu.classList.contains("aberto") ||
-          menu.classList.contains("ativo"))
-      ) {
-        // Chama toggleMenu para fechar, passando o evento de tecla
-        toggleMenu(e); 
-        btnHamb.focus(); // Retorna o foco para o botão após fechar com ESC
-      }
-    });
-  }
+      if (isAberto) {
+        // FECHAR
+        menu.classList.remove("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("no-scroll");
 
-  // ================================
-  // 3. MODAIS (PORTFÓLIO / EXP) - (Acessibilidade: Foco)
-  // ================================
-  function initModals() {
-    const openBtns = document.querySelectorAll("[data-modal-target]");
-    const modals = document.querySelectorAll(".modal");
-    if (!openBtns.length || !modals.length) return;
-    
-    // Variável para armazenar o botão que abriu o modal (para focar nele depois)
-    let triggerElement = null; 
+        // Se fechou por ESC, devolve foco ao botão
+        if (event && event.type === "keydown") {
+          btnHamb.focus();
+        }
+      } else {
+        // ABRIR
+        menu.classList.add("aberto", "ativo");
+        btnHamb.setAttribute("aria-expanded", "true");
+        document.body.classList.add("no-scroll");
 
-    const openModal = (modal) => {
-      if (!modal) return;
-      modal.style.display = "flex";
-      requestAnimationFrame(() => {
-        modal.classList.add("visivel");
-        
-        // MELHORIA A11Y: Move o foco para o container do modal
-        const modalContent = modal.querySelector(".modal-content");
-        if (modalContent) {
-           modalContent.setAttribute("tabindex", "-1"); 
-           modalContent.focus(); // Move o foco para dentro do modal
-        }
-      });
-      document.body.classList.add("no-scroll", "modal-aberto");
-    };
+        // Acessibilidade: foco no primeiro link
+        const firstLink = menu.querySelector("a");
+        if (firstLink) {
+          firstLink.focus();
+        }
+      }
+    };
 
-    const closeModal = (modal) => {
-      if (!modal) return;
-      modal.classList.remove("visivel");
-      setTimeout(() => {
-        modal.style.display = "none";
-      }, 250);
-      document.body.classList.remove("no-scroll", "modal-aberto");
-      
-      // MELHORIA A11Y: Retorna o foco para o elemento que abriu
-      if (triggerElement) {
-        triggerElement.focus();
-        triggerElement = null; // Limpa o elemento de disparo
-      }
-    };
+    // Clique no ícone do hambúrguer
+    btnHamb.addEventListener("click", toggleMenu);
 
-    openBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        triggerElement = btn; // Armazena o botão que abriu
-        const targetId = btn.getAttribute("data-modal-target");
-        const modal = document.getElementById(targetId);
-        openModal(modal);
-      });
-    });
+    // Fecha ao clicar em um link do menu
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        if (menu.classList.contains("aberto") || menu.classList.contains("ativo")) {
+          toggleMenu(e);
+        }
+      });
+    });
 
-    modals.forEach((modal) => {
-      const closeBtn = modal.querySelector(".modal-close");
-      if (closeBtn) {
-        closeBtn.addEventListener("click", () => closeModal(modal));
-      }
+    // Fecha com ESC
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        (menu.classList.contains("aberto") || menu.classList.contains("ativo"))
+      ) {
+        toggleMenu(e);
+      }
+    });
+  }
 
-      // Fecha ao clicar fora do conteúdo
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal(modal);
-      });
-    });
+  // ================================
+  // 3. MODAIS (PORTFÓLIO / EXP)
+  // ================================
+  function initModals() {
+    if (modalsInitialized) return;
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key !== "Escape") return;
-      const aberto = document.querySelector(".modal.visivel");
-      if (aberto) closeModal(aberto);
-    });
-  }
+    const openBtns = document.querySelectorAll("[data-modal-target]");
+    const modals = document.querySelectorAll(".modal");
 
-  // ================================
-  // 4. INICIALIZAÇÃO GERAL
-  // ================================
-function initSite() {
-    // EXECUTAR AS FUNÇÕES QUE DEPENDEM DE ELEMENTOS INJETADOS
-    highlightCurrentLink();
-    initHamburgerMenu(); 
-    initModals();
-}
+    // Se não houver modais na página, apenas marca como inicializado
+    if (!openBtns.length || !modals.length) {
+      modalsInitialized = true;
+      return;
+    }
 
-// 💡 GARANTIA DE EXECUÇÃO: Aguarda o evento 'includes:ready'
-document.addEventListener("includes:ready", initSite);
+    modalsInitialized = true;
 
-// Redundância para navegadores que carregam includes rapidamente
-if (window.includesReady) {
-    initSite();
-}
+    let triggerElement = null;
+
+    const openModal = (modal) => {
+      if (!modal) return;
+
+      modal.style.display = "flex";
+      requestAnimationFrame(() => {
+        modal.classList.add("visivel");
+
+        const modalContent = modal.querySelector(".modal-content");
+        if (modalContent) {
+          modalContent.setAttribute("tabindex", "-1");
+          modalContent.focus();
+        }
+      });
+      document.body.classList.add("no-scroll", "modal-aberto");
+    };
+
+    const closeModal = (modal) => {
+      if (!modal) return;
+
+      modal.classList.remove("visivel");
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 250);
+      document.body.classList.remove("no-scroll", "modal-aberto");
+
+      if (triggerElement) {
+        triggerElement.focus();
+        triggerElement = null;
+      }
+    };
+
+    openBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        triggerElement = btn;
+        const targetId = btn.getAttribute("data-modal-target");
+        const modal = document.getElementById(targetId);
+        openModal(modal);
+      });
+    });
+
+    modals.forEach((modal) => {
+      const closeBtn = modal.querySelector(".modal-close");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => closeModal(modal));
+      }
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      const aberto = document.querySelector(".modal.visivel");
+      if (aberto) closeModal(aberto);
+    });
+  }
+
+  // ================================
+  // 4. INICIALIZAÇÃO GERAL
+  // ================================
+  function initSite() {
+    // Tudo que depende do header injetado
+    highlightCurrentLink();
+    initHamburgerMenu();
+    initModals();
+  }
+
+  // Aguarda includes.js sinalizar que terminou
+  document.addEventListener("includes:ready", initSite);
+
+  // Se o includes já terminou antes do script carregar
+  if (window.includesReady) {
+    initSite();
+  }
 })();
 
 
@@ -1555,10 +1525,10 @@ ARQUIVO: partials/header.html
     <div class="brand">
       <a href="index.html" class="brand__link">
         <span class="brand__title">
-          THIAGO PLACIDO <span class="brand__dot">•</span>
+          THIAGO PLACIDO <span class="brand__dot">
         </span>
         <span class="brand__subtitle">
-          Portifólio &amp; Fábrica de Ideias
+          Portifólio <span class="brand__and">&amp;</span> Fábrica de Ideias
         </span>
       </a>
     </div>
@@ -2002,21 +1972,38 @@ ARQUIVO: index.html
   <header id="site-headers" data-include="partials/header.html"></header>
 
   <main id="conteudo" class="container">
-    <div class="apresentacao--home">
+    <section class="apresentacao--home">
+      <!-- COLUNA DE TEXTO (ESQUERDA NO DESKTOP) -->
       <div class="apresentacao__conteudo">
         <h1 class="apresentacao__conteudo__titulo">Início</h1>
-        <p class="apresentacao__conteudo__subtitulo">Eleve seu negócio digital a outro nível com a minha fábrica de ideias.</p>
-        <p class="apresentacao__conteudo__texto">Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação. Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas, eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio crescente em tecnologia e IA, estou pronto para colaborar.</p>
+        <p class="apresentacao__conteudo__subtitulo">
+          Eleve seu negócio digital a outro nível com a minha fábrica de ideias.
+        </p>
+        <p class="apresentacao__conteudo__texto">
+          Sou Thiago Placido, estudante de Engenharia de Software e Desenvolvedor Full Stack em formação.
+          Uso tecnologia e inteligência artificial para transformar ideias em soluções reais: organizadas,
+          eficientes e com impacto. Se você busca alguém com visão analítica, criatividade prática e domínio
+          crescente em tecnologia e IA, estou pronto para colaborar.
+        </p>
+
         <div class="home-cta">
           <a href="portifolio.html" class="btn btn-primary">Projetos</a>
           <a href="contato.html" class="btn btn-outline">Contato</a>
         </div>
-        <div class="apresentacao__imagem">
-          <img src="assets/img/logo.png" alt="Logotipo Thiago Placido DEV" loading="eager" decoding="async" />
-        </div>
       </div>
-    </div>
+
+      <!-- COLUNA DA IMAGEM (DIREITA NO DESKTOP) -->
+      <div class="apresentacao__imagem">
+        <img
+          src="assets/img/logo.png"
+          alt="Logotipo Thiago Placido DEV"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </section>
   </main>
+
   <footer id="site-footer" data-include="partials/footer.html"></footer>
 
   <script src="assets/js/includes.js"></script>
@@ -2202,9 +2189,7 @@ ARQUIVO: portifolio.html
           </header>
 
           <p>
-            Meu site atual funciona como um laboratório de aprendizado e evolução.
-            Aqui testo layouts, componentes, organização narrativa e boas práticas
-            para recrutadores e freela.
+            Meu site funciona como um laboratório vivo de aprendizado e evolução. Nele testo layouts, componentes, responsividade, narrativa, organização modular e boas práticas para recrutadores e freelas. É uma base real, onde transformo estudos em aplicações práticas usando HTML5, CSS3, JavaScript e IA no fluxo de criação.
           </p>
 
           <div class="project-card__chips">
@@ -2436,49 +2421,3 @@ ARQUIVO: sobre.html
 </body>
 </html>
 
-
-
-################################################
-ARQUIVO: LICENSE
-################################################
-
-MIT License
-
-Copyright (c) 2025 Thiago Placido
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-################################################
-RESUMO DA EXECUÇÃO
-################################################
-
-Arquivos encontrados: 33
-Arquivos não encontrados: 0
-Total processado: 33
-Taxa de sucesso: 100.0%
-
-✅ Todos os arquivos foram encontrados!
-
-MUDANÇAS APLICADAS:
-• assets/style.css removido da lista
-• partials/header.html adicionado
-• partials/footer.html adicionado
-• footer.html removido da raiz
-• header.html removido da raiz
